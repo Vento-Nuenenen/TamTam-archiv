@@ -13,35 +13,27 @@
             <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('success/')}}" href="{{ url('/success') }}">
-                            Success
+                        <a class="nav-link {{ Request::is('overwatch/')}}" href="{{ url('/overwatch') }}">
+                            Übersicht
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Konfig
+                            Konfiguration
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
-                                Teilnehmer
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('users/')}}" href="{{ url('/users') }}">
                                 Benutzer
                             </a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
+                                Teilnehmer
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('groups/')}}" href="{{ url('/groups') }}">
                                 Gruppen
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('fields/')}}" href="{{ url('/fields') }}">
-                                Posten
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
-                                Punkte
                             </a>
                         </div>
                     </li>
