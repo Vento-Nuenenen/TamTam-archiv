@@ -15,18 +15,14 @@ class GroupsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $groups = DB::table('group')
-                ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-                ->select('group.id as group_id', 'group.group_name', 'field.field_name')->get();
+            $groups = DB::table('group')->select('group.id as group_id', 'group.group_name')->get();
         } else {
             $search_string = $request->input('search');
             $groups = DB::table('group')
-                ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-                ->select('group.id as group_id', 'group.group_name', 'field.field_name')
-                ->where('group.group_name', 'LIKE', "%$search_string%")
-                ->orWhere('field.field_name', 'LIKE', "%$search_string%")
-                ->orWhere('field.field_description', 'LIKE', "%$search_string%")->get();
+                ->select('group.id as group_id', 'group.group_name')
+                ->where('group.group_name', 'LIKE', "%$search_string%")->get();
         }
+
         return view('groups.groups', ['groups' => $groups]);
     }
     /**
@@ -36,9 +32,9 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        $fields = DB::table('field')->get();
-        return view('groups.add', ['fields' => $fields]);
+        return view('groups.add');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,10 +45,10 @@ class GroupsController extends Controller
     public function store(Request $request)
     {
         $group_name = $request->input('group_name');
-        $field = $request->input('field');
-        DB::table('group')->insert(['group_name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->insert(['group_name' => $group_name]);
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -63,8 +59,7 @@ class GroupsController extends Controller
     public function edit($gid)
     {
         $groups = DB::table('group')->where('id', '=', $gid)->first();
-        $fields = DB::table('field')->get();
-        return view('groups.edit', ['groups' => $groups, 'fields' => $fields]);
+        return view('groups.edit', ['groups' => $groups]);
     }
     /**
      * Update the specified resource in storage.
@@ -77,8 +72,7 @@ class GroupsController extends Controller
     public function update(Request $request, $gid)
     {
         $group_name = $request->input('group_name');
-        $field = $request->input('field');
-        DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name]);
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }
     /**

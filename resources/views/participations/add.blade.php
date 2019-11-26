@@ -110,32 +110,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group has-feedback row {{ $errors->has('exer') ? ' has-error ' : '' }}">
-                        {!! Form::label('group', 'Exer', array('class' => 'col-md-3 control-label')); !!}
-                        <div class="col-md-9">
-                            <div class="input-group">
-                                <select class="custom-select form-control" name="exer" id="exer">
-                                    <option value="">Exer wählen</option>
-                                    @if ($exer)
-                                        @foreach($exer as $ex)
-                                            <option value="{{ $ex->id }}">{{ $ex->exer_name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="group">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
-                                    </label>
-                                </div>
-                            </div>
-                            @if ($errors->has('exer'))
-                                <span class="help-block">
-                                            <strong>{{ $errors->first('exer') }}</strong>
-                                        </span>
-                            @endif
-                        </div>
-                    </div>
-
                     {!! Form::button('Teilnehmer erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>

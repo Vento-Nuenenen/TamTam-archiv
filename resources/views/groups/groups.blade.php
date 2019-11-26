@@ -42,9 +42,6 @@
                             Abteilung
                         </th>
                         <th>
-                            Posten
-                        </th>
-                        <th>
                             Optionen
                         </th>
                         </thead>
@@ -53,9 +50,6 @@
                             <tr>
                                 <td>
                                     {{ $group->group_name }}
-                                </td>
-                                <td>
-                                    {{ $group->field_name }}
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-groups',$group->group_id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

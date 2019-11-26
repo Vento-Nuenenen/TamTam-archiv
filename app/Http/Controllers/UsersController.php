@@ -17,19 +17,16 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $users = DB::table('users')
-                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-                ->select('users.*', 'group.group_name')->get();
+            $users = DB::table('users')->select('users.*')->get();
         } else {
             $search_string = $request->input('search');
             $users = DB::table('users')
-                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-                ->select('users.*', 'group.group_name')
+                ->select('users.*')
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
-                ->orWhere('first_name', 'LIKE', "%$search_string%")
-                ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
+                ->orWhere('first_name', 'LIKE', "%$search_string%")->get();
         }
+
         return view('users.users', ['users' => $users]);
     }
     /**

@@ -40,32 +40,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group has-feedback row {{ $errors->has('field') ? ' has-error ' : '' }}">
-                        {!! Form::label('field', 'Posten', array('class' => 'col-md-3 control-label')); !!}
-                        <div class="col-md-9">
-                            <div class="input-group">
-                                <select class="custom-select form-control" name="field" id="field">
-                                    <option value="">Posten wählen</option>
-                                    @if ($fields)
-                                        @foreach($fields as $field)
-                                            <option value="{{ $field->id }}" {{ ($groups->FK_FLD == $field->id) ? 'selected':'' }}>{{ $field->field_name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="field">
-                                        <i class="fa fa-bell" aria-hidden="true"></i>
-                                    </label>
-                                </div>
-                            </div>
-                            @if ($errors->has('field'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('field') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-
                     {!! Form::button('Gruppe aktualisieren', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>

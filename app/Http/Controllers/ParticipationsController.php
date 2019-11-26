@@ -19,18 +19,15 @@ class ParticipationsController extends Controller
         if ($request->input('search') == null) {
             $participations = DB::table('participations')
                 ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
-                ->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')
-                ->select('participations.*', 'exer.exer_name', 'group.group_name')->get();
+                ->select('participations.*', 'group.group_name')->get();
         } else {
             $search_string = $request->input('search');
             $participations = DB::table('participations')
                 ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
-                ->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')
-                ->select('participations.*', 'exer.exer_name', 'group.group_name')
+                ->select('participations.*', 'group.group_name')
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
-                ->orWhere('exer_name', 'LIKE', "%$search_string%")
                 ->orWhere('group_name', 'LIKE', "%$search_string%")->get();
         }
         return view('participations.participations', ['participations' => $participations]);
@@ -43,8 +40,7 @@ class ParticipationsController extends Controller
     public function create()
     {
         $groups = DB::table('group')->select('id', 'group_name')->get();
-        $exer = DB::table('exer')->select('id', 'exer_name')->get();
-        return view('participations.add', ['groups' => $groups, 'exer' => $exer]);
+        return view('participations.add', ['groups' => $groups]);
     }
     /**
      * Store a newly created resource in storage.
@@ -59,10 +55,10 @@ class ParticipationsController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $group = $request->input('group');
-        $exer = $request->input('exer');
-        DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
+        DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
+
     public function import(Request $request)
     {
         if ($request->file('participations_list')) {
@@ -79,11 +75,11 @@ class ParticipationsController extends Controller
             $contents[] = explode(';', $line);
         }
         fclose($handle);
+
         foreach ($contents as $content) {
             $grp = DB::table('group')->select('id')->where('name', 'LIKE', "%$content[3]%")->first();
             $content[4] = str_replace("\r", '', $content[4]);
-            $exer = DB::table('exer')->select('id', 'exer_name')->where('escaped_exer_name', 'LIKE', "%$content[4]%")->first();
-            DB::table('participations')->insert(['scout_name' => $content[0], 'first_name' => $content[1], 'last_name' => $content[2], 'FK_GRP' => $grp->id, 'FK_EXER' => $exer->id]);
+            DB::table('participations')->insert(['scout_name' => $content[0], 'first_name' => $content[1], 'last_name' => $content[2], 'FK_GRP' => $grp->id]);
         }
         return redirect()->back()->with('message', 'Die TN wurden importiert!');
     }
@@ -98,8 +94,7 @@ class ParticipationsController extends Controller
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
         $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
-        $exer = DB::table('exer')->select('exer.id', 'exer.exer_name')->get();
-        return view('participations.edit', ['participations' => $participations, 'groups' => $groups, 'exer' => $exer]);
+        return view('participations.edit', ['participations' => $participations, 'groups' => $groups]);
     }
     /**
      * Update the specified resource in storage.
@@ -115,10 +110,10 @@ class ParticipationsController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $group = $request->input('group');
-        $exer = $request->input('exer');
-        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
+        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }
+
     /**
      * Remove the specified resource from storage.
      *
