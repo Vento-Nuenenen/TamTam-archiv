@@ -13,7 +13,7 @@
         "codedge/laravel-fpdf": "^1.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.0",
         "laravel/ui": "^1.1",
         "laravelcollective/html": "^6.0",
         "milon/barcode": "^6.0"
