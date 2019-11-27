@@ -104,6 +104,25 @@
                         </div>
                     </div>
 
+                    <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
+                        {!! Form::label('last_name', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('last_name', old('last_name',$participations->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('last_name'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
                     {!! Form::button('Teilnehmer aktualisieren', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\helper\helper;
+use App\User;
 use DB;
+use DNS1D;
 use Illuminate\Http\Request;
+use Storage;
 
 class ParticipationsController extends Controller
 {
@@ -30,8 +34,10 @@ class ParticipationsController extends Controller
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
                 ->orWhere('group_name', 'LIKE', "%$search_string%")->get();
         }
+
         return view('participations.participations', ['participations' => $participations]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -42,6 +48,7 @@ class ParticipationsController extends Controller
         $groups = DB::table('group')->select('id', 'group_name')->get();
         return view('participations.add', ['groups' => $groups]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -55,7 +62,12 @@ class ParticipationsController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $group = $request->input('group');
-        DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
+        $barcode  = helper::generateBarcode();
+
+        Storage::put($barcode.'.png', DNS1D::getBarcodePNG($barcode,"EAN13"));
+
+        DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
+
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
 
@@ -66,6 +78,7 @@ class ParticipationsController extends Controller
         } else {
             return redirect()->back()->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
         }
+
         $handle = fopen($participations_list, 'r');
         $content = mb_convert_encoding(fread($handle, filesize($participations_list)), 'UTF-8', 'Windows-1252');
         $lines = preg_split("/(\n)/", $content);
@@ -81,8 +94,10 @@ class ParticipationsController extends Controller
             $content[4] = str_replace("\r", '', $content[4]);
             DB::table('participations')->insert(['scout_name' => $content[0], 'first_name' => $content[1], 'last_name' => $content[2], 'FK_GRP' => $grp->id]);
         }
+
         return redirect()->back()->with('message', 'Die TN wurden importiert!');
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -96,6 +111,7 @@ class ParticipationsController extends Controller
         $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups]);
     }
+
     /**
      * Update the specified resource in storage.
      *

@@ -45,7 +45,7 @@
                             Abteilung
                         </th>
                         <th>
-                            Exer
+                            EAN Nummer
                         </th>
                         <th>
                             Optionen
@@ -63,6 +63,12 @@
                                 </td>
                                 <td>
                                     {{ $participation->group_name }}
+                                </td>
+                                <td>
+                                    @php
+                                        echo DNS1D::getBarcodeHTML($participation->barcode, "EAN13")
+                                    @endphp
+                                    {{ $participation->barcode }}
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-participations',$participation->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
