@@ -79,11 +79,11 @@
                     </div>
 
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
-                        {!! Form::label('group', 'Abteilung', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control" name="group" id="group">
-                                    <option value="">Abteilung wählen</option>
+                                    <option value="">Gruppe wählen</option>
                                     @if ($groups)
                                         @foreach($groups as $group)
                                             <option value="{{ $group->id }}" {{($participations->FK_GRP == $group->id) ? 'selected':''}}>{{ $group->group_name }}</option>
@@ -104,21 +104,21 @@
                         </div>
                     </div>
 
-                    <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
-                        {!! Form::label('last_name', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
+                    <div class="form-group has-feedback row {{ $errors->has('barcode') ? ' has-error ' : '' }}">
+                        {!! Form::label('barcode', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('last_name', old('last_name',$participations->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
+                                {!! Form::text('barcode', old('eancode',$participations->barcode ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
-                            @if ($errors->has('last_name'))
+                            @if ($errors->has('barcode'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('barcode') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>

@@ -6,7 +6,9 @@ use App\helper\helper;
 use App\User;
 use DB;
 use DNS1D;
+use File;
 use Illuminate\Http\Request;
+use RuntimeException;
 use Storage;
 
 class ParticipationsController extends Controller
@@ -63,8 +65,6 @@ class ParticipationsController extends Controller
         $last_name = $request->input('last_name');
         $group = $request->input('group');
         $barcode  = helper::generateBarcode();
-
-        Storage::disk('public')->put('test.png', DNS1D::getBarcodePNG($barcode,"EAN13"));
 
         DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
 
@@ -126,7 +126,9 @@ class ParticipationsController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $group = $request->input('group');
-        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
+        $barcode = $request->input('barcode');
+
+        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }
 

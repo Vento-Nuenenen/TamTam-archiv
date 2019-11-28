@@ -38,18 +38,18 @@
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Abteilung
-                        </th>
-                        <th>
-                            EAN Nummer
-                        </th>
-                        <th>
-                            Optionen
-                        </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Gruppe
+                            </th>
+                            <th style="text-align: center">
+                                EAN Nummer
+                            </th>
+                            <th>
+                                Optionen
+                            </th>
                         </thead>
                         <tbody>
                         @foreach($participations as $participation)
@@ -64,9 +64,10 @@
                                 <td>
                                     {{ $participation->group_name }}
                                 </td>
-                                <td>
+                                <td align="center">
                                     @if($participation->barcode != null)
-                                        <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($participation->barcode, "EAN13", 2, 60, array(1,1,1), true) !!}" />
+                                        {!! DNS1D::getBarcodeHTML($participation->barcode, "EAN13", 2, 50) !!}
+                                        {{ $participation->barcode }}
                                     @endif
                                 </td>
                                 <td>
