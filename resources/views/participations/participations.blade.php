@@ -65,10 +65,9 @@
                                     {{ $participation->group_name }}
                                 </td>
                                 <td>
-                                    @php
-                                        echo DNS1D::getBarcodeHTML($participation->barcode, "EAN13")
-                                    @endphp
-                                    {{ $participation->barcode }}
+                                    @if($participation->barcode != null)
+                                        <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($participation->barcode, "EAN13", 2, 60, array(1,1,1), true) !!}" />
+                                    @endif
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-participations',$participation->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

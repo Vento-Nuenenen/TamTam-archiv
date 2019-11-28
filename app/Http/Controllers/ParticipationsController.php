@@ -64,7 +64,7 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $barcode  = helper::generateBarcode();
 
-        Storage::put($barcode.'.png', DNS1D::getBarcodePNG($barcode,"EAN13"));
+        Storage::disk('public')->put('test.png', DNS1D::getBarcodePNG($barcode,"EAN13"));
 
         DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
 
