@@ -43,8 +43,7 @@
                 <div class="card-body table-responsive">
                     <form method="post">
                         @csrf
-                        <input type="number" id="barcode" maxlength="13" autofocus />
-                        <input type="submit" />
+                        <input type="submit" name="tableorder" id="tableorder" />
                     </form>
                 </div>
             </div>
@@ -62,8 +61,7 @@
                 <div class="card-body table-responsive">
                     <form method="post">
                         @csrf
-                        <input type="number" id="barcode" maxlength="13" />
-                        <input type="submit" />
+                        <input type="submit" name="grouping" id="grouping" />
                     </form>
                 </div>
             </div>
