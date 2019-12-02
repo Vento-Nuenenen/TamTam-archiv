@@ -30,6 +30,11 @@ class OverwatchController extends Controller
 	        foreach($users as $user){
 	        	if($j <= $groups_count){
 	        		DB::table('participations')->where('id','=', $user->id)->update(['FK_GRP' => $j]);
+	        		$j++;
+		        }else{
+	        		$j = 1;
+			        DB::table('participations')->where('id','=', $user->id)->update(['FK_GRP' => $j]);
+			        $j++;
 		        }
 	        }
 
