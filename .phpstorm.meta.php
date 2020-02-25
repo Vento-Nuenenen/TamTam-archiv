@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-11-28 13:09:43.
+    * Generated on 2020-02-25 20:46:50.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -139,7 +139,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -161,6 +160,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -298,7 +298,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -320,6 +319,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -457,7 +457,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -479,6 +478,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -616,7 +616,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -638,6 +637,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -775,7 +775,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -797,6 +796,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -934,7 +934,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -956,6 +955,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -1093,7 +1093,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -1115,6 +1114,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -1252,7 +1252,6 @@ namespace PHPSTORM_META {
         'flare.http' => \Facade\FlareClient\Http\Client::class,
         'flare.logger' => \Monolog\Logger::class,
         'form' => \Collective\Html\FormBuilder::class,
-        'fpdf' => \Codedge\Fpdf\Fpdf\Fpdf::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -1274,6 +1273,7 @@ namespace PHPSTORM_META {
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
+        'tcpdf' => \Elibyy\TCPDF\TCPDF::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
         'translator' => \Illuminate\Translation\Translator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
@@ -1282,6 +1282,7 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
     ]));
+
 
     override(\Illuminate\Support\Arr::add(0), type(0));
     override(\Illuminate\Support\Arr::except(0), type(0));
