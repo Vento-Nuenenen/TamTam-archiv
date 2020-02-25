@@ -15,10 +15,12 @@ class OverwatchController extends Controller
             return view('overwatch.overwatch', ['user' => $user]);
        }else if($request->input('tableorder')  != null){
             $users = DB::table('participations')->inRandomOrder()->get();
+            $j = 1;
 
-            foreach($users as $user){
-				print_r($user);
-            }
+	        foreach($users as $user){
+	        	DB::table('participations')->where('id','=', $user->id)->update(['seat_number' => $j]);
+	        	$j++;
+	        }
 
            return view('overwatch.overwatch')->with('message', 'Tischordnung wurde erfolgreich generiert!');
        }else if($request->input('grouping')  != null){
