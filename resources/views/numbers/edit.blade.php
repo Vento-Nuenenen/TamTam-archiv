@@ -12,30 +12,49 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Gruppe bearbeiten
+                        Nummer bearbeiten
                     </button>
                 </h5>
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".EditParticipant">
                 <div class="card-body table-responsive">
-                    {!! Form::open(array('route' => ['update-groups',$groups->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => ['update-numbers', $number->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                     {!! csrf_field() !!}
 
-                    <div class="form-group has-feedback row {{ $errors->has('group_name') ? ' has-error ' : '' }}">
-                        {!! Form::label('group_name', 'Gruppenname', array('class' => 'col-md-3 control-label')); !!}
+                    <div class="form-group has-feedback row {{ $errors->has('number_name') ? ' has-error ' : '' }}">
+                        {!! Form::label('number_name', 'Nummernbezeichnung', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('group_name', old('group_name', $groups->group_name ?? null), array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname')) !!}
+                                {!! Form::text('number_name', old('number_name', $number->name ?? null), array('id' => 'number_name', 'class' => 'form-control', 'placeholder' => 'Nummernbezeichnung')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
-                            @if ($errors->has('group_name'))
+                            @if ($errors->has('number_name'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('group_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('number_name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('number') ? ' has-error ' : '' }}">
+                        {!! Form::label('number', 'Telefonnummer', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('number', old('number', $number->number ?? null), array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="group_name">
+                                        <i class="fa fa-group" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('number'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('number') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>

@@ -17,43 +17,43 @@
                 </h5>
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".ExerOne">
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     {!! Form::open(array('route' => 'store-numbers', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                     {!! csrf_field() !!}
 
-                    <div class="form-group has-feedback row {{ $errors->has('group_name') ? ' has-error ' : '' }}">
-                        {!! Form::label('number_', 'Nummernbezeichnung', array('class' => 'col-md-3 control-label')); !!}
+                    <div class="form-group has-feedback row {{ $errors->has('number_name') ? ' has-error ' : '' }}">
+                        {!! Form::label('number_name', 'Nummernbezeichnung', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('group_name', NULL, array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname')) !!}
+                                {!! Form::text('number_name', NULL, array('id' => 'number_name', 'class' => 'form-control', 'placeholder' => 'Nummernbezeichnung')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
-                            @if ($errors->has('group_name'))
+                            @if ($errors->has('number_name'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('group_name') }}</strong>
+                                    <strong>{{ $errors->first('number_name') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
 
-                    <div class="form-group has-feedback row {{ $errors->has('group_name') ? ' has-error ' : '' }}">
-                        {!! Form::label('group_name', 'Telefonnummer', array('class' => 'col-md-3 control-label')); !!}
+                    <div class="form-group has-feedback row {{ $errors->has('number') ? ' has-error ' : '' }}">
+                        {!! Form::label('number', 'Telefonnummer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('group_name', NULL, array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname')) !!}
+                                {!! Form::text('number', NULL, array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
-                            @if ($errors->has('group_name'))
+                            @if ($errors->has('number'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('group_name') }}</strong>
+                                    <strong>{{ $errors->first('number') }}</strong>
                                 </span>
                             @endif
                         </div>
