@@ -20,7 +20,7 @@ class CreateParticipationsTable extends Migration
             $table->string('last_name');
             $table->string('picture_name')->nullable();
             $table->string('barcode')->unique()->nullable();
-            $table->integer('seat_number');
+            $table->integer('seat_number')->nullable()->unique();
             $table->bigInteger('FK_GRP')->unsigned()->index()->nullable();
 	        $table->timestamps();
         });

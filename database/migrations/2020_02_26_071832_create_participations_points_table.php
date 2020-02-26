@@ -15,7 +15,9 @@ class CreateParticipationsPointsTable extends Migration
     {
         Schema::create('participations_points', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+	        $table->bigInteger('FK_PRT')->unsigned()->index();
+	        $table->bigInteger('FK_POINT')->unsigned()->index();
+	        $table->timestamps();
         });
     }
 

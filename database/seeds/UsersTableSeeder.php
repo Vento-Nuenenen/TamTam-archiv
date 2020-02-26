@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Seed test admin
-        $seededAdminEmail = 'admin@exer.ch';
+        $seededAdminEmail = 'admin@tab.ch';
         $user = User::where('email', '=', $seededAdminEmail)->first();
         if ($user === null){
             $user = User::create(['scout_name' => 'Admin', 'first_name' => 'Admin', 'last_name' => 'Admin', 'email' => $seededAdminEmail, 'password' => Hash::make('password'),]);
