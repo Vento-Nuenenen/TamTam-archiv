@@ -16,6 +16,11 @@ class AddFk extends Migration
         Schema::table('participations', function(Blueprint $table){
             $table->foreign('FK_GRP')->references('id')->on('group');
         });
+
+	    Schema::table('participations_points', function (Blueprint $table) {
+		    $table->foreign('FK_PRT')->references('id')->on('participations');
+		    $table->foreign('FK_POINT')->references('id')->on('points');
+	    });
     }
 
     /**
