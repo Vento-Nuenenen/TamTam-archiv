@@ -13,8 +13,16 @@ class ParticipationsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         DB::table('participations')->insert([
-            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'FK_GRP' => 1],
-            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'FK_GRP' => 2],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' =>  $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
         ]);
     }
 }
