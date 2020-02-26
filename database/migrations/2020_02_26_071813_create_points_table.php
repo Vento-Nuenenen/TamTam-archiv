@@ -17,6 +17,7 @@ class CreatePointsTable extends Migration
             $table->bigIncrements('id');
             $table->string('reason');
             $table->integer('points');
+            $table->boolean('is_addition');
             $table->timestamps();
         });
     }
