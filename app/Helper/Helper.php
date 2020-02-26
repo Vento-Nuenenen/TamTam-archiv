@@ -1,10 +1,10 @@
 <?php
 
-    namespace App\helper;
+    namespace App\Helper;
 
     use DB;
 
-    class helper
+    class Helper
     {
         public static function br2nl($str)
         {
@@ -14,7 +14,7 @@
         public static function generateBarcode() {
             do {
                 $barcode = mt_rand( 000000000001, 999999999999 );
-                $barcode = helper::ean13_check_digit($barcode);
+                $barcode = Helper::ean13_check_digit($barcode);
             } while ( DB::table( 'participations' )->where( 'barcode', $barcode )->exists() );
 
             return $barcode;
