@@ -19,26 +19,32 @@ class EmergencyController extends Controller
 		return view('numbers.add', ['numbers' => $numbers]);
 	}
 
-	public function store(){
-		$numbers = DB::table('emergency_numbers')->select('emergency_numbers.*')->get();
+	public function store(Request $request){
+    	$number_name = $request->input('number_name');
+    	$number = $request->input('number');
+
+		DB::table('emergency_numbers')->insert(['name' => $number_name, 'number' => $number]);
 
 		return redirect()->back()->with('message', 'Nummer wurde erstellt.');
 	}
 
-	public function edit(){
-		$numbers = DB::table('emergency_numbers')->select('emergency_numbers.*')->get();
+	public function edit($nid){
+		$number = DB::table('emergency_numbers')->where('id', '=', $nid)->first();
 
-		return view('numbers.edit', ['numbers' => $numbers]);
+		return view('numbers.edit', ['number' => $number]);
 	}
 
-	public function update(){
-		$numbers = DB::table('emergency_numbers')->select('emergency_numbers.*')->get();
+	public function update(Request $request, $nid){
+		$number_name = $request->input('number_name');
+		$number = $request->input('number');
+
+		DB::table('emergency_numbers')->where('id', '=', $nid)->update(['name' => $number_name, 'number' => $number]);
 
 		return redirect()->back()->with('message', 'Nummer wurde aktualisiert.');
 	}
 
 	public function destroy($nid){
-		DB::table('emergency_number')->where('id', '=', $nid)->delete();
+		DB::table('emergency_numbers')->where('id', '=', $nid)->delete();
 
 		return redirect()->back()->with('message', 'Nummer erfolgreich gelöscht.');
     }
