@@ -30,7 +30,7 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Gruppen
+                        Alle Gruppen
                     </button>
                 </h5>
             </div>
@@ -39,7 +39,7 @@
                     <table class="table table-hover">
                         <thead>
                         <th>
-                            Abteilung
+                            Gruppenname
                         </th>
                         <th>
                             Optionen

@@ -28,12 +28,20 @@
                                 Benutzer
                             </a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('groups/')}}" href="{{ url('/groups') }}">
+                                Gruppen
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
                                 Teilnehmer
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('groups/')}}" href="{{ url('/groups') }}">
-                                Gruppen
+                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                                Punkte verwalten
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('numbers/')}}" href="{{ url('/numbers') }}">
+                                Notfallnummern
                             </a>
                         </div>
                     </li>
