@@ -30,8 +30,7 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         return view('groups.add');
     }
 
@@ -42,10 +41,11 @@ class GroupsController extends Controller
      *
      * @return void
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $group_name = $request->input('group_name');
+
         DB::table('group')->insert(['group_name' => $group_name]);
+
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
 
@@ -56,9 +56,9 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($gid)
-    {
+    public function edit($gid){
         $groups = DB::table('group')->where('id', '=', $gid)->first();
+
         return view('groups.edit', ['groups' => $groups]);
     }
     /**
@@ -69,10 +69,11 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $gid)
-    {
+    public function update(Request $request, $gid){
         $group_name = $request->input('group_name');
+
         DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name]);
+
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }
     /**
@@ -82,9 +83,9 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($gid)
-    {
+    public function destroy($gid){
         DB::table('group')->where('id', '=', $gid)->delete();
+
         return redirect()->back()->with('message', 'Gruppe erfolgreich gelöscht.');
     }
 }
