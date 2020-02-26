@@ -18,9 +18,15 @@ class CreateParticipationsTable extends Migration
             $table->string('scout_name')->nullable();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('picture_name')->nullable();
+            $table->string('address');
+            $table->string('plz');
+            $table->string('place');
+            $table->date('birthday');
+	        $table->string('gender')->nullable();
+	        $table->string('picture_name')->nullable();
             $table->string('barcode')->unique()->nullable();
-            $table->integer('seat_number')->nullable()->unique();
+            $table->integer('seat_number')->nullable();
+            $table->boolean('course_passed')->default(false);
             $table->bigInteger('FK_GRP')->unsigned()->index()->nullable();
 	        $table->timestamps();
         });
