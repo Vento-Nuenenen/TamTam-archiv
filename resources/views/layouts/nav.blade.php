@@ -52,8 +52,12 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('nada/')}}" href="{{ url('/nada') }}">
-                                NaDa
+                            <a class="dropdown-item {{ Request::is('id/')}}" href="{{ url('/id') }}">
+                                ID-Karten
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('gratulation/')}}" href="{{ url('/gratulation') }}">
+                                Gratulationen
                             </a>
                         </div>
                     </li>

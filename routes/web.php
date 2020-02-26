@@ -60,4 +60,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/numbers/edit/{nid}', 'EmergencyController@edit')->name('edit-numbers');
 	Route::post('/numbers/update/{nid}', 'EmergencyController@update')->name('update-numbers');
 	Route::get('/numbers/destroy/{nid}', 'EmergencyController@destroy')->name('destroy-numbers');
+
+	Route::any('/gratulation', 'GratulationPrintController@index')->name('gratulation');
+	Route::any('/gratulation/print', 'GratulationPrintController@export')->name('print-gratulation');
+
+	Route::any('/id', 'IdentificationPrintController@index')->name('identification');
+	Route::any('/id/print', 'IdentificationPrintController@export')->name('print-identification');
 });
