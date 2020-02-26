@@ -10,16 +10,17 @@ class OverwatchController extends Controller
     public function index(Request $request){
         if($request->input('barcode') != null){
             $barcode = $request->input('barcode');
-            $user = DB::table('participations')->select('participations.*')->where('barcode', '=', $barcode)->first();
+            $user_code = DB::table('participations')->select('participations.*')->where('barcode', '=', $barcode)->first();
 
-            return view('overwatch.overwatch', ['user' => $user]);
+            return view('overwatch.overwatch', ['user' => $user_code]);
        }else if($request->input('tableorder')  != null){
             $users = DB::table('participations')->inRandomOrder()->get();
-            $j = 1;
+
+            $j = 0;
 
 	        foreach($users as $user){
+		        $j++;
 	        	DB::table('participations')->where('id','=', $user->id)->update(['seat_number' => $j]);
-	        	$j++;
 	        }
 
            return view('overwatch.overwatch')->with('message', 'Tischordnung wurde erfolgreich generiert!');
