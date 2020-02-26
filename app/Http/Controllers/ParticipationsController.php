@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\helper\helper;
+use App\Helper\helper;
 use App\User;
 use DB;
 use DNS1D;
@@ -34,7 +34,8 @@ class ParticipationsController extends Controller
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
-                ->orWhere('group_name', 'LIKE', "%$search_string%")->get();
+                ->orWhere('group_name', 'LIKE', "%$search_string%")
+	            ->orWhere('barcode', 'LIKE', "%$search_string%")->get();
         }
 
         return view('participations.participations', ['participations' => $participations]);
@@ -48,6 +49,7 @@ class ParticipationsController extends Controller
     public function create()
     {
         $groups = DB::table('group')->select('id', 'group_name')->get();
+
         return view('participations.add', ['groups' => $groups]);
     }
 
@@ -109,6 +111,7 @@ class ParticipationsController extends Controller
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
         $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
+
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups]);
     }
 
@@ -129,6 +132,7 @@ class ParticipationsController extends Controller
         $barcode = $request->input('barcode');
 
         DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
+
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }
 
