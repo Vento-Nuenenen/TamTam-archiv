@@ -8,19 +8,6 @@
             </div>
         @endif
 
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="input-group" id="adv-search">
-                    <input type="text" class="form-control" placeholder="Suche" />
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary">
-                            <span class="fa fa-search"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="card ExerOne mb-3">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -47,13 +34,13 @@
                             </div>
                             @if ($errors->has('group_name'))
                                 <span class="help-block">
-                                            <strong>{{ $errors->first('group_name') }}</strong>
-                                        </span>
+                                    <strong>{{ $errors->first('group_name') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>
 
-                    {!! Form::button('Teilnehmer erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
+                    {!! Form::button('Gruppe erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

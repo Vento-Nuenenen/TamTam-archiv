@@ -12,7 +12,7 @@
             <div class="card-header">
                 {!! Form::open(array('route' => 'groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 <div class="input-group" id="adv-search">
-                    {!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche')) !!}
+                    {!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche', 'autofocus')) !!}
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary form-control">
                             <span class="fa fa-search"></span>
@@ -42,6 +42,9 @@
                             Gruppenname
                         </th>
                         <th>
+                            Gruppen-Logo
+                        </th>
+                        <th>
                             Optionen
                         </th>
                         </thead>
@@ -50,6 +53,9 @@
                             <tr>
                                 <td>
                                     {{ $group->group_name }}
+                                </td>
+                                <td>
+
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-groups',$group->group_id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

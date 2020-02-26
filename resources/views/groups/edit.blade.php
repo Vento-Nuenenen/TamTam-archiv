@@ -34,8 +34,8 @@
                             </div>
                             @if ($errors->has('group_name'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('group_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('group_name') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>
