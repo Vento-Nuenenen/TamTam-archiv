@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\helper;
+use App\Helper\Helper;
 use App\User;
 use DB;
 use DNS1D;
@@ -66,7 +66,7 @@ class ParticipationsController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $group = $request->input('group');
-        $barcode  = helper::generateBarcode();
+        $barcode  = Helper::generateBarcode();
 
         DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
 

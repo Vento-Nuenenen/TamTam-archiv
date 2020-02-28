@@ -14,15 +14,15 @@ class GratulationPrintController extends Controller
 	}
 
 	public function export(Request $request){
-		$users = DB::table('participations')->get();
+		$persons = DB::table('participations')->get();
 
-		foreach ($users as $user) {
+		foreach ($persons as $person) {
 			$text = $request->certificate_text;
 
-			if (isset($user->scout_name)) {
-				$text = str_replace('@name', $user->scout_name, $text);
+			if (isset($person->scout_name)) {
+				$text = str_replace('@name', $person->scout_name, $text);
 			} else {
-				$text = str_replace('@name', $user->first_name, $text);
+				$text = str_replace('@name', $person->first_name, $text);
 			}
 
 			$text = Helper::br2nl($text);

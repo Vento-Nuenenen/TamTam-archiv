@@ -36,12 +36,24 @@
                                 Teilnehmer
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
-                                Punkte verwalten
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('numbers/')}}" href="{{ url('/numbers') }}">
                                 Notfallnummern
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Punkte
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                                Punkte übersicht
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                                Punkte transaktionen
                             </a>
                         </div>
                     </li>

@@ -22,7 +22,7 @@
 					<form method="POST" action="{{ route('print-gratulation') }}">
 						{!! csrf_field() !!}
 
-						<div class="form-group col-sm-10 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
+						<div class="form-group col-md-11 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
                             <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text">
 Lieber @name <br />
 <br />
@@ -33,8 +33,8 @@ Das Leitungsteam <br />
 P1, P2, P3</textarea>
 						</div>
 						<div class="clearfix"></div>
-						<div class="form-group col-md-10 col-md-offset-1">
-							<button type="submit" class="btn btn-success col-md-3"><i class='fa fa-fw fa-save' aria-hidden='true'></i> Drucken</button>
+						<div class="form-group col-md-11">
+							<button type="submit" class="btn btn-success col-md-12"><i class='fa fa-fw fa-save' aria-hidden='true'></i> Drucken</button>
 						</div>
 					</form>
 				</div>

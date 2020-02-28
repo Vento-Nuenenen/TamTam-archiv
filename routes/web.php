@@ -47,12 +47,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
     Route::get('/fields/destroy/{fid}', 'FieldsController@destroy')->name('destroy-fields');
 
-    Route::any('/points', 'PointsController@index')->name('points');
-    Route::get('/points/add', 'PointsController@create')->name('add-points');
-    Route::post('/points/store', 'PointsController@store')->name('store-points');
-    Route::get('/points/edit/{poid}', 'PointsController@edit')->name('edit-points');
-    Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
-    Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
+    Route::any('/points', 'CurrentPointsController@index')->name('points');
+    Route::get('/points/add', 'CurrentPointsController@create')->name('add-points');
+    Route::post('/points/store', 'CurrentPointsController@store')->name('store-points');
+    Route::get('/points/edit/{poid}', 'CurrentPointsController@edit')->name('edit-points');
+    Route::post('/points/update/{poid}', 'CurrentPointsController@update')->name('update-points');
+    Route::get('/points/destroy/{poid}', 'CurrentPointsController@destroy')->name('destroy-points');
 
 	Route::any('/numbers', 'EmergencyController@index')->name('numbers');
 	Route::get('/numbers/add', 'EmergencyController@create')->name('add-numbers');

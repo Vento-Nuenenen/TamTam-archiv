@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.17.0 on 2020-02-25 20:46:50.
+ * Generated for Laravel 6.17.0 on 2020-02-27 17:44:10.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17190,14 +17190,6 @@ namespace Collective\Html {
 }
 
 namespace Milon\Barcode\Facades { 
-
-    /**
-     * 
-     *
-     */ 
-    class DNS1DFacade {
-         
-    }
 
     /**
      * 

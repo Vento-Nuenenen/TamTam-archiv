@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PointsController extends Controller
+class CurrentPointsController extends Controller
 {
 	public function index(Request $request)
 	{
 		
-		return view('users.users', ['users' => $users]);
+		return view('points.points', ['users' => $users]);
 	}
 	/**
 	 * Show the form for creating a new resource.
