@@ -15,12 +15,12 @@ class GroupsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $groups = DB::table('group')->select('group.id as group_id', 'group.group_name')->get();
+            $groups = DB::table('groups')->select('groups.*')->get();
         } else {
             $search_string = $request->input('search');
-            $groups = DB::table('group')
-                ->select('group.id as group_id', 'group.group_name')
-                ->where('group.group_name', 'LIKE', "%$search_string%")->get();
+            $groups = DB::table('groups')
+                ->select('groups.id as group_id', 'groups.group_name')
+                ->where('groups.group_name', 'LIKE', "%$search_string%")->get();
         }
 
         return view('groups.groups', ['groups' => $groups]);
@@ -43,8 +43,10 @@ class GroupsController extends Controller
      */
     public function store(Request $request){
         $group_name = $request->input('group_name');
+	    $logo_name = time() .'.' . $request->file('group_logo')->extension();
+	    $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
 
-        DB::table('group')->insert(['group_name' => $group_name]);
+	    DB::table('groups')->insert(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
@@ -57,7 +59,7 @@ class GroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($gid){
-        $groups = DB::table('group')->where('id', '=', $gid)->first();
+        $groups = DB::table('groups')->where('id', '=', $gid)->first();
 
         return view('groups.edit', ['groups' => $groups]);
     }
@@ -71,8 +73,11 @@ class GroupsController extends Controller
      */
     public function update(Request $request, $gid){
         $group_name = $request->input('group_name');
+        $logo_name = time() .'.' . $request->file('group_logo')->extension();
+        $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
 
-        DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name]);
+
+        DB::table('groups')->where('id', '=', $gid)->update(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
 
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }
@@ -84,7 +89,7 @@ class GroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($gid){
-        DB::table('group')->where('id', '=', $gid)->delete();
+        DB::table('groups')->where('id', '=', $gid)->delete();
 
         return redirect()->back()->with('message', 'Gruppe erfolgreich gelöscht.');
     }

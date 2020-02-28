@@ -25,7 +25,7 @@ class OverwatchController extends Controller
 
            return view('overwatch.overwatch')->with('message', 'Tischordnung wurde erfolgreich generiert!');
        }else if($request->input('grouping')  != null){
-        	$groups = DB::table('group')->get();
+        	$groups = DB::table('groups')->get();
         	$groups_count = count($groups);
 	        $users = DB::table('participations')->inRandomOrder()->get();
 	        $j = 1;
