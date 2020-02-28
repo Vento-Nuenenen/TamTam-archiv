@@ -20,7 +20,7 @@ class IdentificationPrintController extends Controller
 		    'text' => true,
 	    );
 
-	    $persons = DB::table('participations')->get();
+	    $persons = DB::table('participations')->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
 
 	    foreach ($persons as $person) {
 		    PDF::SetTitle(config('app.name') . " - Identifikationen");
@@ -31,22 +31,18 @@ class IdentificationPrintController extends Controller
 		    PDF::SetAutoPageBreak(true, 5);
 
 		    PDF::AddPage('L', 'A7');
-		    PDF::MultiCell(0, 0, $person->scout_name, 0, 'L');
+		    !empty($person->scout_name) ? PDF::MultiCell(0, 0, $person->scout_name, 0, 'L') : PDF::MultiCell(0, 0, 'Kein Pfadiname angegeben', 0, 'L');
 		    PDF::MultiCell(0, 10, $person->first_name . ' ' . $person->last_name, 0, 'L');
 		    PDF::MultiCell(0, 0, $person->address, 0, 'L');
 		    PDF::MultiCell(0, 10, $person->plz . ' ' . $person->place, 0, 'L');
 		    PDF::MultiCell(0, 10, $person->birthday, 0, 'L');
 		    PDF::MultiCell(0, 10, $person->gender, 0, 'L');
 
-		    $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
-		    PDF::Image('@'.$imgdata, 60, 5);
-
+		    !empty($person->logo_file_name) ? PDF::Image(storage_path('/app/public/img/' . $person->logo_file_name), 60, 5) : PDF::MultiCell(0, 60, 'Kein Bild gefunden');
 
 		    PDF::write1DBarcode('1234567890128', 'EAN13', '', '50', '', 10, 0.4,$style ,'N');
 	    }
 
 	    return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
-
-
     }
 }
