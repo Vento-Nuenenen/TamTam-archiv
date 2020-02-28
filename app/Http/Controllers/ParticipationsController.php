@@ -29,8 +29,8 @@ class ParticipationsController extends Controller
         } else {
             $search_string = $request->input('search');
             $participations = DB::table('participations')
-                ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
-                ->select('participations.*', 'group.group_name')
+                ->leftJoin('groups', 'groups.id', '=', 'participations.FK_GRP')
+                ->select('participations.*', 'groups.group_name')
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
@@ -48,7 +48,7 @@ class ParticipationsController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'group_name')->get();
+        $groups = DB::table('groups')->select('id', 'group_name')->get();
 
         return view('participations.add', ['groups' => $groups]);
     }

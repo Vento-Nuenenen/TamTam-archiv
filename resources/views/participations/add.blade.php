@@ -85,11 +85,11 @@
                     </div>
 
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
-                        {!! Form::label('group', 'Abteilung', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control" name="group" id="group">
-                                    <option value="">Abteilung wählen</option>
+                                    <option value="">Gruppe wählen</option>
                                     @if ($groups)
                                         @foreach($groups as $group)
                                             <option value="{{ $group->id }}">{{ $group->group_name }}</option>
@@ -161,10 +161,7 @@
                                     Brenneisen
                                 </td>
                                 <td>
-                                    Ritter Berchtold, Dracheburg, Virus, Nünenen, Wendelsee
-                                </td>
-                                <td>
-                                    exer_one, exer_two
+                                    Migros, Coop
                                 </td>
                             </tr>
                             </tbody>
