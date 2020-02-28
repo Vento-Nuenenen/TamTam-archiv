@@ -8,6 +8,12 @@
             </div>
         @endif
 
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
+            </div>
+        @endif
+
         <div class="card EditParticipant mb-3">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -34,8 +40,8 @@
                             </div>
                             @if ($errors->has('scout_name'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('scout_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('scout_name') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>
@@ -53,8 +59,8 @@
                             </div>
                             @if ($errors->has('first_name'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('first_name') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>
@@ -72,11 +78,140 @@
                             </div>
                             @if ($errors->has('last_name'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('last_name') }}</strong>
+                                </span>
                             @endif
                         </div>
                     </div>
+
+                    <div class="my-1">&nbsp;</div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('address') ? ' has-error ' : '' }}">
+                        {!! Form::label('address', 'Adresse', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('address', old('address', $participations->address ?? null), array('id' => 'address', 'class' => 'form-control', 'placeholder' => 'Adresse')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('address'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('address') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('plz') ? ' has-error ' : '' }}">
+                        {!! Form::label('plz', 'Postleitzahl', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('plz', old('plz',$participations->plz ?? null), array('id' => 'plz', 'class' => 'form-control', 'placeholder' => 'Postleitzahl')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('plz'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('plz') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('place') ? ' has-error ' : '' }}">
+                        {!! Form::label('place', 'Ort', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('place', old('place',$participations->place ?? null), array('id' => 'place', 'class' => 'form-control', 'placeholder' => 'Ort')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('place'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('place') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="my-1">&nbsp;</div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('birthday') ? ' has-error ' : '' }}">
+                        {!! Form::label('birthday', 'Geburtsdatum', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::date('birthday', old('birthday',$participations->birthday ?? null), array('id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'Geburtsdatum')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('birthday'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('birthday') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="my-1">&nbsp;</div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('barcode') ? ' has-error ' : '' }}">
+                        {!! Form::label('barcode', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('barcode', old('barcode',$participations->barcode ?? null), array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'EAN Code')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="last_name">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('barcode'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('barcode') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="my-1">&nbsp;</div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('gender') ? ' has-error ' : '' }}">
+                        {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                <select class="custom-select form-control" name="gender" id="gender">
+                                    <option value="">Geschlecht wählen</option>
+                                    <option value="m" {{($participations->gender == 'Männlich') ? 'selected':''}}>Männlich</option>
+                                    <option value="w" {{($participations->gender == 'Weiblich') ? 'selected':''}}>Weiblich</option>
+                                    <option value="d" {{($participations->gender == 'Anderes') ? 'selected':''}}>Anderes</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="group">
+                                        <i class="fa fa-group" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('gender'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('gender') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="my-1">&nbsp;</div>
 
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
                         {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
@@ -98,26 +233,7 @@
                             </div>
                             @if ($errors->has('role'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('group') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="form-group has-feedback row {{ $errors->has('barcode') ? ' has-error ' : '' }}">
-                        {!! Form::label('barcode', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
-                        <div class="col-md-9">
-                            <div class="input-group">
-                                {!! Form::text('barcode', old('eancode',$participations->barcode ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="last_name">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                    </label>
-                                </div>
-                            </div>
-                            @if ($errors->has('barcode'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('barcode') }}</strong>
+                                    <strong>{{ $errors->first('group') }}</strong>
                                 </span>
                             @endif
                         </div>

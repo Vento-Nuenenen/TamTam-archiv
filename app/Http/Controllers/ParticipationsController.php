@@ -65,10 +65,40 @@ class ParticipationsController extends Controller
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
+        $address = $request->input('address');
+        $plz = $request->input('plz');
+        $place = $request->input('place');
+        $birthday = $request->input('birthday');
+        $gender = $request->input('gender');
         $group = $request->input('group');
         $barcode  = Helper::generateBarcode();
 
-        DB::table('participations')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
+        if($gender){
+        	if($gender == 'm'){
+				$gender = 'Männlich';
+	        }elseif($gender == 'w'){
+		        $gender = 'Weiblich';
+	        }elseif($gender == 'd'){
+		        $gender = 'Anderes';
+	        }else{
+        		$gender = null;
+	        }
+        }else{
+	        $gender = null;
+        }
+
+        DB::table('participations')->insert([
+        	'scout_name' => $scout_name,
+	        'first_name' => $first_name,
+	        'last_name' => $last_name,
+	        'barcode' => $barcode,
+	        'address' => $address,
+	        'plz' => $plz,
+	        'place' => $place,
+	        'birthday' => $birthday,
+	        'gender' => $gender,
+	        'FK_GRP' => $group,
+        ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
@@ -110,7 +140,7 @@ class ParticipationsController extends Controller
     public function edit($pid)
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
-        $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
+        $groups = DB::table('groups')->select('groups.id', 'groups.group_name')->get();
 
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups]);
     }
@@ -128,10 +158,40 @@ class ParticipationsController extends Controller
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
-        $group = $request->input('group');
-        $barcode = $request->input('barcode');
+	    $address = $request->input('address');
+	    $plz = $request->input('plz');
+	    $place = $request->input('place');
+	    $birthday = $request->input('birthday');
+	    $gender = $request->input('gender');
+	    $group = $request->input('group');
+	    $barcode  = $request->input('barcode');
 
-        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'barcode' => $barcode, 'FK_GRP' => $group]);
+	    if($gender){
+		    if($gender == 'm'){
+			    $gender = 'Männlich';
+		    }elseif($gender == 'w'){
+			    $gender = 'Weiblich';
+		    }elseif($gender == 'd'){
+			    $gender = 'Anderes';
+		    }else{
+			    $gender = null;
+		    }
+	    }else{
+		    $gender = null;
+	    }
+
+        DB::table('participations')->where('id', '=', $pid)->update([
+        	'scout_name' => $scout_name,
+	        'first_name' => $first_name,
+	        'last_name' => $last_name,
+	        'barcode' => $barcode,
+	        'address' => $address,
+	        'plz' => $plz,
+	        'place' => $place,
+	        'birthday' => $birthday,
+	        'gender' => $gender,
+	        'FK_GRP' => $group
+        ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }

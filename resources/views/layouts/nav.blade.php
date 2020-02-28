@@ -52,7 +52,7 @@
                                 Punkte übersicht
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                            <a class="dropdown-item {{ Request::is('transactions/')}}" href="{{ url('/transactions') }}">
                                 Punkte transaktionen
                             </a>
                         </div>

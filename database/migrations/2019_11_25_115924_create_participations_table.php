@@ -23,7 +23,7 @@ class CreateParticipationsTable extends Migration
             $table->string('place');
             $table->date('birthday');
 	        $table->string('gender')->nullable();
-	        $table->string('picture_name')->nullable();
+	        $table->string('person_picture')->nullable();
             $table->string('barcode')->unique()->nullable();
             $table->integer('seat_number')->nullable();
             $table->boolean('course_passed')->default(false);
