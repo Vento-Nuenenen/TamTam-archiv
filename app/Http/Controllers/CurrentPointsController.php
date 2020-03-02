@@ -8,8 +8,18 @@ class CurrentPointsController extends Controller
 {
 	public function index(Request $request)
 	{
-		
-		return view('points.points', ['users' => $users]);
+		if ($request->input('search') == null) {
+			$users = DB::table('users')->select('users.*')->get();
+		} else {
+			$search_string = $request->input('search');
+			$users = DB::table('users')
+				->select('users.*')
+				->where('scout_name', 'LIKE', "%$search_string%")
+				->orWhere('last_name', 'LIKE', "%$search_string%")
+				->orWhere('first_name', 'LIKE', "%$search_string%")->get();
+		}
+
+		return view('points.points');
 	}
 	/**
 	 * Show the form for creating a new resource.
