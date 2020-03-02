@@ -38289,8 +38289,8 @@ __webpack_require__(/*! ./bootstrap-select.min */ "./resources/js/bootstrap-sele
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\hila\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hila\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/caspar.brenneisen/hila/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/caspar.brenneisen/hila/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
