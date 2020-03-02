@@ -18,6 +18,7 @@ class CreatePointsTable extends Migration
             $table->string('reason');
             $table->integer('points');
             $table->boolean('is_addition');
+            $table->bigInteger('FK_PRT')->unsigned()->index();
             $table->timestamps();
         });
     }
