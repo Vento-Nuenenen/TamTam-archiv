@@ -32,3 +32,4 @@ if (token) {
 }
 
 require('./bootstrap-select.min');
+require('bootstrap4-toggle')

@@ -9,6 +9,7 @@
 
 // Bootstrap select-search
 @import 'bootstrap-select';
+@import "~bootstrap4-toggle/css/bootstrap4-toggle.min.css";
 
 // Font Awesome
 @import '~font-awesome/scss/font-awesome';
@@ -16,4 +17,12 @@
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.text-color-positiv{
+    background-color: rgba(0, 255, 0, 1.0);
+}
+
+.text-color-negativ{
+    background-color: rgba(255, 0, 0, 1.0);
 }
