@@ -10,25 +10,38 @@ class CurrentPointsController extends Controller
 	public function index(Request $request)
 	{
 		if ($request->input('search') == null) {
-			$points = DB::table('participations')
-				->leftJoin('points', 'points.FK_PRT', 'participations.id')
-				->select(DB::raw('GROUP_CONCAT(points.points) as points GROUP_CONCAT(points.is_addition) as additions'))->get();
+			$participations = DB::select('SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points, 
+				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
+  			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id` GROUP BY participations.id;');
 		} else {
 			$search_string = $request->input('search');
-			$points = DB::table('users')
+			$participations = DB::table('users')
 				->leftJoin('points', 'participations.id', 'points.FK_PRT')
 				->where('scout_name', 'LIKE', "%$search_string%")
 				->orWhere('last_name', 'LIKE', "%$search_string%")
 				->orWhere('first_name', 'LIKE', "%$search_string%")->get();
 		}
 
-		foreach($points as $point){
+		foreach($participations as $participant){
+			$balance = 0;
 
+			if(!empty($participant->points) || !empty($participant->additions)){
+				$points = explode(',', $participant->points);
+				$additions = explode(',', $participant->additions);
 
-			print_r($point);
+				for($i = 0; $i < count($points); $i++){
+					if($additions[$i] == 1){
+						$balance += $points[$i];
+					}else{
+						$balance -= $points[$i];
+					}
+				}
+			}
+
+			$participant->current_balance = $balance;
 		}
 
-		//return view('points.points', ['points' => $points]);
+		return view('points.points', ['participations' => $participations]);
 	}
 	/**
 	 * Show the form for creating a new resource.

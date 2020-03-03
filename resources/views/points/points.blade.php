@@ -46,17 +46,17 @@
 						</th>
 						</thead>
 						<tbody>
-							@foreach($points as $point)
+							@foreach($participations as $participant)
 								<tr>
 									<td>
-										@if($point->scout_name)
-											 {{ $point->first_name }} {{ $point->last_name }} / {{ $point->scout_name }}
+										@if($participant->scout_name)
+											 {{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }}
 										@else
-											{{ $point->first_name }} {{ $point->last_name }}
+											{{ $participant->first_name }} {{ $participant->last_name }}
 										@endif
 									</td>
 									<td>
-										{{ $point->id }}
+										{{ $participant->current_balance }}
 									</td>
 								</tr>
 							@endforeach
