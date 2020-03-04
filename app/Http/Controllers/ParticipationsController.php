@@ -111,20 +111,17 @@ class ParticipationsController extends Controller
             return redirect()->back()->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
         }
 
-        $handle = fopen($participations_list, 'r');
-        $content = mb_convert_encoding(fread($handle, filesize($participations_list)), 'UTF-8', 'Windows-1252');
-        $lines = preg_split("/(\n)/", $content);
-        $number_participations = count($lines);
-        unset($lines[$number_participations - 1]);
-        foreach ($lines as $line) {
-            $contents[] = explode(';', $line);
-        }
-        fclose($handle);
+        $contents = read_file($participations_list);
 
         foreach ($contents as $content) {
-            $grp = DB::table('group')->select('id')->where('name', 'LIKE', "%$content[3]%")->first();
-            $content[4] = str_replace("\r", '', $content[4]);
-            DB::table('participations')->insert(['scout_name' => $content[0], 'first_name' => $content[1], 'last_name' => $content[2], 'FK_GRP' => $grp->id]);
+	        print_r($content);
+
+	        if($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname'){
+				unset($content);
+	        }else{
+		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
+		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $content[6], 'birthday' => $content[7], 'FK_GRP' => $grp]);
+	        }
         }
 
         return redirect()->back()->with('message', 'Die TN wurden importiert!');

@@ -242,37 +242,64 @@
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
-                            <th>
-                                Pfadiname
-                            </th>
-                            <th>
-                                Vorname
-                            </th>
-                            <th>
-                                Nachname
-                            </th>
-                            <th>
-                                Abteilung
-                            </th>
-                            <th>
-                                Exer
-                            </th>
+                                <th>
+                                    Pfadiname
+                                </th>
+                                <th>
+                                    Vorname
+                                </th>
+                                <th>
+                                    Nachname
+                                </th>
+                                <th>
+                                    Adresse (Str. & Nr.)
+                                </th>
+                                <th>
+                                    PLZ
+                                </th>
+                                <th>
+                                    Ort
+                                </th>
+                                <th>
+                                    Geburtsdatum
+                                </th>
+                                <th>
+                                    Geschlecht (m*, w*, u*)
+                                </th>
+                                <th>
+                                    Gruppe (Kann leer gelassen werden)
+                                </th>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    Vento
-                                </td>
-                                <td>
-                                    Caspar
-                                </td>
-                                <td>
-                                    Brenneisen
-                                </td>
-                                <td>
-                                    Migros, Coop
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        Vento
+                                    </td>
+                                    <td>
+                                        Caspar
+                                    </td>
+                                    <td>
+                                        Brenneisen
+                                    </td>
+                                    <td>
+                                        Hubelmattweg 5
+                                    </td>
+                                    <td>
+                                        3634
+                                    </td>
+                                    <td>
+                                        Thierachern
+                                    </td>
+                                    <td>
+                                        23.02.1999
+                                    </td>
+                                    <td>
+                                        männlich
+                                    </td>
+                                    <td>
+                                        Migros, Coop
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </p>

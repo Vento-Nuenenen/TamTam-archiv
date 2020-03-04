@@ -12,7 +12,7 @@
 			<div class="card-header" id="headingOne">
 				<h5 class="mb-0">
 					<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        TN Auslesen
+                        Barcode Auslesen
 					</button>
 				</h5>
 			</div>
@@ -43,7 +43,7 @@
                 <div class="card-body table-responsive">
                     <form method="post">
                         @csrf
-                        <input type="submit" name="tableorder" id="tableorder" />
+                        <input type="submit" name="tableorder" id="tableorder" class="btn btn-success col-md-12" value="Tischordnung erstellen" />
                     </form>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <div class="card-body table-responsive">
                     <form method="post">
                         @csrf
-                        <input type="submit" name="grouping" id="grouping" />
+                        <input type="submit" name="grouping" id="grouping" class="btn btn-success col-md-12" value="Gruppen aufteilen" />
                     </form>
                 </div>
             </div>
