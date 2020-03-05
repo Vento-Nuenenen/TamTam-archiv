@@ -24,7 +24,7 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".EditParticipant">
                 <div class="card-body table-responsive">
-                    {!! Form::open(array('route' => ['update-participations',$participations->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => ['update-participations',$participations->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
                     {!! csrf_field() !!}
 
                     <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
@@ -234,6 +234,20 @@
                             @if ($errors->has('role'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('group') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('tn_img') ? ' has-error ' : '' }}">
+                        {!! Form::label('tn_img', 'Foto', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                <input type="file" accept="image/*" id="tn_img" name="tn_img" />
+                            </div>
+                            @if ($errors->has('tn_img'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('tn_img') }}</strong>
                                 </span>
                             @endif
                         </div>

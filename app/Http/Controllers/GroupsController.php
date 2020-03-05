@@ -73,9 +73,8 @@ class GroupsController extends Controller
      */
     public function update(Request $request, $gid){
         $group_name = $request->input('group_name');
-        $logo_name = time() .'.' . $request->file('group_logo')->extension();
+        $logo_name = 'logo_' . time() .'.' . $request->file('group_logo')->extension();
         $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
-
 
         DB::table('groups')->where('id', '=', $gid)->update(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
 

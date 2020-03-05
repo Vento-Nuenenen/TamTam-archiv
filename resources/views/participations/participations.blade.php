@@ -56,7 +56,7 @@
                             <tr>
                                 <td>
                                     @if($participation->scout_name)
-                                        {{ $participation->scout_name }} / {{ $participation->first_name }} {{ $participation->last_name }}
+                                        {{ $participation->first_name }} {{ $participation->last_name }} / {{ $participation->scout_name }}
                                     @else
                                         {{ $participation->first_name }} {{ $participation->last_name }}
                                     @endif

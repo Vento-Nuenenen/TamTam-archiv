@@ -73,6 +73,9 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $barcode  = Helper::generateBarcode();
 
+	    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
+	    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+
         if($gender){
         	if($gender == 'm'){
 				$gender = 'Männlich';
@@ -98,6 +101,7 @@ class ParticipationsController extends Controller
 	        'birthday' => $birthday,
 	        'gender' => $gender,
 	        'FK_GRP' => $group,
+	        'person_picture' => $img_name,
         ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
@@ -131,8 +135,10 @@ class ParticipationsController extends Controller
 	        		$gnd = null;
 		        }
 
+	        	$barcode = Helper::generateBarcode();
+
 		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
-		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $content[7], 'FK_GRP' => $grp]);
+		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $content[7], 'FK_GRP' => $grp, 'barcode' => $barcode]);
 	        }
         }
 
@@ -189,6 +195,9 @@ class ParticipationsController extends Controller
 		    $gender = null;
 	    }
 
+	    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
+	    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+
         DB::table('participations')->where('id', '=', $pid)->update([
         	'scout_name' => $scout_name,
 	        'first_name' => $first_name,
@@ -199,7 +208,8 @@ class ParticipationsController extends Controller
 	        'place' => $place,
 	        'birthday' => $birthday,
 	        'gender' => $gender,
-	        'FK_GRP' => $group
+	        'FK_GRP' => $group,
+	        'person_picture' => $img_name,
         ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
