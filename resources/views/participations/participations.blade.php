@@ -48,6 +48,9 @@
                                 EAN Nummer
                             </th>
                             <th>
+                                Bild
+                            </th>
+                            <th>
                                 Optionen
                             </th>
                         </thead>
@@ -69,6 +72,9 @@
                                         {!! DNS1D::getBarcodeHTML($participation->barcode, "EAN13", 2, 50) !!}
                                         {{ $participation->barcode }}
                                     @endif
+                                </td>
+                                <td>
+                                    <img width="80px" src="{{ asset('storage/img/' . $participation->person_picture) }}">
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-participations',$participation->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
