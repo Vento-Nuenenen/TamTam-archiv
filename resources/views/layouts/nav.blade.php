@@ -35,6 +35,9 @@
                             <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
                                 Teilnehmer
                             </a>
+                            <a class="dropdown-item {{ Request::is('passed/')}}" href="{{ url('/passed') }}">
+                                Bestanden
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('numbers/')}}" href="{{ url('/numbers') }}">
                                 Notfallnummern

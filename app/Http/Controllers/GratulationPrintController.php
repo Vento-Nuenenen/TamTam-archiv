@@ -14,7 +14,7 @@ class GratulationPrintController extends Controller
 	}
 
 	public function export(Request $request){
-		$persons = DB::table('participations')->get();
+		$persons = DB::table('participations')->where('course_passed', '=', true)->get();
 
 		foreach ($persons as $person) {
 			$text = $request->certificate_text;

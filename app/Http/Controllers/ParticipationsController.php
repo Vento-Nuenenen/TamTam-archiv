@@ -114,13 +114,25 @@ class ParticipationsController extends Controller
         $contents = read_file($participations_list);
 
         foreach ($contents as $content) {
-	        print_r($content);
-
 	        if($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname'){
 				unset($content);
 	        }else{
+	        	if(isset($content[6])){
+	        		if($content[6][0] == 'm'){
+	        			$gnd = 'Männlich';
+			        }elseif($content[6][0] == 'w'){
+				        $gnd = 'Weiblich';
+			        }elseif($content[6][0] == 'u'){
+				        $gnd = 'Anderes';
+			        }else{
+	        			$gnd = null;
+			        }
+		        }else{
+	        		$gnd = null;
+		        }
+
 		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
-		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $content[6], 'birthday' => $content[7], 'FK_GRP' => $grp]);
+		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $content[7], 'FK_GRP' => $grp]);
 	        }
         }
 

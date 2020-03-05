@@ -70,4 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::any('/id', 'IdentificationPrintController@index')->name('identification');
 	Route::any('/id/print', 'IdentificationPrintController@export')->name('print-identification');
+
+	Route::any('/passed', 'PassedController@index')->name('passed');
+	Route::any('/passed/do', 'PassedController@set_flag')->name('do-passed');
 });

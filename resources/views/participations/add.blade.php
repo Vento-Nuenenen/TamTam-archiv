@@ -243,13 +243,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <th>
-                                    Pfadiname
-                                </th>
-                                <th>
                                     Vorname
                                 </th>
                                 <th>
                                     Nachname
+                                </th>
+                                <th>
+                                    Pfadiname
                                 </th>
                                 <th>
                                     Adresse (Str. & Nr.)
@@ -273,13 +273,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        Vento
-                                    </td>
-                                    <td>
                                         Caspar
                                     </td>
                                     <td>
                                         Brenneisen
+                                    </td>
+                                    <td>
+                                        Vento
                                     </td>
                                     <td>
                                         Hubelmattweg 5
