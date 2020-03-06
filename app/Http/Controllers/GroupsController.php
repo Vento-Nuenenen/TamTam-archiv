@@ -19,7 +19,7 @@ class GroupsController extends Controller
         } else {
             $search_string = $request->input('search');
             $groups = DB::table('groups')
-                ->select('groups.id as group_id', 'groups.group_name')
+                ->select('groups.*')
                 ->where('groups.group_name', 'LIKE', "%$search_string%")->get();
         }
 

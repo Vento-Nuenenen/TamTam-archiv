@@ -31,7 +31,7 @@
                         {!! Form::label('participant', 'Teilnehmer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control" name="participant" id="participant">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="participant" id="participant">
                                     <option value="">Teilnehmer wählen</option>
                                     @if ($participations)
                                         @foreach($participations as $participant)
