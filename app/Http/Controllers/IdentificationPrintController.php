@@ -23,8 +23,11 @@ class IdentificationPrintController extends Controller
 
 	    $persons = DB::table('participations')->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
 
-	    foreach ($persons as $person) {
-	    	$carbon_birthday = Carbon::createFromFormat('Y-m-d',$person->birthday);
+	    $countpages = ceil(count($persons) / 6);
+	    $personindex = 0;
+
+	    for($i = 0; $i < $countpages; $i++){
+	    	$carbon_birthday = Carbon::createFromFormat('Y-m-d',$persons[$personindex]->birthday);
 	    	$birthday = $carbon_birthday->format('d.m.Y');
 
 		    PDF::SetTitle(config('app.name') . " - Identifikationen");
