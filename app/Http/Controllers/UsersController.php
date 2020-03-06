@@ -36,8 +36,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'group_name')->get();
-        return view('users.add', ['groups' => $groups]);
+        return view('users.add');
     }
     /**
      * Store a newly created resource in storage.
@@ -52,13 +51,17 @@ class UsersController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $email = $request->input('email');
-        $group = $request->input('group');
+
         $password = $request->input('password');
         $password_repeat = $request->input('password_repeat');
+
         if ($password != null && $password === $password_repeat) {
             $password = Hash::make($password);
+
             $password_repeat = null;
-            DB::table('users')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password, 'FK_GRP' => $group]);
+
+            DB::table('users')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password]);
+
             return redirect()->back()->with('message', 'Benutzer wurde erstellt.');
         } else {
             return redirect()->back()->with('error', 'Passwort wurde nicht korrekt wiederholt!');
@@ -74,8 +77,8 @@ class UsersController extends Controller
     public function edit($uid)
     {
         $users = DB::table('users')->where('id', '=', $uid)->first();
-        $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
-        return view('users.edit', ['users' => $users, 'groups' => $groups]);
+
+        return view('users.edit', ['users' => $users]);
     }
     /**
      * Update the specified resource in storage.
@@ -91,16 +94,21 @@ class UsersController extends Controller
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $email = $request->input('email');
-        $group = $request->input('group');
+
         $password = $request->input('password');
         $password_repeat = $request->input('password_repeat');
+
         if ($password != null && $password === $password_repeat) {
             $password = Hash::make($password);
+
             $password_repeat = null;
-            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password, 'FK_GRP' => $group]);
+
+            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password]);
+
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
         } elseif ($password == null) {
-            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'FK_GRP' => $group]);
+            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email]);
+
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert. Das Passwort wurde beibehalten!');
         } else {
             return redirect()->back()->with('error', 'Passwort wurde nicht korrekt wiederholt!');
@@ -116,6 +124,7 @@ class UsersController extends Controller
     public function destroy($uid)
     {
         DB::table('users')->where('id', '=', $uid)->delete();
+
         return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
     }
 }
