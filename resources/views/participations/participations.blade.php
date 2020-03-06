@@ -44,6 +44,9 @@
                             <th>
                                 Gruppe
                             </th>
+                            <th>
+                                Sitzplatz
+                            </th>
                             <th style="text-align: center">
                                 EAN Nummer
                             </th>
@@ -66,6 +69,9 @@
                                 </td>
                                 <td>
                                     {{ $participation->group_name }}
+                                </td>
+                                <td>
+                                    {{ $participation->seat_number }}
                                 </td>
                                 <td align="center">
                                     @if($participation->barcode != null)
