@@ -31,5 +31,5 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-require('./bootstrap-select.min');
-require('bootstrap4-toggle')
+require('bootstrap4-toggle');
+require('bootstrap-select');
