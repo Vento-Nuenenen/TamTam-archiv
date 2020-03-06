@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Helper\Helper;
-use App\User;
+use Carbon\Carbon;
 use DB;
-use DNS1D;
-use File;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use RuntimeException;
-use Storage;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ParticipationsController extends Controller
 {
@@ -18,7 +18,7 @@ class ParticipationsController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function index(Request $request)
     {
@@ -44,7 +44,7 @@ class ParticipationsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function create()
     {
@@ -56,9 +56,9 @@ class ParticipationsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -107,7 +107,11 @@ class ParticipationsController extends Controller
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
 
-    public function import(Request $request)
+	/**
+	 * @param Request $request
+	 * @return RedirectResponse
+	 */
+	public function import(Request $request)
     {
         if ($request->file('participations_list')) {
             $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'), 'participations.csv');
@@ -135,10 +139,12 @@ class ParticipationsController extends Controller
 	        		$gnd = null;
 		        }
 
+		        $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
+		        $birthday = $carbon_birthday->format('Y-m-d');
 	        	$barcode = Helper::generateBarcode();
 
 		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
-		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $content[7], 'FK_GRP' => $grp, 'barcode' => $barcode]);
+		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
 	        }
         }
 
@@ -150,7 +156,7 @@ class ParticipationsController extends Controller
      *
      * @param $pid
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function edit($pid)
     {
@@ -163,10 +169,10 @@ class ParticipationsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param                          $pid
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $pid)
     {
@@ -220,7 +226,7 @@ class ParticipationsController extends Controller
      *
      * @param $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($uid)
     {
