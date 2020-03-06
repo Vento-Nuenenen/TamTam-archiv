@@ -170,17 +170,12 @@
                         {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control" name="gender" id="gender">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="gender" id="gender">
                                     <option value="">Geschlecht wählen</option>
                                     <option value="m">Männlich</option>
                                     <option value="w">Weiblich</option>
                                     <option value="d">Anderes</option>
                                 </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="group">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
-                                    </label>
-                                </div>
                             </div>
                             @if ($errors->has('gender'))
                                 <span class="help-block">
@@ -192,12 +187,11 @@
 
                     <div class="my-1">&nbsp;</div>
 
-
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
                         {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control" name="group" id="group">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="group" id="group">
                                     <option value="">Gruppe wählen</option>
                                     @if ($groups)
                                         @foreach($groups as $group)
@@ -205,11 +199,6 @@
                                         @endforeach
                                     @endif
                                 </select>
-                                <div class="input-group-append">
-                                    <label class="input-group-text" for="group">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
-                                    </label>
-                                </div>
                             </div>
                             @if ($errors->has('group'))
                                 <span class="help-block">
@@ -251,8 +240,13 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent=".ImportParticipant">
                 <div class="card-body table-responsive">
                     <p>
-                        Um Teilnehmer zu importieren, muss eine CSV-Datei vorbereitet werden. Diese muss mit semikolon (;) separtierte Werte haben.
-
+                        Um Teilnehmer zu importieren, muss eine CSV-Datei vorbereitet werden. Diese muss mit semikolon (;) separtierte Werte haben. <br />
+                        <br />
+                        Am einfachsten gehst du in die MiData und öffnest die Gruppe, deren Mitglieder importiert werden sollen. <br />
+                        Gehe dann auf den Button "Export" --> "CSV" --> "Adressliste". <br />
+                        Entferne in der heruntergeladenen Datei alle Personen und Spalten, bis die Datei aussieht, wie die Tabelle unten. <br />
+                        Andernfalls kann es zu Fehlern kommen und du must noch mal von vorn beginnen. <br />
+                    </p>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
@@ -275,10 +269,10 @@
                                     Ort
                                 </th>
                                 <th>
-                                    Geburtsdatum
+                                    Geschlecht (m*, w*, u*)
                                 </th>
                                 <th>
-                                    Geschlecht (m*, w*, u*)
+                                    Geburtsdatum
                                 </th>
                                 <th>
                                     Gruppe (Kann leer gelassen werden)
@@ -305,10 +299,10 @@
                                         Thierachern
                                     </td>
                                     <td>
-                                        23.02.1999
+                                        männlich
                                     </td>
                                     <td>
-                                        männlich
+                                        23.02.1999
                                     </td>
                                     <td>
                                         Migros, Coop
@@ -316,7 +310,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </p>
                     <hr />
                     {!! Form::open(array('route' => 'import-participations', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
                     {!! csrf_field() !!}

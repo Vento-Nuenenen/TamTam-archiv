@@ -191,7 +191,7 @@
                         {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control" name="gender" id="gender">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="gender" id="gender">
                                     <option value="">Geschlecht wählen</option>
                                     <option value="m" {{($participations->gender == 'Männlich') ? 'selected':''}}>Männlich</option>
                                     <option value="w" {{($participations->gender == 'Weiblich') ? 'selected':''}}>Weiblich</option>
@@ -217,7 +217,7 @@
                         {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control" name="group" id="group">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="group" id="group">
                                     <option value="">Gruppe wählen</option>
                                     @if ($groups)
                                         @foreach($groups as $group)
