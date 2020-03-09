@@ -25,7 +25,7 @@
                         {!! Form::label('number_name', 'Nummernbezeichnung', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('number_name', NULL, array('id' => 'number_name', 'class' => 'form-control', 'placeholder' => 'Nummernbezeichnung')) !!}
+                                {!! Form::text('number_name', NULL, array('id' => 'number_name', 'class' => 'form-control', 'placeholder' => 'Nummernbezeichnung', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
                         {!! Form::label('number', 'Telefonnummer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('number', NULL, array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer')) !!}
+                                {!! Form::text('number', NULL, array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>

@@ -23,7 +23,7 @@
 						{!! csrf_field() !!}
 
 						<div class="form-group col-md-11 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
-                            <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text">
+                            <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text" required>
 Lieber @name <br />
 <br />
 Du hast den Tabouret-Kurs bestanden. <br />

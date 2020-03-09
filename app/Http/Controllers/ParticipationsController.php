@@ -73,8 +73,12 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $barcode  = Helper::generateBarcode();
 
-	    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
-	    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+	    if($request->file('tn_img')){
+		    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
+		    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+	    }else{
+		    $img_name = null;
+	    }
 
         if($gender){
         	if($gender == 'm'){
@@ -201,8 +205,12 @@ class ParticipationsController extends Controller
 		    $gender = null;
 	    }
 
-	    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
-	    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+	    if($request->file('tn_img')){
+		    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
+		    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+	    }else{
+	    	$img_name = null;
+	    }
 
         DB::table('participations')->where('id', '=', $pid)->update([
         	'scout_name' => $scout_name,

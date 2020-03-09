@@ -50,7 +50,7 @@
                         {!! Form::label('first_name', 'Vorname', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('first_name', old('first_name',$participations->first_name ?? null), array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname')) !!}
+                                {!! Form::text('first_name', old('first_name',$participations->first_name ?? null), array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="first_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -69,7 +69,7 @@
                         {!! Form::label('last_name', 'Nachname', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('last_name', old('last_name',$participations->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
+                                {!! Form::text('last_name', old('last_name',$participations->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
                         {!! Form::label('address', 'Adresse', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('address', old('address', $participations->address ?? null), array('id' => 'address', 'class' => 'form-control', 'placeholder' => 'Adresse')) !!}
+                                {!! Form::text('address', old('address', $participations->address ?? null), array('id' => 'address', 'class' => 'form-control', 'placeholder' => 'Adresse', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -109,7 +109,7 @@
                         {!! Form::label('plz', 'Postleitzahl', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('plz', old('plz',$participations->plz ?? null), array('id' => 'plz', 'class' => 'form-control', 'placeholder' => 'Postleitzahl')) !!}
+                                {!! Form::text('plz', old('plz',$participations->plz ?? null), array('id' => 'plz', 'class' => 'form-control', 'placeholder' => 'Postleitzahl', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -128,7 +128,7 @@
                         {!! Form::label('place', 'Ort', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('place', old('place',$participations->place ?? null), array('id' => 'place', 'class' => 'form-control', 'placeholder' => 'Ort')) !!}
+                                {!! Form::text('place', old('place',$participations->place ?? null), array('id' => 'place', 'class' => 'form-control', 'placeholder' => 'Ort', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -149,7 +149,7 @@
                         {!! Form::label('birthday', 'Geburtsdatum', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::date('birthday', old('birthday',$participations->birthday ?? null), array('id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'Geburtsdatum')) !!}
+                                {!! Form::date('birthday', old('birthday',$participations->birthday ?? null), array('id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'Geburtsdatum', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -170,7 +170,7 @@
                         {!! Form::label('barcode', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('barcode', old('barcode',$participations->barcode ?? null), array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'EAN Code')) !!}
+                                {!! Form::text('barcode', old('barcode',$participations->barcode ?? null), array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'EAN Code', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -188,7 +188,7 @@
                     <div class="my-1">&nbsp;</div>
 
                     <div class="form-group has-feedback row {{ $errors->has('gender') ? ' has-error ' : '' }}">
-                        {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label', 'required')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="gender" id="gender">
@@ -214,7 +214,7 @@
                     <div class="my-1">&nbsp;</div>
 
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
-                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label', 'required')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="group" id="group">

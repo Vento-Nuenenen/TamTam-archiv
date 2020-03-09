@@ -50,7 +50,7 @@
                         {!! Form::label('first_name', 'Vorname', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname')) !!}
+                                {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="first_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -69,7 +69,7 @@
                         {!! Form::label('last_name', 'Nachname', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
+                                {!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -88,7 +88,7 @@
                         {!! Form::label('email', 'E-Mail', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => 'E-Mail')) !!}
+                                {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => 'E-Mail', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="email">
                                         <i class="fa fa-mail-forward" aria-hidden="true"></i>
@@ -107,7 +107,7 @@
                         {!! Form::label('password', 'Passwort', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::password('password', ['id' => 'password', 'class' => 'form-control', 'placeholder' => 'Passwort']) !!}
+                                {!! Form::password('password', array('id' => 'password', 'class' => 'form-control', 'placeholder' => 'Passwort', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="password">
                                         <i class="fa fa-key" aria-hidden="true"></i>
@@ -126,7 +126,7 @@
                         {!! Form::label('password_repeat', 'Passwort wiederholen', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::password('password_repeat', array('id' => 'password_repeat', 'class' => 'form-control', 'placeholder' => 'Passwort wiederholen')) !!}
+                                {!! Form::password('password_repeat', array('id' => 'password_repeat', 'class' => 'form-control', 'placeholder' => 'Passwort wiederholen', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="password_repeat">
                                         <i class="fa fa-key" aria-hidden="true"></i>

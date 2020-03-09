@@ -24,14 +24,14 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".ExerOne">
                 <div class="card-body">
-                    {!! Form::open(array('route' => 'store-transactions', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => 'store-transactions', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'autofocus')) !!}
                     {!! csrf_field() !!}
 
                     <div class="form-group has-feedback row {{ $errors->has('participant') ? ' has-error ' : '' }}">
                         {!! Form::label('participant', 'Teilnehmer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="participant" id="participant">
+                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="participant" id="participant" required>
                                     <option value="">Teilnehmer wählen</option>
                                     @if ($participations)
                                         @foreach($participations as $participant)
@@ -61,7 +61,7 @@
                         {!! Form::label('points', 'Punkte', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('points', NULL, array('id' => 'points', 'class' => 'form-control', 'placeholder' => 'Punkte')) !!}
+                                {!! Form::text('points', NULL, array('id' => 'points', 'class' => 'form-control', 'placeholder' => 'Punkte', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="points">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -80,7 +80,7 @@
                         {!! Form::label('reason', 'Begründung', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('reason', NULL, array('id' => 'reason', 'class' => 'form-control', 'placeholder' => 'Begründung')) !!}
+                                {!! Form::text('reason', NULL, array('id' => 'reason', 'class' => 'form-control', 'placeholder' => 'Begründung', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="reason">
                                         <i class="fa fa-user" aria-hidden="true"></i>

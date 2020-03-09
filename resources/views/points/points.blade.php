@@ -12,7 +12,7 @@
 			<div class="card-header">
 				{!! Form::open(array('route' => 'points', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
 					<div class="input-group" id="adv-search">
-						{!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche')) !!}
+						{!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche', 'autofocus')) !!}
 						<div class="input-group-append">
 							<button type="submit" class="btn btn-primary form-control">
 								<span class="fa fa-search"></span>

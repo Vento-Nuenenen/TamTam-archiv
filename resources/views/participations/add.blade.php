@@ -50,7 +50,7 @@
                         {!! Form::label('first_name', 'Vorname', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname','required')) !!}
+                                {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="first_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -167,7 +167,7 @@
                     <div class="my-1">&nbsp;</div>
 
                     <div class="form-group has-feedback row {{ $errors->has('gender') ? ' has-error ' : '' }}">
-                        {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('gender', 'Geschlecht', array('class' => 'col-md-3 control-label', 'required')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="gender" id="gender">
@@ -188,7 +188,7 @@
                     <div class="my-1">&nbsp;</div>
 
                     <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
-                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label')); !!}
+                        {!! Form::label('group', 'Gruppe', array('class' => 'col-md-3 control-label', 'required')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="group" id="group">

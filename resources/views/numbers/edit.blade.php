@@ -18,7 +18,7 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".EditParticipant">
                 <div class="card-body table-responsive">
-                    {!! Form::open(array('route' => ['update-numbers', $number->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => ['update-numbers', $number->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'required')) !!}
                     {!! csrf_field() !!}
 
                     <div class="form-group has-feedback row {{ $errors->has('number_name') ? ' has-error ' : '' }}">
@@ -44,7 +44,7 @@
                         {!! Form::label('number', 'Telefonnummer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('number', old('number', $number->number ?? null), array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer')) !!}
+                                {!! Form::text('number', old('number', $number->number ?? null), array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
                                         <i class="fa fa-group" aria-hidden="true"></i>
