@@ -10,7 +10,7 @@
   "require": {
 	"php": "^7.2",
 	"appstract/laravel-opcache": "^3.0",
-	"elibyy/tcpdf-laravel": "^6.0",
+	"elibyy/tcpdf-laravel": "^7.0",
 	"fideloper/proxy": "^4.0",
 	"laravel/framework": "^6.2",
 	"laravel/tinker": "^2.0",
