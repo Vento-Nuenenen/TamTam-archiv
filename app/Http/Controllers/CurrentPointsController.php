@@ -15,11 +15,15 @@ class CurrentPointsController extends Controller
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id` GROUP BY participations.id;');
 		} else {
 			$search_string = $request->input('search');
-			$participations = DB::table('users')
-				->leftJoin('points', 'participations.id', 'points.FK_PRT')
-				->where('scout_name', 'LIKE', "%$search_string%")
-				->orWhere('last_name', 'LIKE', "%$search_string%")
-				->orWhere('first_name', 'LIKE', "%$search_string%")->get();
+
+			$participations = DB::select("SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points, 
+				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
+  			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id`
+  			     WHERE scout_name LIKE %$search_string% OR
+  			     WHERE last_name LIKE %$search_string% OR 
+  			     WHERE first_name LIKE %$search_string% OR 
+  			     WHERE barcode LIKE %$search_string%
+  			      GROUP BY participations.id;");
 		}
 
 		foreach($participations as $participant){
