@@ -29,6 +29,7 @@ class UsersController extends Controller
 
         return view('users.users', ['users' => $users]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +39,7 @@ class UsersController extends Controller
     {
         return view('users.add');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -67,6 +69,7 @@ class UsersController extends Controller
             return redirect()->back()->with('error', 'Passwort wurde nicht korrekt wiederholt!');
         }
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,6 +83,7 @@ class UsersController extends Controller
 
         return view('users.edit', ['users' => $users]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -114,6 +118,7 @@ class UsersController extends Controller
             return redirect()->back()->with('error', 'Passwort wurde nicht korrekt wiederholt!');
         }
     }
+
     /**
      * Remove the specified resource from storage.
      *

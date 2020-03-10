@@ -35,7 +35,7 @@ class ParticipationsController extends Controller
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
                 ->orWhere('group_name', 'LIKE', "%$search_string%")
-	            ->orWhere('barcode', 'LIKE', "%$search_string%")->get();
+                ->orWhere('barcode', 'LIKE', "%$search_string%")->get();
         }
 
         return view('participations.participations', ['participations' => $participations]);
@@ -71,51 +71,51 @@ class ParticipationsController extends Controller
         $birthday = $request->input('birthday');
         $gender = $request->input('gender');
         $group = $request->input('group');
-        $barcode  = Helper::generateBarcode();
+        $barcode = Helper::generateBarcode();
 
-	    if($request->file('tn_img')){
-		    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
-		    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
-	    }else{
-		    $img_name = null;
-	    }
+        if ($request->file('tn_img')) {
+            $img_name = 'tnimg_'.time().'.'.$request->file('tn_img')->extension();
+            $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+        } else {
+            $img_name = null;
+        }
 
-        if($gender){
-        	if($gender == 'm'){
-				$gender = 'Männlich';
-	        }elseif($gender == 'w'){
-		        $gender = 'Weiblich';
-	        }elseif($gender == 'd'){
-		        $gender = 'Anderes';
-	        }else{
-        		$gender = null;
-	        }
-        }else{
-	        $gender = null;
+        if ($gender) {
+            if ($gender == 'm') {
+                $gender = 'Männlich';
+            } elseif ($gender == 'w') {
+                $gender = 'Weiblich';
+            } elseif ($gender == 'd') {
+                $gender = 'Anderes';
+            } else {
+                $gender = null;
+            }
+        } else {
+            $gender = null;
         }
 
         DB::table('participations')->insert([
-        	'scout_name' => $scout_name,
-	        'first_name' => $first_name,
-	        'last_name' => $last_name,
-	        'barcode' => $barcode,
-	        'address' => $address,
-	        'plz' => $plz,
-	        'place' => $place,
-	        'birthday' => $birthday,
-	        'gender' => $gender,
-	        'FK_GRP' => $group,
-	        'person_picture' => $img_name,
+            'scout_name' => $scout_name,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'barcode' => $barcode,
+            'address' => $address,
+            'plz' => $plz,
+            'place' => $place,
+            'birthday' => $birthday,
+            'gender' => $gender,
+            'FK_GRP' => $group,
+            'person_picture' => $img_name,
         ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
 
-	/**
-	 * @param Request $request
-	 * @return RedirectResponse
-	 */
-	public function import(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function import(Request $request)
     {
         if ($request->file('participations_list')) {
             $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'), 'participations.csv');
@@ -126,30 +126,30 @@ class ParticipationsController extends Controller
         $contents = read_file($participations_list);
 
         foreach ($contents as $content) {
-	        if($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname'){
-				unset($content);
-	        }else{
-	        	if(isset($content[6])){
-	        		if($content[6][0] == 'm'){
-	        			$gnd = 'Männlich';
-			        }elseif($content[6][0] == 'w'){
-				        $gnd = 'Weiblich';
-			        }elseif($content[6][0] == 'u'){
-				        $gnd = 'Anderes';
-			        }else{
-	        			$gnd = null;
-			        }
-		        }else{
-	        		$gnd = null;
-		        }
+            if ($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname') {
+                unset($content);
+            } else {
+                if (isset($content[6])) {
+                    if ($content[6][0] == 'm') {
+                        $gnd = 'Männlich';
+                    } elseif ($content[6][0] == 'w') {
+                        $gnd = 'Weiblich';
+                    } elseif ($content[6][0] == 'u') {
+                        $gnd = 'Anderes';
+                    } else {
+                        $gnd = null;
+                    }
+                } else {
+                    $gnd = null;
+                }
 
-		        $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
-		        $birthday = $carbon_birthday->format('Y-m-d');
-	        	$barcode = Helper::generateBarcode();
+                $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
+                $birthday = $carbon_birthday->format('Y-m-d');
+                $barcode = Helper::generateBarcode();
 
-		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
-		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
-	        }
+                isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
+                DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
+            }
         }
 
         return redirect()->back()->with('message', 'Die TN wurden importiert!');
@@ -183,47 +183,47 @@ class ParticipationsController extends Controller
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
-	    $address = $request->input('address');
-	    $plz = $request->input('plz');
-	    $place = $request->input('place');
-	    $birthday = $request->input('birthday');
-	    $gender = $request->input('gender');
-	    $group = $request->input('group');
-	    $barcode  = $request->input('barcode');
+        $address = $request->input('address');
+        $plz = $request->input('plz');
+        $place = $request->input('place');
+        $birthday = $request->input('birthday');
+        $gender = $request->input('gender');
+        $group = $request->input('group');
+        $barcode = $request->input('barcode');
 
-	    if($gender){
-		    if($gender == 'm'){
-			    $gender = 'Männlich';
-		    }elseif($gender == 'w'){
-			    $gender = 'Weiblich';
-		    }elseif($gender == 'd'){
-			    $gender = 'Anderes';
-		    }else{
-			    $gender = null;
-		    }
-	    }else{
-		    $gender = null;
-	    }
+        if ($gender) {
+            if ($gender == 'm') {
+                $gender = 'Männlich';
+            } elseif ($gender == 'w') {
+                $gender = 'Weiblich';
+            } elseif ($gender == 'd') {
+                $gender = 'Anderes';
+            } else {
+                $gender = null;
+            }
+        } else {
+            $gender = null;
+        }
 
-	    if($request->file('tn_img')){
-		    $img_name = 'tnimg_' . time() .'.' . $request->file('tn_img')->extension();
-		    $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
-	    }else{
-	    	$img_name = null;
-	    }
+        if ($request->file('tn_img')) {
+            $img_name = 'tnimg_'.time().'.'.$request->file('tn_img')->extension();
+            $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
+        } else {
+            $img_name = null;
+        }
 
         DB::table('participations')->where('id', '=', $pid)->update([
-        	'scout_name' => $scout_name,
-	        'first_name' => $first_name,
-	        'last_name' => $last_name,
-	        'barcode' => $barcode,
-	        'address' => $address,
-	        'plz' => $plz,
-	        'place' => $place,
-	        'birthday' => $birthday,
-	        'gender' => $gender,
-	        'FK_GRP' => $group,
-	        'person_picture' => $img_name,
+            'scout_name' => $scout_name,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'barcode' => $barcode,
+            'address' => $address,
+            'plz' => $plz,
+            'place' => $place,
+            'birthday' => $birthday,
+            'gender' => $gender,
+            'FK_GRP' => $group,
+            'person_picture' => $img_name,
         ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
@@ -239,6 +239,7 @@ class ParticipationsController extends Controller
     public function destroy($uid)
     {
         DB::table('participations')->where('id', '=', $uid)->delete();
+
         return redirect()->back()->with('message', 'Teilnehmer erfolgreich gelöscht.');
     }
 }
