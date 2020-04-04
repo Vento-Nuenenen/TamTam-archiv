@@ -13,6 +13,7 @@
         "axios": "^0.19",
         "bootstrap": "^4.4.1",
         "bootstrap-select": "^1.13.12",
+        "bootstrap4-toggle": "^3.6.1",
         "cross-env": "^7.0",
         "dropzone": "^5.7.0",
         "font-awesome": "^4.7.0",
@@ -24,8 +25,5 @@
         "sass": "^1.26.3",
         "sass-loader": "^8.0.2",
         "vue-template-compiler": "^2.6.11"
-    },
-    "dependencies": {
-        "bootstrap4-toggle": "^3.6.1"
     }
 }
