@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,26 +53,26 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/points/add', 'CurrentPointsController@create')->name('add-points');
     Route::post('/points/store', 'CurrentPointsController@store')->name('store-points');
 
-	Route::any('/transactions', 'PointTransactionController@index')->name('transactions');
-	Route::get('/transactions/add', 'PointTransactionController@create')->name('add-transactions');
-	Route::post('/transactions/store', 'PointTransactionController@store')->name('store-transactions');
-	Route::get('/transactions/edit/{trid}', 'PointTransactionController@edit')->name('edit-transactions');
-	Route::post('/transactions/update/{trid}', 'PointTransactionController@update')->name('update-transactions');
-	Route::get('/transactions/destroy/{trid}', 'PointTransactionController@destroy')->name('destroy-transactions');
+    Route::any('/transactions', 'PointTransactionController@index')->name('transactions');
+    Route::get('/transactions/add', 'PointTransactionController@create')->name('add-transactions');
+    Route::post('/transactions/store', 'PointTransactionController@store')->name('store-transactions');
+    Route::get('/transactions/edit/{trid}', 'PointTransactionController@edit')->name('edit-transactions');
+    Route::post('/transactions/update/{trid}', 'PointTransactionController@update')->name('update-transactions');
+    Route::get('/transactions/destroy/{trid}', 'PointTransactionController@destroy')->name('destroy-transactions');
 
-	Route::any('/numbers', 'EmergencyController@index')->name('numbers');
-	Route::get('/numbers/add', 'EmergencyController@create')->name('add-numbers');
-	Route::post('/numbers/store', 'EmergencyController@store')->name('store-numbers');
-	Route::get('/numbers/edit/{nid}', 'EmergencyController@edit')->name('edit-numbers');
-	Route::post('/numbers/update/{nid}', 'EmergencyController@update')->name('update-numbers');
-	Route::get('/numbers/destroy/{nid}', 'EmergencyController@destroy')->name('destroy-numbers');
+    Route::any('/numbers', 'EmergencyController@index')->name('numbers');
+    Route::get('/numbers/add', 'EmergencyController@create')->name('add-numbers');
+    Route::post('/numbers/store', 'EmergencyController@store')->name('store-numbers');
+    Route::get('/numbers/edit/{nid}', 'EmergencyController@edit')->name('edit-numbers');
+    Route::post('/numbers/update/{nid}', 'EmergencyController@update')->name('update-numbers');
+    Route::get('/numbers/destroy/{nid}', 'EmergencyController@destroy')->name('destroy-numbers');
 
-	Route::any('/gratulation', 'GratulationPrintController@index')->name('gratulation');
-	Route::any('/gratulation/print', 'GratulationPrintController@export')->name('print-gratulation');
+    Route::any('/gratulation', 'GratulationPrintController@index')->name('gratulation');
+    Route::any('/gratulation/print', 'GratulationPrintController@export')->name('print-gratulation');
 
-	Route::any('/id', 'IdentificationPrintController@index')->name('identification');
-	Route::any('/id/print', 'IdentificationPrintController@export')->name('print-identification');
+    Route::any('/id', 'IdentificationPrintController@index')->name('identification');
+    Route::any('/id/print', 'IdentificationPrintController@export')->name('print-identification');
 
-	Route::any('/passed', 'PassedController@index')->name('passed');
-	Route::any('/passed/do', 'PassedController@set_flag')->name('do-passed');
+    Route::any('/passed', 'PassedController@index')->name('passed');
+    Route::any('/passed/do', 'PassedController@set_flag')->name('do-passed');
 });
