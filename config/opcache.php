@@ -4,6 +4,7 @@ return [
     'url' => env('OPCACHE_URL', config('app.url')),
     'prefix' => 'opcache-api',
     'verify_ssl' => true,
+    'verify_host' => 2, // 0 for disabled
     'headers' => [],
     'directories' => [
         base_path('app'),
@@ -23,6 +24,7 @@ return [
         'Stub',
         'stubs',
         'Stubs',
+        'dumper',
         'Dumper'
     ]
 ];
