@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 7.4.0 on 2020-04-04 20:28:34.
+ * Generated for Laravel 7.6.2 on 2020-04-18 12:55:25.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3066,6 +3066,8 @@ namespace Illuminate\Support\Facades {
     /**
      * 
      *
+     * @method static \Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
+     * @method static \Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
      * @see \Illuminate\Cache\CacheManager
      * @see \Illuminate\Cache\Repository
      */ 
@@ -6517,7 +6519,7 @@ namespace Illuminate\Support\Facades {
      *
      * @method static \Illuminate\Http\Client\PendingRequest asJson()
      * @method static \Illuminate\Http\Client\PendingRequest asForm()
-     * @method static \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers)
+     * @method static \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers = [])
      * @method static \Illuminate\Http\Client\PendingRequest asMultipart()
      * @method static \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
      * @method static \Illuminate\Http\Client\PendingRequest contentType(string $contentType)
@@ -6637,6 +6639,31 @@ namespace Illuminate\Support\Facades {
         {
                         /** @var \Illuminate\Http\Client\Factory $instance */
                         $instance->assertSent($callback);
+        }
+        
+        /**
+         * Assert that a request / response pair was not recorded matching a given truth test.
+         *
+         * @param callable $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNotSent($callback)
+        {
+                        /** @var \Illuminate\Http\Client\Factory $instance */
+                        $instance->assertNotSent($callback);
+        }
+        
+        /**
+         * Assert that no request / response pair was recorded.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingSent()
+        {
+                        /** @var \Illuminate\Http\Client\Factory $instance */
+                        $instance->assertNothingSent();
         }
         
         /**
@@ -15161,108 +15188,6 @@ namespace Illuminate\Support {
  
 }
 
-namespace Appstract\LushHttp { 
-
-    /**
-     * 
-     *
-     * @see \Appstract\LushHttp\Lush
-     */ 
-    class LushFacade {
-        
-        /**
-         * Set the url with parameters.
-         *
-         * @param $url
-         * @param array|object $parameters
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function url($url, $parameters = [])
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->url($url, $parameters);
-        }
-        
-        /**
-         * Set headers.
-         *
-         * @param array $headers
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function headers($headers)
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->headers($headers);
-        }
-        
-        /**
-         * Set options.
-         *
-         * @param array $options
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function options($options)
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->options($options);
-        }
-        
-        /**
-         * Reset all request options.
-         *
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function reset()
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->reset();
-        }
-        
-        /**
-         * Post as Json.
-         *
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function asJson()
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->asJson();
-        }
-        
-        /**
-         * Post as form params.
-         *
-         * @return \Appstract\LushHttp\Lush 
-         * @static 
-         */ 
-        public static function asFormParams()
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->asFormParams();
-        }
-        
-        /**
-         * Create a request.
-         *
-         * @param $method
-         * @return \Appstract\LushHttp\Response\LushResponse 
-         * @static 
-         */ 
-        public static function request($method)
-        {
-                        /** @var \Appstract\LushHttp\Lush $instance */
-                        return $instance->request($method);
-        }
-         
-    }
- 
-}
-
 namespace Barryvdh\Debugbar { 
 
     /**
@@ -19701,7 +19626,7 @@ namespace  {
             /**
              * Add an "order by" clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $column
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
              * @param string $direction
              * @return \Illuminate\Database\Query\Builder 
              * @throws \InvalidArgumentException
@@ -20452,8 +20377,6 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
-
-    class Lush extends \Appstract\LushHttp\LushFacade {}
 
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
 
