@@ -56,7 +56,13 @@
 										@endif
 									</td>
 									<td>
-										{{ $participant->current_balance }}
+                                        @if($participant->current_balance > 0)
+										    <span class="badge badge-success">{{ $participant->current_balance }}</span>
+                                        @elseif($participant->current_balance > 0)
+                                            <span class="badge badge-danger">{{ $participant->current_balance }}</span>
+                                        @else
+                                            <span class="badge badge-secondary">{{ $participant->current_balance }}</span>
+                                        @endif
 									</td>
 								</tr>
 							@endforeach
