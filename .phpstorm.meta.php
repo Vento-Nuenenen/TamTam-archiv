@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-05-13 15:38:12.
+    * Generated on 2020-05-25 19:21:37.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -22,6 +22,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -183,6 +184,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -344,6 +346,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -505,6 +508,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -666,6 +670,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -827,6 +832,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -988,6 +994,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
@@ -1149,6 +1156,7 @@ namespace PHPSTORM_META {
         'Facade\Ignition\IgnitionConfig' => \Facade\Ignition\IgnitionConfig::class,
         'Facade\Ignition\LogRecorder\LogRecorder' => \Facade\Ignition\LogRecorder\LogRecorder::class,
         'Facade\Ignition\QueryRecorder\QueryRecorder' => \Facade\Ignition\QueryRecorder\QueryRecorder::class,
+        'Illuminate\Auth\Middleware\RequirePassword' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
