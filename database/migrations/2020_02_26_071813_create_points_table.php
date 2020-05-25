@@ -15,7 +15,7 @@ class CreatePointsTable extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('reason');
+            $table->string('reason')->nullable();
             $table->integer('points');
             $table->boolean('is_addition');
             $table->bigInteger('FK_PRT')->unsigned()->index();
