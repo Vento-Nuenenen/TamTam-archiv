@@ -1,79 +1,64 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# HiLa - Group-Management online
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Features
+### Users management
+Create various users in the application. But there is no access-management.
+Every user can control the whole application / information.
+Seeded user can log in with the following data : admin@tab.ch:password
 
-## About Laravel
+### Participants management
+Create various participants. Ether manually or via csv-import (from MiData, see inline description in the app).
+Participants have those following attributes: Scoutname / First- & Lastname, Address, Place & PLZ, Birthday, Gender, Group & Picture
+Via csv-import you are not able to add pictures.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+All the participants get a unique barcode to easy get their data from the app. (And for fun....)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Group management
+You can create various groups and append participants to those. Groups have those following attributes: Name, Logo.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Graduation control
+Every participant can graduate. You can enable / disable graduations for all participants individually.
 
-## Learning Laravel
+### Emergency-contact printing
+Create various emergency-contacts (maximum 6). Those get printed to the back of the id-cards.
+Emergency-contacts have those following attributes: Description, Number.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Points management (per participant)
+Create various point-transactions. For all participants you can add positive / negative transactions, which calculates in to a balance.
+A transaction has those following attributes: Participant (select), amount of points, reason, addition / subtraction (toggle)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Print id-cards
+Print an id-card with all the Infos about the participants, with the defined emergency-contacts and the generated barcode.
+Should be laminated an always be on the participant.
 
-## Laravel Sponsors
+### Print gratulations
+Export a fancy designed letter of graduation for all the participants, who passed the course (Hopefully all of them).
+So you don't waste paper.... (Btw. I lied in about the fancy-part)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Technologies
+### PHP
+Developed & Tested on PHP: 7.4.6 & 7.4.4
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+### Laravel
+Based on Laravel-Framework Version: 7.12.0
 
-## Contributing
+### Yarn
+User Yarn to compile Assets in Version: 1.22.0
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Setup
+### Webserver
+Best use Apache or Nginx as Webserver. Surely with PHP module or FPM | FCGI.
+You'll have to set the document root into the dir `./public`.
 
-## Code of Conduct
+### Composer installation
+Now install all the composer-libraries with the command `composer install` or `php composer.phar install`.
+See here how to install composer: https://getcomposer.org/
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### DB Migration
+If the app is set up, you have to create a db by now. Enter the configuration to the .env or add them to the server ENV.
+If the configuration is done, run the following command: `php artisan migrate`
 
-## Security Vulnerabilities
+### DB Seeding
+When migration is done, let the DB be seeded: `php artisan db:seed`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Have fun... 
