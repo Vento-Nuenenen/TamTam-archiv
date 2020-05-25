@@ -80,7 +80,7 @@
                         {!! Form::label('reason', 'Begründung', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('reason', old('reason', $point->reason ?? null), array('id' => 'reason', 'class' => 'form-control', 'placeholder' => 'Begründung', 'required')) !!}
+                                {!! Form::text('reason', old('reason', $point->reason ?? null), array('id' => 'reason', 'class' => 'form-control', 'placeholder' => 'Begründung')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="reason">
                                         <i class="fa fa-user" aria-hidden="true"></i>
