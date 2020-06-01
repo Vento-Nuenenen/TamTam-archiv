@@ -10,7 +10,7 @@ class OverwatchController extends Controller
     public function index(Request $request){
         if($request->input('barcode') != null){
             $barcode = $request->input('barcode');
-	        $tns = DB::select("SELECT participations.*, points.*, groups.*, GROUP_CONCAT(points.points) AS points, 
+	        $tns = DB::select("SELECT participations.*, points.*, groups.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id`
   			    LEFT JOIN `groups` ON `participations`.`FK_GRP` = `groups`.`id` WHERE `participations`.`barcode` LIKE $barcode
@@ -46,7 +46,8 @@ class OverwatchController extends Controller
 	        	DB::table('participations')->where('id','=', $user->id)->update(['seat_number' => $j]);
 	        }
 
-           return view('overwatch.overwatch')->with('message', 'Tischordnung wurde erfolgreich generiert!');
+	        session()->put("message", "Tischordnung wurde erfolgreich generiert!");
+           return view('overwatch.overwatch');
        }else if($request->input('grouping')  != null){
         	$groups = DB::table('groups')->get();
         	$groups_count = count($groups);
@@ -64,7 +65,8 @@ class OverwatchController extends Controller
 		        }
 	        }
 
-           return view('overwatch.overwatch')->with('message', 'Gruppen wurden erfolgreich zugeordnet!');
+	        session()->put("message", "Gruppen wurden erfolgreich zugeordnet!");
+           return view('overwatch.overwatch');
        }else{
            return view('overwatch.overwatch');
        }

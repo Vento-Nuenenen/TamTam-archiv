@@ -21,8 +21,16 @@
 
 .text-color-positiv{
     background-color: rgba(0, 255, 0, 1.0);
+
+    &:hover{
+        background-color: rgb(0, 125, 0, 1.0);
+    }
 }
 
 .text-color-negativ{
     background-color: rgba(255, 0, 0, 1.0);
+
+    &:hover{
+        background-color: rgb(200, 20, 0, 1.0);
+    }
 }
