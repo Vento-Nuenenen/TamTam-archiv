@@ -170,7 +170,7 @@
                         {!! Form::label('barcode', 'EAN Code', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::text('barcode', old('barcode',$participations->barcode ?? null), array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'EAN Code', 'required')) !!}
+                                {!! Form::text('barcode', old('barcode',$participations->barcode ?? null), array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'EAN Code')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="last_name">
                                         <i class="fa fa-user" aria-hidden="true"></i>
