@@ -12,7 +12,7 @@ class PointTransactionController extends Controller
 		if ($request->input('search') == null) {
 			$transactions = DB::table('points')
 				->leftJoin('participations', 'points.FK_PRT', 'participations.id')
-				->select('points.*', 'participations.first_name', 'participations.last_name', 'participations.scout_name')->get();
+				->select('points.*', 'participations.first_name', 'participations.last_name', 'participations.scout_name', 'participations.barcode')->get();
 		} else {
 			$search_string = $request->input('search');
 			$transactions = DB::table('points')

@@ -38,7 +38,7 @@
                         <th>Name</th>
                         <th>Gruppe</th>
                         <th>Sitzplatz</th>
-                        <th class="text-center">EAN Nummer</th>
+                        <th>Barcode</th>
                         <th>Bild</th>
                         <th>Optionen</th>
                     </thead>

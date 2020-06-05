@@ -10,19 +10,19 @@ class CurrentPointsController extends Controller
 	public function index(Request $request)
 	{
 		if ($request->input('search') == null) {
-			$participations = DB::select('SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points, 
+			$participations = DB::select('SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id` GROUP BY participations.id;');
 		} else {
 			$search_string = $request->input('search');
 
-			$participations = DB::select("SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points, 
+			$participations = DB::select("SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id`
-  			     WHERE scout_name LIKE %$search_string% OR
-  			     WHERE last_name LIKE %$search_string% OR 
-  			     WHERE first_name LIKE %$search_string% OR 
-  			     WHERE barcode LIKE %$search_string%
+  			     WHERE scout_name LIKE '%$search_string%'
+  			     OR last_name LIKE '%$search_string%'
+  			     OR first_name LIKE '%$search_string%'
+  			     OR barcode LIKE '%$search_string%'
   			      GROUP BY participations.id;");
 		}
 

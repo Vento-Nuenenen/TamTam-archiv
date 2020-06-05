@@ -36,6 +36,7 @@
                 <table class="table table-hover">
                     <thead>
 						<th>Name</th>
+						<th>Barcode</th>
 						<th>Punkte</th>
                     </thead>
                     <tbody>
@@ -46,6 +47,11 @@
                                         {{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }}
                                     @else
                                         {{ $participant->first_name }} {{ $participant->last_name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($participant->barcode != null)
+                                        {{ $participant->barcode }}
                                     @endif
                                 </td>
                                 <td>

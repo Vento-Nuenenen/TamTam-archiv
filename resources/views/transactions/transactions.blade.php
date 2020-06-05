@@ -36,6 +36,7 @@
                 <table class="table table-hover">
                     <thead>
                         <th>Name</th>
+                        <th>Barcode</th>
                         <th>Punkte</th>
                         <th>Positiv / Negativ</th>
                         <th>Begründung</th>
@@ -49,6 +50,11 @@
                                         {{ $transaction->scout_name }} / {{ $transaction->first_name }} {{ $transaction->last_name }}
                                     @else
                                         {{ $transaction->first_name }} {{ $transaction->last_name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($transaction->barcode != null)
+                                        {{ $transaction->barcode }}
                                     @endif
                                 </td>
                                 <td>

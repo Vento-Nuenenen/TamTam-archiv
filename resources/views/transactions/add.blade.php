@@ -33,9 +33,9 @@
                                 @if ($participations)
                                     @foreach($participations as $participant)
                                         @if($participant->scout_name)
-                                            <option value="{{ $participant->id }}">{{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }}</option>
+                                            <option value="{{ $participant->id }}">{{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }} - {{$participant->barcode ?? '' }}</option>
                                         @else
-                                            <option value="{{ $participant->id }}">{{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }}</option>
+                                            <option value="{{ $participant->id }}">{{ $participant->first_name }} {{ $participant->last_name }} / {{ $participant->scout_name }}  - {{$participant->barcode ?? '' }}</option>
                                         @endif
                                     @endforeach
                                 @endif
