@@ -10,11 +10,11 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h2 class="float-left">
-                    Gratulationen
-				</h2>
+				<h5 class="float-left">Gratulationen</h5>
+
+                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
 			</div>
-            <div class="card-body table-responsive">
+            <div class="card-body">
                 Hier können Gratulationen für alle TN als PDF exportiert werden. Diese Richten sich nach dem eingegebenen Text, welcher mit bestimmten "Pattern" versehen werden kann.
                 @pfadiname wird durch den Pfadinamen des TN ersetzt.
 

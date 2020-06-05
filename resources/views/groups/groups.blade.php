@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="col-12">
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
             </div>
         @endif
 
-        <div class="card mb-3">
+        <div class="card">
             <div class="card-header">
                 {!! Form::open(array('route' => 'groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 <div class="input-group" id="adv-search">
@@ -26,18 +26,15 @@
             </div>
         </div>
 
-        <div class="card Groups mb-3">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Alle Gruppen
-                    </button>
-                </h5>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="float-left">Alle Gruppen</h5>
+
+                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".Groups">
-                <div class="card-body table-responsive">
-                    <table class="table table-hover">
-                        <thead>
+            <div class="card-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
                         <th>
                             Gruppenname
                         </th>
@@ -47,8 +44,8 @@
                         <th>
                             Optionen
                         </th>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         @foreach($groups as $group)
                             <tr>
                                 <td>
@@ -63,9 +60,8 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

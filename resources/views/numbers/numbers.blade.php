@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="col-12">
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
 			</div>
 		@endif
 
-		<div class="card mb-3">
+		<div class="card">
 			<div class="card-header">
 				<div class="input-group" id="adv-search">
 					<button onclick="location.href='{{ route('add-numbers') }}'" type="button" class="btn btn-primary form-control mt-2">Neue Notfallnummer</button>
@@ -16,19 +16,16 @@
 			</div>
 		</div>
 
-		<div class="card User mb-3">
-			<div class="card-header" id="headingOne">
-				<h5 class="mb-0">
-					<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						Alle Notfallnummern
-					</button>
-				</h5>
-			</div>
-			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".User">
-				<div class="card-body table-responsive">
-					<table class="table table-hover">
-						<thead>
-						<th>
+		<div class="card">
+			<div class="card-header">
+				<h2 class="float-left">Alle Notfallnummern</h2>
+
+                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <th>
 							Nummern-Bezeichnung
 						</th>
 						<th>
@@ -37,8 +34,8 @@
 						<th>
 							Optionen
 						</th>
-						</thead>
-						<tbody>
+                    </thead>
+                    <tbody>
 						@foreach($numbers as $number)
 							<tr>
 								<td>
@@ -53,10 +50,9 @@
 								</td>
 							</tr>
 						@endforeach
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection

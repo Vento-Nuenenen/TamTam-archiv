@@ -1,27 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="col-12">
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
 			</div>
 		@endif
 
-		<div class="card User mb-3">
-			<div class="card-header" id="headingOne">
-				<h5 class="mb-0">
-					<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						Barcode Auslesen
-					</button>
-				</h5>
+		<div class="card">
+			<div class="card-header">
+				<h5>Barcode Auslesen</h5>
 			</div>
 			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".User">
 				<div class="card-body table-responsive">
 					<form method="post">
 						@csrf
-						<input type="number" id="barcode" name="barcode" maxlength="13" autofocus />
-						<input type="submit" />
+						<input class="col-6" type="number" id="barcode" name="barcode" maxlength="13" autofocus />
+						<input class="col-4 offset-1 btn btn-success" value="Zeigen" type="submit" />
 					</form>
 
 					<div class="card-body table-responsive">
@@ -58,40 +54,28 @@
 			</div>
 		</div>
 
-		<div class="card User mb-3">
-			<div class="card-header" id="headingTwo">
-				<h5 class="mb-0">
-					<button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						Tischordnung erstellen
-					</button>
-				</h5>
+		<div class="card">
+			<div class="card-header">
+				<h5>Tischordnung erstellen</h5>
 			</div>
-			<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent=".User">
-				<div class="card-body table-responsive">
-					<form method="post">
-						@csrf
-						<input onclick="return confirm('Are you sure?')" type="submit" name="tableorder" id="tableorder" class="btn btn-success col-md-12" value="Tischordnung erstellen" />
-					</form>
-				</div>
-			</div>
+            <div class="card-body">
+                <form method="post">
+                    @csrf
+                    <input onclick="return confirm('Are you sure?')" type="submit" name="tableorder" id="tableorder" class="btn btn-success col-md-12" value="Tischordnung erstellen" />
+                </form>
+            </div>
 		</div>
 
-		<div class="card User mb-3">
-			<div class="card-header" id="headingThree">
-				<h5 class="mb-0">
-					<button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						Gruppen aufteilen
-					</button>
-				</h5>
+		<div class="card">
+			<div class="card-header" >
+				<h5>Gruppen aufteilen</h5>
 			</div>
-			<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent=".User">
-				<div class="card-body table-responsive">
-					<form method="post">
-						@csrf
-						<input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-12" value="Gruppen aufteilen" />
-					</form>
-				</div>
-			</div>
+            <div class="card-body">
+                <form method="post">
+                    @csrf
+                    <input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-12" value="Gruppen aufteilen" />
+                </form>
+            </div>
 		</div>
 	</div>
 @endsection
