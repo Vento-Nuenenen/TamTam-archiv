@@ -31,7 +31,7 @@
                         {!! Form::label('participant', 'Teilnehmer', array('class' => 'col-md-3 control-label')); !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                <select class="custom-select form-control selectpicker" data-style="btn-secondary" name="participant" id="participant" required>
+                                <select class="form-control selectpicker" data-style="btn-primary" data-live-search="true" name="participant" id="participant" required>
                                     <option value="">Teilnehmer wählen</option>
                                     @if ($participations)
                                         @foreach($participations as $participant)
@@ -45,7 +45,7 @@
                                 </select>
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="participant">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                                 {!! Form::text('points', old('points', $point->points ?? null), array('id' => 'points', 'class' => 'form-control', 'placeholder' => 'Punkte', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="points">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <i class="fa fa-money" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                 {!! Form::text('reason', old('reason', $point->reason ?? null), array('id' => 'reason', 'class' => 'form-control', 'placeholder' => 'Begründung')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="reason">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <i class="fa fa-file-text" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>

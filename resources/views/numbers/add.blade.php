@@ -28,7 +28,7 @@
                                 {!! Form::text('number_name', NULL, array('id' => 'number_name', 'class' => 'form-control', 'placeholder' => 'Nummernbezeichnung', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 {!! Form::text('number', NULL, array('id' => 'number', 'class' => 'form-control', 'placeholder' => 'Telefonnummer', 'required')) !!}
                                 <div class="input-group-append">
                                     <label class="input-group-text" for="group_name">
-                                        <i class="fa fa-group" aria-hidden="true"></i>
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
                                     </label>
                                 </div>
                             </div>

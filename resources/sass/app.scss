@@ -34,3 +34,9 @@
         background-color: rgb(200, 20, 0, 1.0);
     }
 }
+
+.dropdown-item{
+    &:hover{
+        background-color: #b7dbff;
+    }
+}
