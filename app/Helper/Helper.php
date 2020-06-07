@@ -3,11 +3,12 @@
 namespace App\Helper;
 
 use DB;
+use function GuzzleHttp\Psr7\str;
 
 class Helper{
     public static function generateBarcode(){
         do{
-            $barcode = mt_rand(000000000001, 999999999999);
+            $barcode = (string) mt_rand(100000000000, 999999999999);
             $barcode = Helper::ean13_check_digit($barcode);
         }while(DB::table('participations')->where('barcode', $barcode)->exists());
 
@@ -29,6 +30,7 @@ class Helper{
         // result in step 4,  produces a multiple of 10.
         $next_ten = (ceil($total_sum / 10)) * 10;
         $check_digit = $next_ten - $total_sum;
+
         return $digits.$check_digit;
     }
 }
