@@ -129,7 +129,7 @@ class ParticipationsController extends Controller
 	        if($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname'){
 				unset($content);
 	        }else{
-	        	if(isset($content[6])){
+	        	if(!empty($content[6])){
 	        		if($content[6][0] == 'm'){
 	        			$gnd = 'Männlich';
 			        }elseif($content[6][0] == 'w'){
@@ -143,12 +143,17 @@ class ParticipationsController extends Controller
 	        		$gnd = null;
 		        }
 
-		        $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
-		        $birthday = $carbon_birthday->format('Y-m-d');
+	        	if(!empty($content[7])){
+                    $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
+                    $birthday = $carbon_birthday->format('Y-m-d');
+                }else{
+	        	    $birthday = '01.01.2000';
+                }
+
 	        	$barcode = Helper::generateBarcode();
 
 		        isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
-		        DB::table('participations')->insert(['first_name' => $content[0], 'last_name' => $content[1], 'scout_name' => $content[2], 'address' => $content[3], 'plz' => $content[4], 'place' => $content[5], 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
+		        DB::table('participations')->insert(['first_name' => utf8_encode($content[0]), 'last_name' => utf8_encode($content[1]), 'scout_name' => utf8_encode($content[2]), 'address' => utf8_encode($content[3]), 'plz' => $content[4], 'place' => utf8_encode($content[5]), 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
 	        }
         }
 
