@@ -10,6 +10,7 @@ class OverwatchController extends Controller
     public function index(Request $request){
         if($request->input('barcode') != null){
             $barcode = $request->input('barcode');
+
 	        $tns = DB::select("SELECT participations.*, points.*, groups.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id`
@@ -35,7 +36,9 @@ class OverwatchController extends Controller
 		        $tn->current_balance = $balance;
 	        }
 
-            return view('overwatch.overwatch', ['tn' => $tns[0]]);
+            $tns = $tns[0] ?? null;
+
+            return view('overwatch.overwatch', ['tn' => $tns]);
        }else if($request->input('tableorder')  != null){
             $users = DB::table('participations')->inRandomOrder()->get();
 
