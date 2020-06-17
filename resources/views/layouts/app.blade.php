@@ -20,9 +20,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            @include('layouts.nav')
+        @include('layouts.nav')
 
+        <div class="container">
             <main class="py-4">
                 @yield('content')
             </main>
