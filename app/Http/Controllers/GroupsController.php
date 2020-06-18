@@ -44,7 +44,7 @@ class GroupsController extends Controller
     public function store(Request $request){
         $group_name = $request->input('group_name');
 
-	    if($request->file('tn_img')){
+	    if($request->file('group_logo')){
 		    $logo_name = time() .'.' . $request->file('group_logo')->extension();
 		    $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
 	    }else{
@@ -79,7 +79,7 @@ class GroupsController extends Controller
     public function update(Request $request, $gid){
         $group_name = $request->input('group_name');
 
-	    if($request->file('tn_img')){
+	    if($request->file('group_logo')){
 		    $logo_name = time() .'.' . $request->file('group_logo')->extension();
 		    $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
 	    }else{
