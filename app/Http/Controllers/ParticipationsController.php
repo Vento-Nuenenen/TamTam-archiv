@@ -123,7 +123,7 @@ class ParticipationsController extends Controller
             return redirect()->back()->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
         }
 
-        $contents = read_file($participations_list);
+        $contents = read_csv_file($participations_list);
 
         foreach ($contents as $content) {
             if ($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname') {

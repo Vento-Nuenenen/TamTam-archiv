@@ -1,8 +1,9 @@
 <?php
 /*
-    * Read a csv file containing two rows personId and groupId
-    */
-function read_file($file)
+* Read a csv file containing two rows personId and groupId
+*/
+
+function read_csv_file($file)
 {
     $persons = [];
     $delimiter = detect_delimiter($file);
