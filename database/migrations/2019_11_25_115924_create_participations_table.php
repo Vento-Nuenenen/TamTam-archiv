@@ -22,13 +22,13 @@ class CreateParticipationsTable extends Migration
             $table->string('plz');
             $table->string('place');
             $table->date('birthday');
-	        $table->string('gender')->nullable();
-	        $table->string('person_picture')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('person_picture')->nullable();
             $table->string('barcode')->unique()->nullable();
             $table->integer('seat_number')->nullable();
             $table->boolean('course_passed')->default(false);
             $table->bigInteger('FK_GRP')->unsigned()->index()->nullable();
-	        $table->timestamps();
+            $table->timestamps();
         });
     }
 
