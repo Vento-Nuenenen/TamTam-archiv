@@ -1,19 +1,19 @@
 <?php
 /*
-	* Read a csv file containing two rows personId and groupId
-	*/
-function read_file($file){
-    $persons = array();
+    * Read a csv file containing two rows personId and groupId
+    */
+function read_file($file)
+{
+    $persons = [];
     $delimiter = detect_delimiter($file);
 
     // Create array from file contents (personID, groupID)
     $fp = fopen($file, 'rb');
-    while(!feof($fp)) {
+    while (! feof($fp)) {
         $line = fgetcsv($fp, null, $delimiter);
 
         //Only include lines with two columns
-        if(isset($line[0]) > 0 && isset($line[1]) > 0)
-        {
+        if (isset($line[0]) > 0 && isset($line[1]) > 0) {
             $persons[] = $line;
         }
     }
@@ -25,16 +25,17 @@ function read_file($file){
 * Excel and other tools sometimes use other delimeters than comma.
 * This can be used to detect such cases
 */
-if (!function_exists('detect_delimiter')) {
-    function detect_delimiter($csvFile){
-        $delimiters = array(
+if (! function_exists('detect_delimiter')) {
+    function detect_delimiter($csvFile)
+    {
+        $delimiters = [
             ';' => 0,
             ',' => 0,
             "\t" => 0,
-            "|" => 0
-        );
+            '|' => 0,
+        ];
 
-        $handle = fopen($csvFile, "r");
+        $handle = fopen($csvFile, 'r');
         $firstLine = fgets($handle);
         fclose($handle);
         foreach ($delimiters as $delimiter => &$count) {

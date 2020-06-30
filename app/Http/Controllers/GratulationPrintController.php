@@ -2,36 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use DB;
 use App\Helper\Helper;
+use DB;
+use Illuminate\Http\Request;
 use PDF;
 
 class GratulationPrintController extends Controller
 {
-	public function index(){
+    public function index()
+    {
         $text = file_get_contents(storage_path('app/template/gratulation.txt'));
 
-		return view('gratulation.gratulation', ['text' => $text]);
-	}
+        return view('gratulation.gratulation', ['text' => $text]);
+    }
 
-	public function export(Request $request){
-        if($request->action == 'save'){
+    public function export(Request $request)
+    {
+        if ($request->action == 'save') {
             file_put_contents(storage_path('app/template/gratulation.txt'), $request->certificate_text);
 
             return redirect()->back()->with('message', 'Neuer Text wurde gespeichert!');
-        }elseif($request->input('action') == 'print'){
+        } elseif ($request->input('action') == 'print') {
             $persons = DB::table('participations')->where('course_passed', '=', true)->get();
 
             foreach ($persons as $person) {
                 $text = $request->certificate_text;
-                $title = "";
+                $title = '';
 
-                if(substr($person->gender, 0, 1) == 'M'){
+                if (substr($person->gender, 0, 1) == 'M') {
                     $title = 'Lieber';
-                }elseif(substr($person->gender, 0, 1) == 'W'){
+                } elseif (substr($person->gender, 0, 1) == 'W') {
                     $title = 'Liebe';
-                }elseif(substr($person->gender, 0, 1) == 'A'){
+                } elseif (substr($person->gender, 0, 1) == 'A') {
                     $title = 'Liebe';
                 }
 
@@ -55,5 +57,5 @@ class GratulationPrintController extends Controller
 
             return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
         }
-	}
+    }
 }

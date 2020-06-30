@@ -5,17 +5,20 @@ namespace App\Helper;
 use DB;
 use function GuzzleHttp\Psr7\str;
 
-class Helper{
-    public static function generateBarcode(){
-        do{
+class Helper
+{
+    public static function generateBarcode()
+    {
+        do {
             $barcode = (string) mt_rand(100000000000, 999999999999);
-            $barcode = Helper::ean13_check_digit($barcode);
-        }while(DB::table('participations')->where('barcode', $barcode)->exists());
+            $barcode = self::ean13_check_digit($barcode);
+        } while (DB::table('participations')->where('barcode', $barcode)->exists());
 
         return $barcode;
     }
 
-    public static function ean13_check_digit($digits){
+    public static function ean13_check_digit($digits)
+    {
         //first change digits to a string so that we can access individual numbers
         $digits = (string) $digits;
         // 1\. Add the values of the digits in the even-numbered positions: 2, 4, 6, etc.

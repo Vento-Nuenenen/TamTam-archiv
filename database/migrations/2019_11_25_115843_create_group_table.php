@@ -17,7 +17,7 @@ class CreateGroupTable extends Migration
             $table->bigIncrements('id');
             $table->string('group_name');
             $table->string('logo_file_name')->nullable();
-	        $table->timestamps();
+            $table->timestamps();
         });
     }
 
