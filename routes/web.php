@@ -42,13 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/groups/update/{gid}', 'GroupsController@update')->name('update-groups');
     Route::get('/groups/destroy/{gid}', 'GroupsController@destroy')->name('destroy-groups');
 
-    Route::any('/fields', 'FieldsController@index')->name('fields');
-    Route::get('/fields/add', 'FieldsController@create')->name('add-fields');
-    Route::post('/fields/store', 'FieldsController@store')->name('store-fields');
-    Route::get('/fields/edit/{fid}', 'FieldsController@edit')->name('edit-fields');
-    Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
-    Route::get('/fields/destroy/{fid}', 'FieldsController@destroy')->name('destroy-fields');
-
     Route::any('/points', 'CurrentPointsController@index')->name('points');
     Route::get('/points/add', 'CurrentPointsController@create')->name('add-points');
     Route::post('/points/store', 'CurrentPointsController@store')->name('store-points');
