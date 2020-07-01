@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-06-29 17:08:28.
+    * Generated on 2020-07-01 16:14:26.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -123,6 +123,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -285,6 +286,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -447,6 +449,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -609,6 +612,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -771,6 +775,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -933,6 +938,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -1095,6 +1101,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
@@ -1257,6 +1264,7 @@ namespace PHPSTORM_META {
         'command.session.table' => \Illuminate\Session\Console\SessionTableCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.stub.publish' => \Illuminate\Foundation\Console\StubPublishCommand::class,
+        'command.test-factory-helper.generate' => \Mpociot\LaravelTestFactoryHelper\Console\GenerateCommand::class,
         'command.test.make' => \Illuminate\Foundation\Console\TestMakeCommand::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
