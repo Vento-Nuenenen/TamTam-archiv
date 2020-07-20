@@ -2,6 +2,7 @@
 
 namespace App\Helper;
 
+use Carbon\Carbon;
 use DB;
 use function GuzzleHttp\Psr7\str;
 
@@ -35,5 +36,12 @@ class Helper
         $check_digit = $next_ten - $total_sum;
 
         return $digits.$check_digit;
+    }
+
+    public static function calc_birthday($persons, $personindex){
+        $carbon_birthday = Carbon::createFromFormat('Y-m-d', $persons[$personindex]->birthday);
+        $birthday = $carbon_birthday->format('d.m.Y');
+
+        return $birthday;
     }
 }
