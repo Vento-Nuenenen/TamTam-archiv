@@ -27,6 +27,10 @@
 									<th>Barcode: </th>
 									<td>{{ $tn->barcode }}</td>
 								</tr>
+                                <tr>
+                                    <th>Bestanden: </th>
+                                    <td><span class="badge badge-{{ $tn->course_passed ? 'success' : 'danger' }}">{{ $tn->course_passed ? 'Ja' : 'Nein' }}</span></td>
+                                </tr>
 								<tr>
 									<th>Pfadiname: </th>
 									<td>{{ isset($tn->scout_name) ? $tn->scout_name : 'K.A.' }}</td>
@@ -45,7 +49,15 @@
 								</tr>
 								<tr>
 									<th>Aktuelle Punkte: </th>
-									<td>{{ $tn->current_balance }}</td>
+                                    <td>
+                                        @if($tn->current_balance > 0)
+                                            <span class="badge badge-success">{{ $tn->current_balance }}</span>
+                                        @elseif($tn->current_balance < 0)
+                                            <span class="badge badge-danger">{{ $tn->current_balance }}</span>
+                                        @else
+                                            <span class="badge badge-secondary">{{ $tn->current_balance }}</span>
+                                        @endif
+                                    </td>
 								</tr>
 							</table>
 						@endif
