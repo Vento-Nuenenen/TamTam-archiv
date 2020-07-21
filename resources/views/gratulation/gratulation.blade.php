@@ -16,7 +16,7 @@
 			</div>
             <div class="card-body">
                 Hier können Gratulationen für alle TN als PDF exportiert werden. Diese Richten sich nach dem eingegebenen Text, welcher mit bestimmten "Pattern" versehen werden kann.
-                @pfadiname wird durch den Pfadinamen des TN ersetzt.
+                @pfadiname wird durch den Pfadinamen des TN ersetzt. @title wird durch die definierten Anreden ersetzt (Genderabhängig).
 
                 <br />
                 <hr />
@@ -24,6 +24,66 @@
 
                 <form method="POST" action="{{ route('print-gratulation') }}">
                     {!! csrf_field() !!}
+
+                    <div class="form-group has-feedback row {{ $errors->has('title') ? ' has-error ' : '' }}">
+                        {!! Form::label('title', 'Anrede (@title)', array('class' => 'col-md-12 control-label')); !!}
+
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                {!! Form::text('title_m', old('title_m', $title_m ?? null), array('id' => 'title_m', 'class' => 'form-control', 'placeholder' => 'Anrede Männlich')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="title_m">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('title_m'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('title_m') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        <span>&nbsp;</span>
+
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                {!! Form::text('title_f', old('title_f', $title_f ?? null), array('id' => 'title_f', 'class' => 'form-control', 'placeholder' => 'Anrede Weiblich')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="title_f">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('title_f'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('title_f') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        <span>&nbsp;</span>
+
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                {!! Form::text('title_o', old('title_o', $title_o ?? null), array('id' => 'title_o', 'class' => 'form-control', 'placeholder' => 'Anrede Andere')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="title_o">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('title_o'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('title_o') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr />
+                    <br />
 
                     <div class="form-group col-md-11 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
                         <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text" required>{{ $text }}</textarea>
