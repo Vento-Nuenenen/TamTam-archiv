@@ -85,7 +85,7 @@
             <div class="card-body">
                 <form method="post">
                     @csrf
-                    <input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-12" value="Gruppen aufteilen" />
+                    <input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-12" value="Gruppen aufteilen" {{ env('ENABLE_GROUP_BUILDER') ?: 'disabled' }} />
                 </form>
             </div>
 		</div>
