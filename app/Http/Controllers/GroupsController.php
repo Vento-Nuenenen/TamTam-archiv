@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use DB;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class GroupsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $groups = DB::table('groups')->select('groups.*')->get();
+            $groups = Group::all();
         } else {
             $search_string = $request->input('search');
             $groups = DB::table('groups')
@@ -88,11 +89,18 @@ class GroupsController extends Controller
         if ($request->file('group_logo')) {
             $logo_name = time().'.'.$request->file('group_logo')->extension();
             $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
-        } else {
+        }else{
             $logo_name = null;
         }
 
-        DB::table('groups')->where('id', '=', $gid)->update(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
+        $group = Group::find($gid);
+        $group->group_name = $group_name;
+
+        if($logo_name != null){
+            $group->logo_file_name = $logo_name;
+        }
+
+        $group->save();
 
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }

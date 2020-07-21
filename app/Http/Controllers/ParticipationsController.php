@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\Helper;
+use App\Models\Participant;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Contracts\View\Factory;
@@ -217,19 +218,22 @@ class ParticipationsController extends Controller
             $img_name = null;
         }
 
-        DB::table('participations')->where('id', '=', $pid)->update([
-            'scout_name' => $scout_name,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'barcode' => $barcode,
-            'address' => $address,
-            'plz' => $plz,
-            'place' => $place,
-            'birthday' => $birthday,
-            'gender' => $gender,
-            'FK_GRP' => $group,
-            'person_picture' => $img_name,
-        ]);
+        $participant = Participant::find($pid);
+        $participant->scout_name = $scout_name;
+        $participant->first_name = $first_name;
+        $participant->last_name = $last_name;
+        $participant->barcode = $barcode;
+        $participant->address = $address;
+        $participant->plz = $plz;
+        $participant->place = $place;
+        $participant->birthday = $birthday;
+        $participant->gender = $gender;
+        $participant->FK_GRP = $group;
+        if($img_name != null){
+            $participant->person_picture = $img_name;
+        }
+
+        $participant->save();
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }
