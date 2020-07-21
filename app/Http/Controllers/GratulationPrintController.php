@@ -11,6 +11,22 @@ class GratulationPrintController extends Controller
 {
     public function index()
     {
+        if(!file_exists(storage_path('app/template/gratulation.txt'))){
+            touch(storage_path('app/template/gratulation.txt'));
+        }
+
+        if(!file_exists(storage_path('app/template/title_m.txt'))){
+            touch(storage_path('app/template/title_m.txt'));
+        }
+
+        if(!file_exists(storage_path('app/template/title_f.txt'))){
+            touch(storage_path('app/template/title_f.txt'));
+        }
+
+        if(!file_exists(storage_path('app/template/title_o.txt'))){
+            touch(storage_path('app/template/title_o.txt'));
+        }
+
         $text = file_get_contents(storage_path('app/template/gratulation.txt'));
         $title_m = file_get_contents(storage_path('app/template/title_m.txt'));
         $title_f = file_get_contents(storage_path('app/template/title_f.txt'));
