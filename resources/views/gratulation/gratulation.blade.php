@@ -85,10 +85,11 @@
                     <hr />
                     <br />
 
-                    <div class="form-group col-md-11 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
-                        <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text" required>{{ $text }}</textarea>
+                    <div class="form-group col-md-12 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
+                        <textarea class="form-control col-12" rows="9" name="certificate_text" id="certificate_text" required>{{ $text }}</textarea>
                     </div>
                     <div class="clearfix"></div>
+                    <br />
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-primary col-5" name="action" value="save"><i class='fa fa-fw fa-save' aria-hidden='true'></i> Speichern</button>
                         <button type="submit" class="btn btn-success col-5 offset-1" name="action" value="print"><i class='fa fa-fw fa-print' aria-hidden='true'></i> Drucken</button>
@@ -97,4 +98,17 @@
             </div>
 		</div>
 	</div>
+@endsection
+
+@section('import')
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+@endsection
+
+@section('script')
+    <script>
+        CKEDITOR.replace('certificate_text', {
+            language: 'de',
+            width: '100%'
+        });
+    </script>
 @endsection
