@@ -16,7 +16,7 @@
 			</div>
             <div class="card-body">
                 Hier können Gratulationen für alle TN als PDF exportiert werden. Diese Richten sich nach dem eingegebenen Text, welcher mit bestimmten "Pattern" versehen werden kann.
-                @pfadiname wird durch den Pfadinamen des TN ersetzt. @title wird durch die definierten Anreden ersetzt (Genderabhängig).
+                @name wird durch den Pfadinamen des TN ersetzt. @title wird durch die definierten Anreden ersetzt (Genderabhängig).
 
                 <br />
                 <hr />

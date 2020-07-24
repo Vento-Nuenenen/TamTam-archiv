@@ -74,7 +74,8 @@ class GratulationPrintController extends Controller
                 PDF::SetTopMargin(50);
 
                 PDF::AddPage();
-                PDF::WriteHTML(0, 10, $text, 0, 'C');
+                PDF::setXY(0,10);
+                PDF::WriteHTML($text, true, 0, false, false, 'C');
             }
 
             return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
