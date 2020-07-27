@@ -12,7 +12,8 @@ class PointTransactionController extends Controller
         if ($request->input('search') == null) {
             $transactions = DB::table('points')
                 ->leftJoin('participations', 'points.FK_PRT', 'participations.id')
-                ->select('points.*', 'participations.first_name', 'participations.last_name', 'participations.scout_name', 'participations.barcode')->get();
+                ->select('points.*', 'participations.first_name', 'participations.last_name', 'participations.scout_name', 'participations.barcode')
+                ->orderBy('points.id', 'DESC')->get();
         } else {
             $search_string = $request->input('search');
             $transactions = DB::table('points')
@@ -20,7 +21,8 @@ class PointTransactionController extends Controller
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
-                ->orWhere('barcode', 'LIKE', "%$search_string%")->get();
+                ->orWhere('barcode', 'LIKE', "%$search_string%")
+                ->orderBy('points.id', 'DESC')->get();
         }
 
         return view('transactions.transactions', ['transactions' => $transactions]);
