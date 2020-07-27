@@ -22,6 +22,7 @@ class PointTransactionController extends Controller
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
                 ->orWhere('barcode', 'LIKE', "%$search_string%")
+                ->orWhere('reason', 'LIKE', "%$search_string%")
                 ->orderBy('points.id', 'DESC')->get();
         }
 
