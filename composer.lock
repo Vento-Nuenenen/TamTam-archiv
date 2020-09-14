@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad058c60dfecb27aea3aac9f15ca96e4",
+    "content-hash": "a2442293d659c095d7fed7a909a9bb81",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -576,20 +576,20 @@
         },
         {
             "name": "elibyy/tcpdf-laravel",
-            "version": "7.0.0",
+            "version": "8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elibyy/tcpdf-laravel.git",
-                "reference": "0d6a16931b274566da59c06e59d8561e54f50bc6"
+                "reference": "2ec283c7b157cd31c91abe42fa1c9d801d9df6cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/0d6a16931b274566da59c06e59d8561e54f50bc6",
-                "reference": "0d6a16931b274566da59c06e59d8561e54f50bc6",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/2ec283c7b157cd31c91abe42fa1c9d801d9df6cf",
+                "reference": "2ec283c7b157cd31c91abe42fa1c9d801d9df6cf",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
                 "tecnickcom/tcpdf": "6.2.*|6.3.*"
             },
             "type": "library",
@@ -618,13 +618,13 @@
                     "email": "elibyy@gmail.com"
                 }
             ],
-            "description": "tcpdf support for Laravel 6 & 7",
+            "description": "tcpdf support for Laravel 6, 7, 8",
             "keywords": [
                 "TCPDF",
                 "laravel",
                 "pdf"
             ],
-            "time": "2020-03-04T12:27:42+00:00"
+            "time": "2020-09-09T17:03:16+00:00"
         },
         {
             "name": "fideloper/proxy",
