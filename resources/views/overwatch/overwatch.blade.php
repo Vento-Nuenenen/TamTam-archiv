@@ -66,7 +66,9 @@
 			</div>
 		</div>
 
-		<div class="card">
+        <div class="clearfix p-3"></div>
+
+        <div class="card">
 			<div class="card-header">
 				<h5>Tischordnung erstellen</h5>
 			</div>
@@ -77,6 +79,8 @@
                 </form>
             </div>
 		</div>
+
+        <div class="clearfix p-3"></div>
 
 		<div class="card">
 			<div class="card-header" >
