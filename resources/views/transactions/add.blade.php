@@ -58,7 +58,7 @@
                     {!! Form::label('points', 'Punkte', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('points', NULL, array('id' => 'points', 'class' => 'form-control', 'placeholder' => 'Punkte', 'required')) !!}
+                            {!! Form::number('points', NULL, array('id' => 'points', 'class' => 'form-control', 'placeholder' => 'Punkte', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="points">
                                     <i class="fa fa-money" aria-hidden="true"></i>
