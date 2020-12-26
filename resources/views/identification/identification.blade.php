@@ -10,7 +10,7 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h5 class="float-left">ID-Karten für alle TN erstellen</h5>
+				<h5 class="float-left">ID-Karten für alle TN drucken</h5>
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
