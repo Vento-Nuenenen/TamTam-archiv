@@ -3,18 +3,19 @@
 * Read a csv file containing two rows personId and groupId
 */
 
-if (! function_exists('read_csv_file')){
-    function read_csv_file($file){
+if (! function_exists('read_csv_file')) {
+    function read_csv_file($file)
+    {
         $persons = [];
         $delimiter = detect_delimiter($file);
 
         // Create array from file contents (personID, groupID)
         $fp = fopen($file, 'rb');
-        while(!feof($fp)){
+        while (! feof($fp)) {
             $line = fgetcsv($fp, null, $delimiter);
 
             //Only include lines with two columns
-            if(isset($line[0]) > 0 && isset($line[1]) > 0){
+            if (isset($line[0]) > 0 && isset($line[1]) > 0) {
                 $persons[] = $line;
             }
         }

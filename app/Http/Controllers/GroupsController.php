@@ -94,14 +94,14 @@ class GroupsController extends Controller
         if ($request->file('group_logo')) {
             $logo_name = time().'.'.$request->file('group_logo')->extension();
             $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
-        }else{
+        } else {
             $logo_name = null;
         }
 
         $group = Group::find($gid);
         $group->group_name = $group_name;
 
-        if($logo_name != null){
+        if ($logo_name != null) {
             $group->logo_file_name = $logo_name;
         }
 

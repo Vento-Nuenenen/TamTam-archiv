@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\GratulationPrintController
+ * @see \App\Http\Controllers\PrintGratulationController
  */
 class GratulationPrintControllerTest extends TestCase
 {

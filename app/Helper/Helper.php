@@ -38,7 +38,8 @@ class Helper
         return $digits.$check_digit;
     }
 
-    public static function calc_birthday($persons, $personindex){
+    public static function calc_birthday($persons, $personindex)
+    {
         $carbon_birthday = Carbon::createFromFormat('Y-m-d', $persons[$personindex]->birthday);
         $birthday = $carbon_birthday->format('d.m.Y');
 

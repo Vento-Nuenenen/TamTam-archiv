@@ -75,12 +75,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/items/update/{nid}', 'ItemsController@update')->name('update-items');
     Route::get('/items/destroy/{nid}', 'ItemsController@destroy')->name('destroy-items');
 
-    Route::any('/gratulation', 'GratulationPrintController@index')->name('gratulation');
-    Route::any('/gratulation/print', 'GratulationPrintController@export')->name('print-gratulation');
+    Route::any('/gratulation', 'PrintGratulationController@index')->name('gratulation');
+    Route::any('/gratulation/print', 'PrintGratulationController@export')->name('print-gratulation');
 
-    Route::any('/id', 'IdentificationPrintController@index')->name('identification');
-    Route::any('/id/print', 'IdentificationPrintController@export')->name('print-identification');
+    Route::any('/id', 'PrintIdentificationController@index')->name('identification');
+    Route::any('/id/print', 'PrintIdentificationController@print')->name('print-identification');
 
     Route::any('/passed', 'PassedController@index')->name('passed');
     Route::any('/passed/do', 'PassedController@set_flag')->name('do-passed');
+
+    Route::any('/pricelist', 'PrintPricelistController@index')->name('pricelist');
+    Route::any('/pricelist/print', 'PrintPricelistController@print')->name('print-pricelist');
 });

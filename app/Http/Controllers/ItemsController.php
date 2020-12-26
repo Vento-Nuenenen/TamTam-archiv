@@ -22,10 +22,11 @@ class ItemsController extends Controller
      *
      * @return Application|Factory|View|Response
      */
-    public function index(Request $request){
-        if($request->search == null){
+    public function index(Request $request)
+    {
+        if ($request->search == null) {
             $items = Items::all();
-        }else{
+        } else {
             $search_string = $request->search;
             $items = DB::table('items')
                 ->select('items.*')
@@ -66,7 +67,6 @@ class ItemsController extends Controller
             'item_barcode' => $item_barcode,
         ]);
 
-
         return redirect()->back()->with('message', 'Artikel wurde erstellt.');
     }
 
@@ -102,7 +102,7 @@ class ItemsController extends Controller
         $item->item_name = $item_name;
         $item->item_price = $item_price;
 
-        if($item_barcode != null){
+        if ($item_barcode != null) {
             $item->item_barcode = $item_barcode;
         }
 

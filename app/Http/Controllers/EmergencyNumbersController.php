@@ -50,7 +50,7 @@ class EmergencyNumbersController extends Controller
 
         DB::table('emergency_numbers')->insert([
             'name' => $number_name,
-            'number' => $number
+            'number' => $number,
         ]);
 
         return redirect()->back()->with('message', 'Nummer wurde erstellt.');

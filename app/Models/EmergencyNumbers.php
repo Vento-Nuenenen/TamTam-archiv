@@ -11,6 +11,6 @@ class EmergencyNumbers extends Model
     protected $fillable = [
         'name',
         'number',
-        'order'
+        'order',
     ];
 }

@@ -229,7 +229,7 @@ class ParticipationsController extends Controller
         $participant->birthday = $birthday;
         $participant->gender = $gender;
         $participant->FK_GRP = $group;
-        if($img_name != null){
+        if ($img_name != null) {
             $participant->person_picture = $img_name;
         }
 
