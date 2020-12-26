@@ -20,10 +20,10 @@ class GroupsController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->input('search') == null) {
+        if ($request->search == null) {
             $groups = Group::all();
         } else {
-            $search_string = $request->input('search');
+            $search_string = $request->search;
             $groups = DB::table('groups')
                 ->select('groups.*')
                 ->where('groups.group_name', 'LIKE', "%$search_string%")->get();
