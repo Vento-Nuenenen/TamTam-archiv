@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/numbers/edit/{nid}', 'EmergencyNumbersController@edit')->name('edit-numbers');
     Route::post('/numbers/update/{nid}', 'EmergencyNumbersController@update')->name('update-numbers');
     Route::get('/numbers/destroy/{nid}', 'EmergencyNumbersController@destroy')->name('destroy-numbers');
+    Route::post('/numbers/sort', 'EmergencyNumbersController@sort')->name('sort-numbers');
 
     Route::any('/sales', 'SalesController@index')->name('sales');
     Route::get('/sales/add', 'SalesController@create')->name('add-sales');
