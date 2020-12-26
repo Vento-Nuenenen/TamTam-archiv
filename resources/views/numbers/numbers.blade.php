@@ -10,15 +10,27 @@
 
 		<div class="card">
 			<div class="card-header">
-				<div class="input-group" id="adv-search">
-					<button onclick="location.href='{{ route('add-numbers') }}'" type="button" class="btn btn-primary form-control mt-2">Neue Notfallnummer</button>
+                {!! Form::open(array('route' => 'numbers', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                <div class="input-group" id="adv-search">
+                    {!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche', 'autofocus')) !!}
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary form-control">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </div>
 				</div>
-			</div>
+                {!! Form::close() !!}
+                <div class="input-group" id="adv-search">
+                    <button onclick="location.href='{{ route('add-numbers') }}'" type="button" class="btn btn-primary form-control mt-2">Neue Notfallnummer</button>
+                </div>
+            </div>
 		</div>
 
-		<div class="card">
+        <div class="clearfix p-3"></div>
+
+        <div class="card">
 			<div class="card-header">
-				<h2 class="float-left">Alle Notfallnummern</h2>
+				<h5 class="float-left">Notfallnummern</h5>
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
