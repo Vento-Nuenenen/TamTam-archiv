@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h5 class="float-left">Gruppe erstellen</h5>
 
-                <a href="{{ route('groups') }}">Zurück zu Gruppen</a>
+                <a href="{{ route('groups') }}" class="float-right">Zurück zu Gruppen</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'store-groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
