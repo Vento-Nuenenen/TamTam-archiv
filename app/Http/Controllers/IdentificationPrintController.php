@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\Helper;
+use App\Models\EmergencyNumbers;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class IdentificationPrintController extends Controller
         ];
 
         $persons = DB::table('participations')->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
-        $numbers = DB::table('emergency_numbers')->get();
+        $numbers = EmergencyNumbers::orderBy('order', 'ASC')->get();
 
         $countpages = ceil(count($persons) / 6);
         $personindex = 0;
@@ -44,7 +45,6 @@ class IdentificationPrintController extends Controller
             $width = PDF::getPageWidth();
 
             //### Draw separator-lines on pages
-
             PDF::Line(0, $height * 0.33, $width, $height * 0.33);
             PDF::Line(0, $height * 0.66, $width, $height * 0.66);
             PDF::Line($width * 0.5, 0, $width * 0.5, $height);
@@ -75,7 +75,6 @@ class IdentificationPrintController extends Controller
             $personindex++;
 
             //### Card 2
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 5);
 
@@ -104,7 +103,6 @@ class IdentificationPrintController extends Controller
             $personindex++;
 
             //### Card 3
-
             PDF::SetMargins(5, 5, 5, true);
             PDF::SetXY(5, 105);
 
@@ -133,7 +131,6 @@ class IdentificationPrintController extends Controller
             $personindex++;
 
             //### Card 4
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 105);
 
@@ -162,7 +159,6 @@ class IdentificationPrintController extends Controller
             $personindex++;
 
             //### Card 5
-
             PDF::SetMargins(5, 5, 5, true);
             PDF::SetXY(5, 200);
 
@@ -191,7 +187,6 @@ class IdentificationPrintController extends Controller
             $personindex++;
 
             //### Card 6
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 200);
 
@@ -225,7 +220,6 @@ class IdentificationPrintController extends Controller
             $width = PDF::getPageWidth();
 
             //### Draw separator-lines on emergency-number pages
-
             PDF::Line(0, $height * 0.33, $width, $height * 0.33);
             PDF::Line(0, $height * 0.66, $width, $height * 0.66);
             PDF::Line($width * 0.5, 0, $width * 0.5, $height);
@@ -234,7 +228,6 @@ class IdentificationPrintController extends Controller
             PDF::SetXY(5, 5);
 
             //### emergency-numbers 1
-
             PDF::SetFontSize(20);
             PDF::Cell(0, 0, 'Notfallnummern:', '', 0, 'L');
             PDF::SetFontSize(12);
@@ -246,7 +239,6 @@ class IdentificationPrintController extends Controller
             }
 
             //### emergency-numbers 2
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 5);
 
@@ -261,7 +253,6 @@ class IdentificationPrintController extends Controller
             }
 
             //### emergency-numbers 3
-
             PDF::SetMargins(5, 5, 5, true);
             PDF::SetXY(5, 105);
 
@@ -276,7 +267,6 @@ class IdentificationPrintController extends Controller
             }
 
             //### emergency-numbers 4
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 105);
 
@@ -291,7 +281,6 @@ class IdentificationPrintController extends Controller
             }
 
             //### emergency-numbers 5
-
             PDF::SetMargins(5, 5, 5, true);
             PDF::SetXY(5, 200);
 
@@ -306,7 +295,6 @@ class IdentificationPrintController extends Controller
             }
 
             //### emergency-numbers 6
-
             PDF::SetMargins(110, 5, 5, true);
             PDF::SetXY(110, 200);
 
