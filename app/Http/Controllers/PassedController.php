@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PassedController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Factory|View
+     */
     public function index()
     {
         $participations = DB::table('participations')->select('participations.*')->get();
