@@ -6,17 +6,26 @@ use App\Helper\Helper;
 use App\Models\EmergencyNumbers;
 use Carbon\Carbon;
 use DB;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use PDF;
 
-class IdentificationPrintController extends Controller
+class PrintIdentificationController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|View|Response
+     */
     public function index()
     {
         return view('identification.identification');
     }
 
-    public function export(Request $request)
+    public function print(Request $request)
     {
         // define barcode style
         $style = [

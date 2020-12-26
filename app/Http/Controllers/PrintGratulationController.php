@@ -7,23 +7,23 @@ use DB;
 use Illuminate\Http\Request;
 use PDF;
 
-class GratulationPrintController extends Controller
+class PrintGratulationController extends Controller
 {
     public function index()
     {
-        if(!file_exists(storage_path('app/template/gratulation.txt'))){
+        if (! file_exists(storage_path('app/template/gratulation.txt'))) {
             touch(storage_path('app/template/gratulation.txt'));
         }
 
-        if(!file_exists(storage_path('app/template/title_m.txt'))){
+        if (! file_exists(storage_path('app/template/title_m.txt'))) {
             touch(storage_path('app/template/title_m.txt'));
         }
 
-        if(!file_exists(storage_path('app/template/title_f.txt'))){
+        if (! file_exists(storage_path('app/template/title_f.txt'))) {
             touch(storage_path('app/template/title_f.txt'));
         }
 
-        if(!file_exists(storage_path('app/template/title_o.txt'))){
+        if (! file_exists(storage_path('app/template/title_o.txt'))) {
             touch(storage_path('app/template/title_o.txt'));
         }
 
