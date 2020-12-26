@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EmergencyNumbers;
 use DB;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -101,6 +102,13 @@ class EmergencyNumbersController extends Controller
         return redirect()->back()->with('message', 'Nummer erfolgreich gelöscht.');
     }
 
+    /**
+     * Change sorting of entries..
+     *
+     * @param Request $request
+     *
+     * @return Application|ResponseFactory|RedirectResponse|Response
+     */
     public function sort(Request $request)
     {
         $numbers = EmergencyNumbers::all();
