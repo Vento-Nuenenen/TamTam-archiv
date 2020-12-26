@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/overwatch', 301);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::any('/overwatch', 'OverwatchController@index')->name('overwatch');
@@ -53,12 +53,26 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/transactions/update/{trid}', 'PointTransactionController@update')->name('update-transactions');
     Route::get('/transactions/destroy/{trid}', 'PointTransactionController@destroy')->name('destroy-transactions');
 
-    Route::any('/numbers', 'EmergencyController@index')->name('numbers');
-    Route::get('/numbers/add', 'EmergencyController@create')->name('add-numbers');
-    Route::post('/numbers/store', 'EmergencyController@store')->name('store-numbers');
-    Route::get('/numbers/edit/{nid}', 'EmergencyController@edit')->name('edit-numbers');
-    Route::post('/numbers/update/{nid}', 'EmergencyController@update')->name('update-numbers');
-    Route::get('/numbers/destroy/{nid}', 'EmergencyController@destroy')->name('destroy-numbers');
+    Route::any('/numbers', 'EmergencyNumbersController@index')->name('numbers');
+    Route::get('/numbers/add', 'EmergencyNumbersController@create')->name('add-numbers');
+    Route::post('/numbers/store', 'EmergencyNumbersController@store')->name('store-numbers');
+    Route::get('/numbers/edit/{nid}', 'EmergencyNumbersController@edit')->name('edit-numbers');
+    Route::post('/numbers/update/{nid}', 'EmergencyNumbersController@update')->name('update-numbers');
+    Route::get('/numbers/destroy/{nid}', 'EmergencyNumbersController@destroy')->name('destroy-numbers');
+
+    Route::any('/sales', 'SalesController@index')->name('sales');
+    Route::get('/sales/add', 'SalesController@create')->name('add-sales');
+    Route::post('/sales/store', 'SalesController@store')->name('store-sales');
+    Route::get('/sales/edit/{nid}', 'SalesController@edit')->name('edit-sales');
+    Route::post('/sales/update/{nid}', 'SalesController@update')->name('update-sales');
+    Route::get('/sales/destroy/{nid}', 'SalesController@destroy')->name('destroy-sales');
+
+    Route::any('/items', 'ItemsController@index')->name('items');
+    Route::get('/items/add', 'ItemsController@create')->name('add-items');
+    Route::post('/items/store', 'ItemsController@store')->name('store-items');
+    Route::get('/items/edit/{nid}', 'ItemsController@edit')->name('edit-items');
+    Route::post('/items/update/{nid}', 'ItemsController@update')->name('update-items');
+    Route::get('/items/destroy/{nid}', 'ItemsController@destroy')->name('destroy-items');
 
     Route::any('/gratulation', 'GratulationPrintController@index')->name('gratulation');
     Route::any('/gratulation/print', 'GratulationPrintController@export')->name('print-gratulation');
