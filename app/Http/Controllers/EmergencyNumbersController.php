@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 
-class EmergencyController extends Controller
+class EmergencyNumbersController extends Controller
 {
     public function index()
     {
