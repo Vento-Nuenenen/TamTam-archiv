@@ -16,7 +16,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">Benutzer bearbeiten</h5>
+                <h5 class="float-left">Benutzer bearbeiten</h5>
 
                 <a href="{{  route('users') }}" class="float-right">Zurück zu Benutzern</a>
             </div>
