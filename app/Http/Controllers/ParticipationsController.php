@@ -180,9 +180,9 @@ class ParticipationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param                          $pid
+     * @param         $pid
      *
-     * @return Response
+     * @return RedirectResponse|Response
      */
     public function update(Request $request, $pid)
     {
