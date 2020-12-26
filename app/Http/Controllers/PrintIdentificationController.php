@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helper\Helper;
 use App\Models\EmergencyNumbers;
-use Carbon\Carbon;
 use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,7 +24,7 @@ class PrintIdentificationController extends Controller
         return view('identification.identification');
     }
 
-    public function print(Request $request)
+    public function print()
     {
         // define barcode style
         $style = [
