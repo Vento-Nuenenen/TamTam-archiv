@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EmergencyController
+ * @see \App\Http\Controllers\EmergencyNumbersController
  */
 class EmergencyControllerTest extends TestCase
 {
