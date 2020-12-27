@@ -90,6 +90,10 @@
                             <a class="dropdown-item {{ Request::is('gratulation/')}}" href="{{ url('/gratulation') }}">
                                 Gratulationen
                             </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('pricelist/')}}" href="{{ url('/pricelist') }}">
+                                Preisliste Kiosk
+                            </a>
                         </div>
                     </li>
                 </ul>
