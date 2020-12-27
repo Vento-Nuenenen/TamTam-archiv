@@ -62,11 +62,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/numbers/sort', 'EmergencyNumbersController@sort')->name('sort-numbers');
 
     Route::any('/sales', 'SalesController@index')->name('sales');
-    Route::get('/sales/add', 'SalesController@create')->name('add-sales');
     Route::post('/sales/store', 'SalesController@store')->name('store-sales');
-    Route::get('/sales/edit/{nid}', 'SalesController@edit')->name('edit-sales');
-    Route::post('/sales/update/{nid}', 'SalesController@update')->name('update-sales');
-    Route::get('/sales/destroy/{nid}', 'SalesController@destroy')->name('destroy-sales');
+    Route::post('/sales/lookup', 'SalesController@lookup')->name('lookup-sales');
 
     Route::any('/items', 'ItemsController@index')->name('items');
     Route::get('/items/add', 'ItemsController@create')->name('add-items');
