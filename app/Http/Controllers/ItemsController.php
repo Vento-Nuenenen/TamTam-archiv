@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\Helper;
 use App\Models\Group;
-use App\Models\Items;
+use App\Models\Item;
 use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,7 +25,7 @@ class ItemsController extends Controller
     public function index(Request $request)
     {
         if ($request->search == null) {
-            $items = Items::all();
+            $items = Item::all();
         } else {
             $search_string = $request->search;
             $items = DB::table('items')
@@ -61,7 +61,7 @@ class ItemsController extends Controller
 
         $item_barcode = Helper::generateBarcode();
 
-        Items::create([
+        Item::create([
             'item_name' => $item_name,
             'item_price' => $item_price,
             'item_barcode' => $item_barcode,
@@ -79,7 +79,7 @@ class ItemsController extends Controller
      */
     public function edit($iid)
     {
-        $item = Items::where('id', '=', $iid)->first();
+        $item = Item::where('id', '=', $iid)->first();
 
         return view('items.edit', ['item' => $item]);
     }
@@ -98,7 +98,7 @@ class ItemsController extends Controller
         $item_price = $request->item_price;
         $item_barcode = $request->item_barcode;
 
-        $item = Items::find($iid);
+        $item = Item::find($iid);
         $item->item_name = $item_name;
         $item->item_price = $item_price;
 
@@ -120,7 +120,7 @@ class ItemsController extends Controller
      */
     public function destroy($gid)
     {
-        Items::destroy($gid);
+        Item::destroy($gid);
 
         return redirect()->back()->with('message', 'Artikel erfolgreich gelöscht.');
     }

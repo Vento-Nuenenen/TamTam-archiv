@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EmergencyNumbers;
+use App\Models\EmergencyNumber;
 use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -21,7 +21,7 @@ class EmergencyNumbersController extends Controller
      */
     public function index()
     {
-        $numbers = EmergencyNumbers::orderBy('order', 'ASC')->get();
+        $numbers = EmergencyNumber::orderBy('order', 'ASC')->get();
 
         return view('numbers.numbers', ['numbers' => $numbers]);
     }
@@ -111,7 +111,7 @@ class EmergencyNumbersController extends Controller
      */
     public function sort(Request $request)
     {
-        $numbers = EmergencyNumbers::all();
+        $numbers = EmergencyNumber::all();
 
         foreach ($numbers as $number) {
             foreach ($request->order as $order) {

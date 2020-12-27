@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\Helper;
-use App\Models\EmergencyNumbers;
+use App\Models\EmergencyNumber;
 use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -33,7 +33,7 @@ class PrintIdentificationController extends Controller
         ];
 
         $persons = DB::table('participations')->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
-        $numbers = EmergencyNumbers::orderBy('order', 'ASC')->get();
+        $numbers = EmergencyNumber::orderBy('order', 'ASC')->get();
 
         $countpages = ceil(count($persons) / 6);
         $personindex = 0;

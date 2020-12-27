@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Items;
+use App\Models\Item;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -30,7 +30,8 @@ class PrintPricelistController extends Controller
             'text' => true,
         ];
 
-        $items = Items::all();
+        $items = Item::all();
+        $countpages = ceil(count($items) / 15);
 
         PDF::SetTitle(config('app.name').' - Preisliste');
         PDF::SetFont('helvetica', '', 10);
