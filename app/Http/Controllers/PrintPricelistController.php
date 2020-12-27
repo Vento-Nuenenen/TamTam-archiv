@@ -41,7 +41,7 @@ class PrintPricelistController extends Controller
         PDF::SetAutoPageBreak(true, 5);
 
         // Custom Header
-        PDF::setHeaderCallback(function($pdf) {
+        PDF::setHeaderCallback(function ($pdf) {
             // Position at 15 mm from top
             $pdf->SetY(15);
             // Set font
@@ -51,13 +51,13 @@ class PrintPricelistController extends Controller
         });
 
         // Custom Footer
-        PDF::setFooterCallback(function($pdf) {
+        PDF::setFooterCallback(function ($pdf) {
             // Position at 15 mm from bottom
             $pdf->SetY(-10);
             // Set font
             $pdf->SetFont('helvetica', 'I', 8);
             // Page number
-            $pdf->Cell(0, 0, 'Seite ' . $pdf->getAliasNumPage() . ' / ' . $pdf->getAliasNbPages(), 0, 0, 'C');
+            $pdf->Cell(0, 0, 'Seite '.$pdf->getAliasNumPage().' / '.$pdf->getAliasNbPages(), 0, 0, 'C');
         });
 
         PDF::AddPage('P', 'A4');
@@ -70,14 +70,14 @@ class PrintPricelistController extends Controller
         PDF::Line(0, $currentHeight, $width, $currentHeight);
 
         PDF::SetFont('helvetica', 'B', 15);
-        PDF::Cell($width / 3, 5, "Artikelname", '', 0, 'L');
-        PDF::Cell($width / 3, 5, "Artikelpreis", '', 0, 'L');
-        PDF::Cell($width / 3, 5, "Barcode", '', 0, 'L');
+        PDF::Cell($width / 3, 5, 'Artikelname', '', 0, 'L');
+        PDF::Cell($width / 3, 5, 'Artikelpreis', '', 0, 'L');
+        PDF::Cell($width / 3, 5, 'Barcode', '', 0, 'L');
         PDF::SetFont('helvetica', '', 10);
         PDF::Ln(14);
         $currentHeight += 8;
 
-        foreach($items as $item){
+        foreach ($items as $item) {
             PDF::Line(0, $currentHeight, $width, $currentHeight);
             PDF::Cell($width / 3, 0, $item->item_name, '', 0, 'L');
             PDF::Cell($width / 3, 0, $item->item_price, '', 0, 'L');

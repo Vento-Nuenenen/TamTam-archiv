@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                
+
 
                 {!! Form::button('Gruppe erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                 {!! Form::close() !!}
