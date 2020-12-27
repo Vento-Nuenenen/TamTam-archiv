@@ -103,7 +103,7 @@ class EmergencyNumbersController extends Controller
     }
 
     /**
-     * Change sorting of entries..
+     * Change sorting of entries.
      *
      * @param Request $request
      *
