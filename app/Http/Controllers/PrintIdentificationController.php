@@ -38,14 +38,14 @@ class PrintIdentificationController extends Controller
         $countpages = ceil(count($persons) / 6);
         $personindex = 0;
 
-        for ($i = 0; $i < $countpages; $i++) {
-            PDF::SetTitle(config('app.name').' - Identifikationen');
-            PDF::SetFont('helvetica', 'B', 10);
-            PDF::SetCreator(config('app.name'));
-            PDF::SetAuthor(config('app.name'));
-            PDF::SetMargins(5, 5, 5, true);
-            PDF::SetAutoPageBreak(true, 5);
+        PDF::SetTitle(config('app.name').' - Identifikationen');
+        PDF::SetFont('helvetica', 'B', 10);
+        PDF::SetCreator(config('app.name'));
+        PDF::SetAuthor(config('app.name'));
+        PDF::SetMargins(5, 5, 5, true);
+        PDF::SetAutoPageBreak(true, 5);
 
+        for ($i = 0; $i < $countpages; $i++) {
             PDF::AddPage('P', 'A4');
 
             $height = PDF::getPageHeight();
