@@ -38,6 +38,11 @@ class SalesController extends Controller
     {
         $item = Item::where('item_barcode', '=', $request->ean)->get();
 
-        return response("Test", 200);
+        return response($item, 200);
+    }
+
+    public function store(Request $request)
+    {
+        print_r($request->input());
     }
 }

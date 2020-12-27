@@ -15,7 +15,7 @@
                 <a href="{{ route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => 'store-groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                {!! Form::open(array('route' => 'store-sales', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback row {{ $errors->has('participant') ? ' has-error ' : '' }}">
@@ -52,7 +52,7 @@
                     {!! Form::label('barcode', 'Barcode', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('barcode', NULL, array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'Barcode', 'maxlength' => 13)) !!}
+                            {!! Form::text('barcode', NULL, array('id' => 'barcode', 'class' => 'form-control', 'placeholder' => 'Barcode', 'maxlength' => 13, 'autofocus')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="barcode">
                                     <i class="fa fa-barcode" aria-hidden="true"></i>
@@ -100,6 +100,10 @@
     <script type="text/javascript">
         $("#barcode").on('keyup', function(){
             var textLength = $(this).val().length;
+            var ean = $(this).val();
+
+            $(this).val('');
+
             if(textLength === 13){
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
@@ -107,17 +111,23 @@
                     dataType: "json",
                     url: "{{ url('sales/lookup') }}",
                     data: {
-                        ean: $(this).val(),
+                        ean: ean,
                         _token: token
                     },
-                    success: function(response) {
-                        alert(response.status);
-                        if (response.status == "success") {
-                            console.log(response);
-                            $("#added").append("Some appended text.");
-                        } else {
-                            console.error(response);
-                        }
+                    success: function(data) {
+                        console.log(data);
+                        $("#added").append(
+                            "<tr data-id="+data[0]['id']+">" +
+                                "<td>"+data[0]['item_name']+"</td>" +
+                                "<td>"+data[0]['item_price']+"</td>" +
+                                "<td><input type='number' value='1' id='quantity' name='quantity' /></td>" +
+                                "<td><button onclick='$(this).closest(\"tr\").remove()' class='btn btn-danger ml-2'><span class='fa fa-remove'></span></button></td>" +
+                            "</tr>"
+                        );
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) { // error callback
+                        console.error(jqXhr.status);
+                        console.error(errorMessage);
                     }
                 });
             }
