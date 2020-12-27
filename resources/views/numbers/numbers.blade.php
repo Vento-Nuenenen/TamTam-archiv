@@ -94,6 +94,7 @@
                         _token: token
                     },
                     success: function(response) {
+                        alert(response.status);
                         if (response.status == "success") {
                             console.log(response);
                         } else {
