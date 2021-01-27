@@ -37,13 +37,13 @@ So you don't waste paper.... (Btw. I lied in about the fancy-part)
 
 ## Technologies
 ### PHP
-Developed & Tested on PHP: 7.4.6 & 7.4.4
+Developed & Tested on PHP: 7.4
 
 ### Laravel
-Based on Laravel-Framework Version: 7.12.0
+Based on Laravel-Framework Version: 8
 
 ### Yarn
-User Yarn to compile Assets in Version: 1.22.0
+User Yarn to compile Assets in Version: 1.22
 
 ## Setup
 ### Webserver
