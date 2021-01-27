@@ -50,6 +50,7 @@ namespace PHPSTORM_META {
             'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
             'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
             'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+            'Illuminate\Testing\ParallelTesting' => \Illuminate\Testing\ParallelTesting::class,
             'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
             'Whoops\Handler\HandlerInterface' => \Facade\Ignition\ErrorPage\IgnitionWhoopsHandler::class,
             'auth' => \Illuminate\Auth\AuthManager::class,
