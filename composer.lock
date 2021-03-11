@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b40298dc123da2e9c88be269295d3f91",
+    "content-hash": "2d3780ceb74121f366b4f2c6e2ca15df",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -625,21 +625,21 @@
         },
         {
             "name": "elibyy/tcpdf-laravel",
-            "version": "8.0.0",
+            "version": "8.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elibyy/tcpdf-laravel.git",
-                "reference": "2ec283c7b157cd31c91abe42fa1c9d801d9df6cf"
+                "reference": "7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/2ec283c7b157cd31c91abe42fa1c9d801d9df6cf",
-                "reference": "2ec283c7b157cd31c91abe42fa1c9d801d9df6cf",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1",
+                "reference": "7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^6.0|^7.0|^8.0",
-                "tecnickcom/tcpdf": "6.2.*|6.3.*"
+                "tecnickcom/tcpdf": "6.2.*|6.3.*|dev-main"
             },
             "type": "library",
             "extra": {
@@ -675,9 +675,9 @@
             ],
             "support": {
                 "issues": "https://github.com/elibyy/tcpdf-laravel/issues",
-                "source": "https://github.com/elibyy/tcpdf-laravel/tree/8.0.0"
+                "source": "https://github.com/elibyy/tcpdf-laravel/tree/8.0.1"
             },
-            "time": "2020-09-09T17:03:16+00:00"
+            "time": "2021-03-11T12:36:37+00:00"
         },
         {
             "name": "fideloper/proxy",
