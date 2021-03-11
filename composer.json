@@ -9,7 +9,7 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "appstract/laravel-opcache": "4.0.2",
-        "elibyy/tcpdf-laravel": "8.0.0",
+        "elibyy/tcpdf-laravel": "8.0.1",
         "fideloper/proxy": "4.4.1",
         "fruitcake/laravel-cors": "2.0.3",
         "guzzlehttp/guzzle": "7.2.0",
