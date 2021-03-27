@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40ecbb96b0eb14056cd3af8e871e1f63",
+    "content-hash": "ff42dda128c3b38cc77f0d5b9aadef4e",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -625,21 +625,21 @@
         },
         {
             "name": "elibyy/tcpdf-laravel",
-            "version": "8.0.1",
+            "version": "8.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elibyy/tcpdf-laravel.git",
-                "reference": "7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1"
+                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1",
-                "reference": "7b6ea9cca8450c817aa3e0dbd9dd383baa26e4d1",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/50a5c6bfc38fc0c03deb16d4065267f471c787d9",
+                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^6.0|^7.0|^8.0",
-                "tecnickcom/tcpdf": "6.2.*|6.3.*|dev-main"
+                "tecnickcom/tcpdf": "6.2.*|6.3.*|6.4.*|dev-main"
             },
             "type": "library",
             "extra": {
@@ -675,9 +675,9 @@
             ],
             "support": {
                 "issues": "https://github.com/elibyy/tcpdf-laravel/issues",
-                "source": "https://github.com/elibyy/tcpdf-laravel/tree/8.0.1"
+                "source": "https://github.com/elibyy/tcpdf-laravel/tree/8.1.2"
             },
-            "time": "2021-03-11T12:36:37+00:00"
+            "time": "2021-03-27T14:23:50+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -5079,16 +5079,16 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.3.5",
+            "version": "6.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549"
+                "reference": "5ba838befdb37ef06a16d9f716f35eb03cb1b329"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/19a535eaa7fb1c1cac499109deeb1a7a201b4549",
-                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/5ba838befdb37ef06a16d9f716f35eb03cb1b329",
+                "reference": "5ba838befdb37ef06a16d9f716f35eb03cb1b329",
                 "shasum": ""
             },
             "require": {
@@ -5139,9 +5139,15 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/TCPDF/issues",
-                "source": "https://github.com/tecnickcom/TCPDF/tree/6.3.5"
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.4.1"
             },
-            "time": "2020-02-14T14:20:12+00:00"
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tcpdf%20project",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-03-27T16:00:33+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
