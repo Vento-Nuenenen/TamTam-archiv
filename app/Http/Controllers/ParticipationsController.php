@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Barcode;
+use App\Helpers\CSV;
 use Carbon\Carbon;
+use Doctrine\Foo\Bar;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class ParticipationsController extends Controller
@@ -71,7 +73,7 @@ class ParticipationsController extends Controller
         $birthday = $request->input('birthday');
         $gender = $request->input('gender');
         $group = $request->input('group');
-        $barcode = Helper::generateBarcode();
+        $barcode = Barcode::generateBarcode();
 
         if ($request->file('tn_img')) {
             $img_name = 'tnimg_'.time().'.'.$request->file('tn_img')->extension();
@@ -120,12 +122,14 @@ class ParticipationsController extends Controller
     public function import(Request $request)
     {
         if ($request->file('participations_list')) {
-            $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'), 'participations.csv');
+            $participations_list = $request->file('participations_list')
+                ->move(storage_path('temp/csv'), 'participations.csv');
         } else {
-            return redirect()->back()->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
+            return redirect()->back()
+                ->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
         }
 
-        $contents = read_csv_file($participations_list);
+        $contents = CSV::read_csv_file($participations_list);
 
         foreach ($contents as $content) {
             if ($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname') {
@@ -152,7 +156,7 @@ class ParticipationsController extends Controller
                     $birthday = '01.01.2000';
                 }
 
-                $barcode = Helper::generateBarcode();
+                $barcode = Barcode::generateBarcode();
 
                 isset($content[8]) ? $grp = DB::table('groups')->select('id')->where('group_name', 'LIKE', "%$content[8]%")->first() : $grp = null;
                 DB::table('participations')->insert(['first_name' => utf8_encode($content[0]), 'last_name' => utf8_encode($content[1]), 'scout_name' => utf8_encode($content[2]), 'address' => utf8_encode($content[3]), 'plz' => $content[4], 'place' => utf8_encode($content[5]), 'gender' => $gnd, 'birthday' => $birthday, 'FK_GRP' => $grp, 'barcode' => $barcode]);
