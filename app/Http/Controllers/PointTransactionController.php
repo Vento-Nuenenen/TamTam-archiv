@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class PointTransactionController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|View
+     */
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
@@ -32,7 +42,7 @@ class PointTransactionController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -44,9 +54,9 @@ class PointTransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -63,10 +73,11 @@ class PointTransactionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $trid
-     * @return \Illuminate\Http\Response
+     * @param int $trid
+     *
+     * @return Application|Factory|View
      */
-    public function edit($trid)
+    public function edit(int $trid)
     {
         $point = DB::table('points')->where('id', '=', $trid)->first();
         $participations = DB::table('participations')->select('*')->get();
@@ -77,11 +88,12 @@ class PointTransactionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param $trid
-     * @return void
+     * @param Request $request
+     * @param int $trid
+     *
+     * @return RedirectResponse
      */
-    public function update(Request $request, $trid)
+    public function update(Request $request, int $trid)
     {
         $participant = $request->input('participant');
         $points = $request->input('points');
@@ -96,10 +108,11 @@ class PointTransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $trid
-     * @return \Illuminate\Http\Response
+     * @param int $trid
+     *
+     * @return RedirectResponse
      */
-    public function destroy($trid)
+    public function destroy(int $trid)
     {
         DB::table('points')->where('id', '=', $trid)->delete();
 
