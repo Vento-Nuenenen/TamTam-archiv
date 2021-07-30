@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use Hash;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
@@ -34,7 +37,7 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -44,9 +47,9 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -63,7 +66,13 @@ class UsersController extends Controller
 
             $password_repeat = null;
 
-            DB::table('users')->insert(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password]);
+            DB::table('users')->insert([
+                'scout_name' => $scout_name,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'password' => $password
+            ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde erstellt.');
         } else {
@@ -74,11 +83,11 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $uid
+     * @param int $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function edit($uid)
+    public function edit(int $uid)
     {
         $users = DB::table('users')->where('id', '=', $uid)->first();
 
@@ -88,12 +97,12 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param                          $uid
+     * @param Request $request
+     * @param int $uid
      *
-     * @return void
+     * @return RedirectResponse
      */
-    public function update(Request $request, $uid)
+    public function update(Request $request, int $uid)
     {
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
@@ -108,11 +117,22 @@ class UsersController extends Controller
 
             $password_repeat = null;
 
-            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password]);
+            DB::table('users')->where('id', '=', $uid)->update([
+                'scout_name' => $scout_name,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'password' => $password
+            ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
         } elseif ($password == null) {
-            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email]);
+            DB::table('users')->where('id', '=', $uid)->update([
+                'scout_name' => $scout_name,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email
+            ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert. Das Passwort wurde beibehalten!');
         } else {
@@ -123,11 +143,11 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $uid
+     * @param int $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function destroy($uid)
+    public function destroy(int $uid)
     {
         DB::table('users')->where('id', '=', $uid)->delete();
 
