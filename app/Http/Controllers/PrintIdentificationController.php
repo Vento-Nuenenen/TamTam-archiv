@@ -16,7 +16,7 @@ class PrintIdentificationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -32,7 +32,8 @@ class PrintIdentificationController extends Controller
             'text' => true,
         ];
 
-        $persons = DB::table('participations')->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
+        $persons = DB::table('participations')
+            ->leftJoin('groups', 'participations.FK_GRP', 'groups.id')->get();
         $numbers = EmergencyNumber::orderBy('order', 'ASC')->get();
 
         $countpages = ceil(count($persons) / 6);
@@ -43,10 +44,12 @@ class PrintIdentificationController extends Controller
         PDF::SetCreator(config('app.name'));
         PDF::SetAuthor(config('app.name'));
         PDF::SetMargins(5, 5, 5, true);
-        PDF::SetAutoPageBreak(true, 5);
 
         for ($i = 0; $i < $countpages; $i++) {
-            PDF::AddPage('P', 'A4');
+            PDF::AddPage('P', 'A4', false, false);
+
+            PDF::SetFont('helvetica', 'B', 10);
+            PDF::SetMargins(5, 5, 5, true);
 
             $height = PDF::getPageHeight();
             $width = PDF::getPageWidth();
@@ -60,7 +63,8 @@ class PrintIdentificationController extends Controller
             if ($personindex <= count($persons)) {
                 $birthday = Helper::calc_birthday($persons, $personindex);
 
-                ! empty($persons[$personindex]->scout_name) ? PDF::Cell(0, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
+                PDF::SetXY(5, 5);
+                ! empty($persons[$personindex]->scout_name) ? PDF::Cell(0, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, '-', '', 0, 'L');
                 PDF::Ln(5);
                 ! empty($persons[$personindex]->first_name) && ! empty($persons[$personindex]->last_name) ? PDF::Cell(0, 0, $persons[$personindex]->first_name.' '.$persons[$personindex]->last_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Vor & Nachname gefunden', '', 0, 'L');
                 PDF::Ln(10);
@@ -72,13 +76,12 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(60, 5);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 5, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 5, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(60, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 40, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
                 PDF::SetXY(30, 70);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 60, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 60, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
-
             $personindex++;
 
             //### Card 2
@@ -100,11 +103,11 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(165, 5);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 5, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 5, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(165, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 40, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
-                PDF::SetXY(150, 70);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 60, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                PDF::SetXY(135, 70);
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 60, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
 
             $personindex++;
@@ -128,11 +131,11 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(60, 105);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 105, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 105, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(60, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 140, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
                 PDF::SetXY(30, 160);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 160, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 160, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
 
             $personindex++;
@@ -156,11 +159,11 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(165, 105);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 105, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 105, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(165, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 140, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
-                PDF::SetXY(140, 160);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 160, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                PDF::SetXY(135, 160);
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 160, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
 
             $personindex++;
@@ -184,11 +187,11 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(60, 200);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 200, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 65, 200, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(60, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 235, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
                 PDF::SetXY(30, 255);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 255, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 30, 255, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
 
             $personindex++;
@@ -212,16 +215,16 @@ class PrintIdentificationController extends Controller
                 PDF::Ln(10);
                 ! empty($persons[$personindex]->gender) ? PDF::Cell(0, 0, $persons[$personindex]->gender, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Geschlecht gefunden', '', 0, 'L');
                 PDF::SetXY(165, 200);
-                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 200, 30) : PDF::Cell(0, 0, 'Kein Profilbild gefunden', '', 0, 'L');
+                ! empty($persons[$personindex]->person_picture) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->person_picture), 170, 200, 30) : PDF::Cell(0, 0, ' ', '', 0, 'L');
                 PDF::SetXY(165, 15);
                 ! empty($persons[$personindex]->barcode) ? PDF::write1DBarcode($persons[$personindex]->barcode, 'EAN13', '', 235, '', 10, 0.4, $style, 'L') : PDF::Cell(0, 0, 'Kein Barcode gefunden', '', 0, 'L');
-                PDF::SetXY(140, 255);
-                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 255, 45) : PDF::Cell(0, 0, 'Kein Firmenlogo gefunden', '', 0, 'L');
+                PDF::SetXY(135, 255);
+                ! empty($persons[$personindex]->logo_file_name) ? PDF::Image(storage_path('/app/public/img/'.$persons[$personindex]->logo_file_name), 140, 255, 45) : PDF::Cell(0, 0, 'Kein Gruppen-Logo gefunden', '', 0, 'L');
             }
 
             $personindex++;
 
-            PDF::AddPage('P', 'A4');
+            PDF::AddPage('P', 'A4', false, false);
 
             $height = PDF::getPageHeight();
             $width = PDF::getPageWidth();
