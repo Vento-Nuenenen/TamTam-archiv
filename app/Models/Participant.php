@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Participant extends Model
 {
+    use HasFactory;
+
     protected $table = 'participations';
 
     protected $fillable = [
@@ -22,5 +25,5 @@ class Participant extends Model
         'seat_number',
         'course_passed',
         'FK_GRP',
-        ];
+    ];
 }
