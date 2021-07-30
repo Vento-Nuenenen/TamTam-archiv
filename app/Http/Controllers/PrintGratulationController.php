@@ -40,7 +40,12 @@ class PrintGratulationController extends Controller
         $title_f = file_get_contents(storage_path('app/template/title_f.txt'));
         $title_o = file_get_contents(storage_path('app/template/title_o.txt'));
 
-        return view('gratulation.gratulation', ['text' => $text, 'title_m' => $title_m, 'title_f' => $title_f, 'title_o' => $title_o]);
+        return view('gratulation.gratulation', [
+            'text' => $text,
+            'title_m' => $title_m,
+            'title_f' => $title_f,
+            'title_o' => $title_o
+        ]);
     }
 
     public function export(Request $request)
