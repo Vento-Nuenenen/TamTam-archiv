@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Helper;
-use App\Models\EmergencyNumber;
-use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class PrintIdentificationController extends Controller
@@ -16,7 +13,7 @@ class PrintIdentificationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
