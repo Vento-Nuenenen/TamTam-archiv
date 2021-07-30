@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Response;
 use PDF;
 
 class PrintPricelistController extends Controller
@@ -14,7 +12,7 @@ class PrintPricelistController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
