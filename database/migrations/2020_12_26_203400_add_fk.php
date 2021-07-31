@@ -20,5 +20,13 @@ class AddFk extends Migration
         Schema::table('points', function (Blueprint $table) {
             $table->foreign('FK_PRT')->references('id')->on('participations')->onDelete('cascade');
         });
+
+        Schema::table('carts', function (Blueprint $table) {
+            $table->foreign('FK_PRT')->references('id')->on('participations')->onDelete('cascade');
+        });
+
+        Schema::table('carts', function (Blueprint $table) {
+            $table->foreign('FK_ITEM')->references('id')->on('items')->onDelete('cascade');
+        });
     }
 }
