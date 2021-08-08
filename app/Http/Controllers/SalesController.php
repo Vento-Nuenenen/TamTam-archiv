@@ -17,7 +17,7 @@ class SalesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -32,7 +32,7 @@ class SalesController extends Controller
      *
      * @param Request $request
      *
-     * @return Application|ResponseFactory|RedirectResponse|Response
+     * @return Application|Response|ResponseFactory
      */
     public function lookup(Request $request)
     {
