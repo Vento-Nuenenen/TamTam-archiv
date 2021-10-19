@@ -8,7 +8,7 @@
         "elibyy/tcpdf-laravel": "8.1.2",
         "fideloper/proxy": "4.4.1",
         "fruitcake/laravel-cors": "2.0.4",
-        "guzzlehttp/guzzle": "7.3.0",
+        "guzzlehttp/guzzle": "7.4.0",
         "kouz/laravel-airbrake": "0.7.0",
         "laravel/framework": "8.64.0",
         "laravel/tinker": "2.6.1",
