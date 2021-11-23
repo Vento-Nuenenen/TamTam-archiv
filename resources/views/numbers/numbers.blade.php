@@ -24,8 +24,8 @@
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
-            <div class="card-body table-responsive">
-                <table id="table" class="table table-hover">
+            <div class="card-body bootstrap-table-responsive">
+                <table id="table" class="bootstrap-table bootstrap-table-hover">
                     <thead>
                         <th></th>
                         <th>

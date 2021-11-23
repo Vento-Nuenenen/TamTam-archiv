@@ -14,10 +14,10 @@
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
-            <div class="card-body table-responsive">
+            <div class="card-body bootstrap-table-responsive">
                 {!! Form::open(array('route' => 'do-passed', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 {!! csrf_field() !!}
-                <table class="table table-hover">
+                <table class="bootstrap-table bootstrap-table-hover">
                     <thead>
                         <th>Name</th>
                         <th>Hat Bestanden</th>

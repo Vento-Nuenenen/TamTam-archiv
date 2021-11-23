@@ -231,7 +231,7 @@
             <div class="card-header" id="headingTwo">
                 <h5>Teilnehmer importieren</h5>
             </div>
-            <div class="card-body table-responsive">
+            <div class="card-body bootstrap-table-responsive">
                 <p>
                     Um Teilnehmer zu importieren, muss eine CSV-Datei vorbereitet werden. Diese muss mit semikolon (;) separtierte Werte haben. <br />
                     <br />
@@ -240,8 +240,8 @@
                     Entferne in der heruntergeladenen Datei alle Personen und Spalten, bis die Datei aussieht, wie die Tabelle unten. <br />
                     Andernfalls kann es zu Fehlern kommen und du must noch mal von vorn beginnen. <br />
                 </p>
-                <div class="table-responsive">
-                    <table class="table table-hover">
+                <div class="bootstrap-table-responsive">
+                    <table class="bootstrap-table bootstrap-table-hover">
                         <thead>
                         <th>Vorname</th>
                         <th>Nachname</th>

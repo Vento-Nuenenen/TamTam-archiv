@@ -14,8 +14,8 @@
 
                 <a href="{{  route('participations') }}" class="float-right">Zurück zu TNs</a>
             </div>
-            <div class="card-body table-responsive">
-                <table class="table table-hover">
+            <div class="card-body bootstrap-table-responsive">
+                <table class="bootstrap-table bootstrap-table-hover">
                     <thead>
                         @foreach($participations[0] as $participation)
                             <th>{{ $participation }}</th>

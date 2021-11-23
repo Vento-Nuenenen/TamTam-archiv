@@ -67,8 +67,8 @@
                     </div>
                 </div>
 
-                <div class="items card-body table-responsive">
-                    <table class="table table-hover">
+                <div class="items card-body bootstrap-table-responsive">
+                    <table class="bootstrap-table bootstrap-table-hover">
                         <thead>
                             <th>
                                 Artikelname

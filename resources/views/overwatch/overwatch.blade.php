@@ -13,16 +13,16 @@
 				<h5>Barcode Auslesen</h5>
 			</div>
 			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".User">
-				<div class="card-body table-responsive">
+				<div class="card-body bootstrap-table-responsive">
 					<form method="post">
 						@csrf
 						<input class="col-6" type="number" id="barcode" name="barcode" maxlength="13" autofocus />
 						<input class="col-4 offset-1 btn btn-success" value="Zeigen" type="submit" />
 					</form>
 
-					<div class="card-body table-responsive">
+					<div class="card-body bootstrap-table-responsive">
 						@if($tn ?? '')
-							<table id="dataTable" class="table table-hover">
+							<table id="dataTable" class="bootstrap-table bootstrap-table-hover">
 								<tr>
 									<th>Barcode: </th>
 									<td>{{ $tn->barcode }}</td>
