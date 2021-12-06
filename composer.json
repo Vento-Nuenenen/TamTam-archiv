@@ -20,7 +20,7 @@
         "barryvdh/laravel-debugbar": "3.6.2",
         "barryvdh/laravel-ide-helper": "2.10.0",
         "facade/ignition": "2.11.2",
-        "fakerphp/faker": "1.16.0",
+        "fakerphp/faker": "1.17.0",
         "laravel/sail": "1.8.6",
         "mockery/mockery": "1.4.4",
         "nunomaduro/collision": "5.10.0",
