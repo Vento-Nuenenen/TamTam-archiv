@@ -1,7 +1,8 @@
 .php_cs.cache
 
-# Created by https://www.toptal.com/developers/gitignore/api/macos,laravel,phpstorm+all,windows,linux,yarn,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,laravel,phpstorm+all,windows,linux,yarn,node
+
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,node,linux,macos,laravel,windows,phpstorm+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node,linux,macos,laravel,windows,phpstorm+all
 
 ### Laravel ###
 /vendor/
@@ -196,7 +197,6 @@ dist
 
 # yarn v2
 .yarn/cache
-.yarn/cache/*
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
@@ -342,11 +342,4 @@ $RECYCLE.BIN/
 !.yarn/sdks
 !.yarn/versions
 
-# if you are NOT using Zero-installs, then:
-# comment the following lines
-!.yarn/cache
-
-# and uncomment the following lines
-# .pnp.*
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,laravel,phpstorm+all,windows,linux,yarn,node
+# End of https://www.toptal.com/developers/gitignore/api/yarn,node,linux,macos,laravel,windows,phpstorm+all
