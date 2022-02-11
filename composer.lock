@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9e37a8cff72c13d4eefb827d99259ba",
+    "content-hash": "dca099e5568d1f92f280a65bc5c5e59f",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -5096,7 +5096,7 @@
         },
         {
             "name": "vento/barcode",
-            "version": "dev-master",
+            "version": "9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Vento-Nuenenen/barcode.git",
@@ -5113,7 +5113,6 @@
                 "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
                 "php": "^7.2|^7.3|^8.0|^8.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5159,13 +5158,13 @@
                 "qrcode"
             ],
             "support": {
-                "source": "https://github.com/Vento-Nuenenen/barcode/tree/master"
+                "source": "https://github.com/Vento-Nuenenen/barcode/tree/9.0.0"
             },
             "time": "2022-02-11T19:27:18+00:00"
         },
         {
             "name": "vento/laravel-airbrake",
-            "version": "dev-master",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Vento-Nuenenen/laravel-airbrake.git",
@@ -5182,7 +5181,6 @@
                 "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
                 "php": "^7.2|^7.3|^8.0|^8.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5217,7 +5215,7 @@
                 "logging"
             ],
             "support": {
-                "source": "https://github.com/Vento-Nuenenen/laravel-airbrake/tree/master"
+                "source": "https://github.com/Vento-Nuenenen/laravel-airbrake/tree/0.8.1"
             },
             "time": "2022-02-11T19:35:01+00:00"
         },
@@ -9465,10 +9463,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "vento/barcode": 20,
-        "vento/laravel-airbrake": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
