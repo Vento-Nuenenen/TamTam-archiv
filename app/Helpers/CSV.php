@@ -3,8 +3,7 @@
 namespace App\Helpers;
 
 class CSV{
-    public static function read_csv_file($file)
-    {
+    public static function read_csv_file($file){
         $persons = [];
         $delimiter = detect_delimiter($file);
 
@@ -22,8 +21,7 @@ class CSV{
         return $persons;
     }
 
-    public static function detect_delimiter($csvFile)
-    {
+    public static function detect_delimiter($csvFile){
         $delimiters = [
             ';' => 0,
             ',' => 0,
