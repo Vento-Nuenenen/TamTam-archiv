@@ -34,10 +34,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        },
-        "files": [
-            "app/Helper/csv_helper.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
