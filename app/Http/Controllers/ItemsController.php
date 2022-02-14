@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Helper;
-use App\Models\Group;
-use App\Models\Item;
-use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
@@ -40,7 +35,7 @@ class ItemsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -73,11 +68,11 @@ class ItemsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $iid
+     * @param int $iid
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
-    public function edit($iid)
+    public function edit(int $iid)
     {
         $item = Item::where('id', '=', $iid)->first();
 
@@ -88,11 +83,11 @@ class ItemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param $iid
+     * @param int $iid
      *
      * @return RedirectResponse
      */
-    public function update(Request $request, $iid)
+    public function update(Request $request, int $iid)
     {
         $item_name = $request->item_name;
         $item_price = $request->item_price;
@@ -114,13 +109,13 @@ class ItemsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $gid
+     * @param int $iid
      *
      * @return RedirectResponse
      */
-    public function destroy($gid)
+    public function destroy(int $iid)
     {
-        Item::destroy($gid);
+        Item::destroy($iid);
 
         return redirect()->back()->with('message', 'Artikel erfolgreich gelöscht.');
     }

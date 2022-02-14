@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class PassedController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Factory|View
+     * @return Application|Factory|View
      */
     public function index()
     {

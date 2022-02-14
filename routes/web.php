@@ -17,7 +17,7 @@ Route::redirect('/', '/overwatch', 301);
 
 Auth::routes(['register' => false]);
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], function (){
     Route::any('/overwatch', 'OverwatchController@index')->name('overwatch');
 
     Route::any('/participations', 'ParticipationsController@index')->name('participations');

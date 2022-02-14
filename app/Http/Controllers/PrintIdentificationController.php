@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Helper;
-use App\Models\EmergencyNumber;
-use DB;
+use App\Helpers\Helpers;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class PrintIdentificationController extends Controller
@@ -61,7 +59,7 @@ class PrintIdentificationController extends Controller
 
             //### Card 1
             if ($personindex <= count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 PDF::SetXY(5, 5);
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(0, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, '-', '', 0, 'L');
@@ -89,7 +87,7 @@ class PrintIdentificationController extends Controller
             PDF::SetXY(110, 5);
 
             if ($personindex < count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(110, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
                 PDF::Ln(5);
@@ -117,7 +115,7 @@ class PrintIdentificationController extends Controller
             PDF::SetXY(5, 105);
 
             if ($personindex < count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(0, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
                 PDF::Ln(5);
@@ -145,7 +143,7 @@ class PrintIdentificationController extends Controller
             PDF::SetXY(110, 105);
 
             if ($personindex < count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(110, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
                 PDF::Ln(5);
@@ -173,7 +171,7 @@ class PrintIdentificationController extends Controller
             PDF::SetXY(5, 200);
 
             if ($personindex < count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(0, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
                 PDF::Ln(5);
@@ -201,7 +199,7 @@ class PrintIdentificationController extends Controller
             PDF::SetXY(110, 200);
 
             if ($personindex < count($persons)) {
-                $birthday = Helper::calc_birthday($persons, $personindex);
+                $birthday = Helpers::calc_birthday($persons, $personindex);
 
                 ! empty($persons[$personindex]->scout_name) ? PDF::Cell(110, 0, $persons[$personindex]->scout_name, '', 0, 'L') : PDF::Cell(0, 0, 'Kein Pfadiname gefunden', '', 0, 'L');
                 PDF::Ln(5);

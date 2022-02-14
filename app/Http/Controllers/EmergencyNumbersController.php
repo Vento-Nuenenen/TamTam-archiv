@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EmergencyNumber;
-use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -11,13 +9,14 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class EmergencyNumbersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -29,7 +28,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -59,9 +58,9 @@ class EmergencyNumbersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $nid
+     * @param  int  $nid
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function edit($nid)
     {
@@ -74,7 +73,7 @@ class EmergencyNumbersController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param $nid
+     * @param  int  $nid
      *
      * @return RedirectResponse
      */
@@ -83,7 +82,8 @@ class EmergencyNumbersController extends Controller
         $number_name = $request->input('number_name');
         $number = $request->input('number');
 
-        DB::table('emergency_numbers')->where('id', '=', $nid)->update(['name' => $number_name, 'number' => $number]);
+        DB::table('emergency_numbers')->where('id', '=', $nid)
+            ->update(['name' => $number_name, 'number' => $number]);
 
         return redirect()->back()->with('message', 'Nummer wurde aktualisiert.');
     }
@@ -91,7 +91,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $nid
+     * @param  int  $nid
      *
      * @return RedirectResponse
      */
@@ -107,7 +107,7 @@ class EmergencyNumbersController extends Controller
      *
      * @param Request $request
      *
-     * @return Application|ResponseFactory|RedirectResponse|Response
+     * @return Application|ResponseFactory|Response
      */
     public function sort(Request $request)
     {

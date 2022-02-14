@@ -1,4 +1,4 @@
-# HiLa - Group-Management online
+# TamTam - Group-Management online
 
 ## Features
 ### Users management

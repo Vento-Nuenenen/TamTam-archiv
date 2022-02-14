@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Helper;
-use DB;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class PrintGratulationController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|View
+     */
     public function index()
     {
         if (! file_exists(storage_path('app/template/gratulation.txt'))) {
@@ -32,7 +40,12 @@ class PrintGratulationController extends Controller
         $title_f = file_get_contents(storage_path('app/template/title_f.txt'));
         $title_o = file_get_contents(storage_path('app/template/title_o.txt'));
 
-        return view('gratulation.gratulation', ['text' => $text, 'title_m' => $title_m, 'title_f' => $title_f, 'title_o' => $title_o]);
+        return view('gratulation.gratulation', [
+            'text' => $text,
+            'title_m' => $title_m,
+            'title_f' => $title_f,
+            'title_o' => $title_o
+        ]);
     }
 
     public function export(Request $request)
