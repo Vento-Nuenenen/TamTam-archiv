@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmergencyNumber;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -42,7 +43,7 @@ class EmergencyNumbersController extends Controller
      *
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $number_name = $request->input('number_name');
         $number = $request->input('number');
@@ -58,11 +59,11 @@ class EmergencyNumbersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $nid
+     * @param int $nid
      *
      * @return Application|Factory|View
      */
-    public function edit($nid)
+    public function edit(int $nid)
     {
         $number = DB::table('emergency_numbers')->where('id', '=', $nid)->first();
 
@@ -73,11 +74,11 @@ class EmergencyNumbersController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $nid
+     * @param int $nid
      *
      * @return RedirectResponse
      */
-    public function update(Request $request, $nid)
+    public function update(Request $request, int $nid): RedirectResponse
     {
         $number_name = $request->input('number_name');
         $number = $request->input('number');
@@ -91,11 +92,11 @@ class EmergencyNumbersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $nid
+     * @param int $nid
      *
      * @return RedirectResponse
      */
-    public function destroy($nid)
+    public function destroy(int $nid): RedirectResponse
     {
         DB::table('emergency_numbers')->where('id', '=', $nid)->delete();
 
