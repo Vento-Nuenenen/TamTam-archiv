@@ -10,6 +10,10 @@
 
         <div class="card">
             <div class="card-header">
+                <form>
+
+                </form>
+
                 {!! Form::open(array('route' => 'users', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 <div class="input-group" id="adv-search">
                     {!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche', 'autofocus')) !!}
