@@ -17,7 +17,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
-        "milon/barcode": "^8.0"
+        "milon/barcode": "^9.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
