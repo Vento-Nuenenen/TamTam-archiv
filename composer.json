@@ -14,7 +14,6 @@
         "guzzlehttp/guzzle": "^7.4.1",
         "kouz/laravel-airbrake": "^0.7.0",
         "laravel/framework": "^8.81",
-        "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "laravelcollective/html": "^6.3",
