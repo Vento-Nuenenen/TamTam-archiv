@@ -2,10 +2,10 @@
 
 namespace App\Helpers;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
-
-class Barcode{
+class Barcode
+{
     public static function generateBarcode()
     {
         do {
