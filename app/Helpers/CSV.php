@@ -2,11 +2,12 @@
 
 namespace App\Helpers;
 
-class CSV{
+class CSV
+{
     public static function read_csv_file($file)
     {
         $persons = [];
-        $delimiter = detect_delimiter($file);
+        $delimiter = self::detect_delimiter($file);
 
         // Create array from file contents (personID, groupID)
         $fp = fopen($file, 'rb');
