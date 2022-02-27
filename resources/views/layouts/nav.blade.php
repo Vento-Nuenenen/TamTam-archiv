@@ -9,9 +9,9 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        @if(!Auth::guest())
-            <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+            @if(!Auth::guest())
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('overwatch/')}}" href="{{ url('/overwatch') }}">
                             Übersicht
@@ -77,10 +77,10 @@
                         </div>
                     </li>
                 </ul>
-        @endif
+            @endif
 
-        <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
