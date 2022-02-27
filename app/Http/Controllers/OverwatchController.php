@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class OverwatchController extends Controller
+
+class OverwatchController
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class OverwatchController extends Controller
             foreach ($tns as $tn) {
                 $balance = 0;
 
-                if (! empty($tn->points) || ! empty($tn->additions)) {
+                if (!empty($tn->points) || !empty($tn->additions)) {
                     $points = explode(',', $tn->points);
                     $additions = explode(',', $tn->additions);
 
@@ -48,7 +48,7 @@ class OverwatchController extends Controller
             $tns = $tns[0] ?? null;
 
             return view('overwatch.overwatch', ['tn' => $tns]);
-        } elseif ($request->input('tableorder') != null) {
+        } else if ($request->input('tableorder') != null) {
             $users = DB::table('participations')->inRandomOrder()->get();
 
             $j = 0;
@@ -61,7 +61,7 @@ class OverwatchController extends Controller
             session()->put('message', 'Tischordnung wurde erfolgreich generiert!');
 
             return view('overwatch.overwatch');
-        } elseif ($request->input('grouping') != null) {
+        } else if ($request->input('grouping') != null) {
             $groups = DB::table('groups')->get();
             $groups_count = count($groups);
             $users = DB::table('participations')->inRandomOrder()->get();
