@@ -1,7 +1,22 @@
-.php_cs.cache
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
 
-# Created by https://www.toptal.com/developers/gitignore/api/yarn,node,linux,macos,laravel,windows,phpstorm+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node,linux,macos,laravel,windows,phpstorm+all
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,yarn,linux,macos,laravel,windows,phpstorm+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,linux,macos,laravel,windows,phpstorm+all
 
 ### Laravel ###
 /vendor/
@@ -290,20 +305,13 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 ### PhpStorm+all Patch ###
-# Ignores the whole .idea folder and all .iml files
-# See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
 
 .idea/*
 
-# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
-
-*.iml
-modules.xml
-.idea/misc.xml
-*.ipr
-
-# Sonarlint plugin
-.idea/sonarlint
+!.idea/codeStyles
+!.idea/runConfigurations
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -341,4 +349,11 @@ $RECYCLE.BIN/
 !.yarn/sdks
 !.yarn/versions
 
-# End of https://www.toptal.com/developers/gitignore/api/yarn,node,linux,macos,laravel,windows,phpstorm+all
+# if you are NOT using Zero-installs, then:
+# comment the following lines
+!.yarn/cache
+
+# and uncomment the following lines
+# .pnp.*
+
+# End of https://www.toptal.com/developers/gitignore/api/node,yarn,linux,macos,laravel,windows,phpstorm+all
