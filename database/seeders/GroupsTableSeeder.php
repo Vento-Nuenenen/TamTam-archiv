@@ -15,13 +15,19 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        Group::create([
-            [
-                'group_name' => 'Migros'
-            ],
-            [
-                'group_name' => 'Coop'
-            ]
-        ]);
+        $groups_container = [
+            'Migros',
+            'Coop',
+        ];
+
+        foreach ($groups_container as $name){
+            $group = Group::where('name', '=', $name)->first();
+
+            if ($group == null) {
+                Group::create([
+                   'name' => $name
+                ]);
+            }
+        }
     }
 }
