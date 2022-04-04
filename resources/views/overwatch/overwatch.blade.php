@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="col-12">
+    <div class="container">
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
