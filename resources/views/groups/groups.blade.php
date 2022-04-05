@@ -30,9 +30,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Alle Gruppen</h5>
+                <h5 class="float-start">Alle Gruppen</h5>
 
-                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
+                <a href="{{  route('overwatch') }}" class="float-end">Zurück zu Overwatch</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-hover">
@@ -51,10 +51,10 @@
                         @foreach($groups as $group)
                             <tr>
                                 <td>
-                                    {{ $group->group_name }}
+                                    {{ $group->name }}
                                 </td>
                                 <td>
-                                    <img width="80px" src="{{ asset('storage/img/' . $group->logo_file_name) }}">
+                                    <img width="80px" src="{{ asset('storage/img/' . $group->image) }}">
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
