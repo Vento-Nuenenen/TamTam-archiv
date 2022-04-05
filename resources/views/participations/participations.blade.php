@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-12">
+    <div class="container">
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -30,9 +30,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Teilnehmer</h5>
+                <h5 class="float-start">Teilnehmer</h5>
 
-                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
+                <a href="{{  route('overwatch') }}" class="float-end">Zurück zu Overwatch</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-hover">
