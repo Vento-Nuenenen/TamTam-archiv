@@ -26,4 +26,8 @@ class Participant extends Model
         'course_passed',
         'FK_GRP',
     ];
+
+    public function group(){
+        return $this->belongsTo('App\Models\Group');
+    }
 }
