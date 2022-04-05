@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="collapse navbar-collapse" id="navbarSupportedContent">
             @if(!Auth::guest())
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,7 +41,7 @@
                             <a class="dropdown-item {{ Request::is('numbers/')}}" href="{{ url('/numbers') }}">
                                 Notfallnummern
                             </a>
-                        </div>
+                        </ul>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -53,7 +53,7 @@
                             <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
                                 Punkte übersicht
                             </a>
-                            <div class="dropdown-divider"></div>
+                            <li><hr class="dropdown-divider" /></li>
                             <a class="dropdown-item {{ Request::is('transactions/')}}" href="{{ url('/transactions') }}">
                                 Punkte transaktionen
                             </a>
@@ -61,7 +61,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Druckerei
                         </a>
 
@@ -69,7 +69,7 @@
                             <a class="dropdown-item {{ Request::is('id/')}}" href="{{ url('/id') }}">
                                 ID-Karten
                             </a>
-                            <div class="dropdown-divider"></div>
+                            <li><hr class="dropdown-divider" /></li>
                             <a class="dropdown-item {{ Request::is('gratulation/')}}" href="{{ url('/gratulation') }}">
                                 Gratulationen
                             </a>
@@ -79,7 +79,7 @@
             @endif
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -87,7 +87,7 @@
                     </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->scout_name }} <span class="caret"></span>
                         </a>
 
