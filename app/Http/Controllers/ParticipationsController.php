@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Barcode;
 use App\Helpers\CSV;
+use App\Models\Group;
+use App\Models\Participant;
 use Carbon\Carbon;
 use Doctrine\Foo\Bar;
 use Illuminate\Contracts\Foundation\Application;
@@ -25,9 +27,7 @@ class ParticipationsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $participations = DB::table('participations')
-                ->leftJoin('groups', 'groups.id', '=', 'participations.FK_GRP')
-                ->select('participations.*', 'groups.group_name')->get();
+            $participations = Participant::with(['group'])->get();
         } else {
             $search_string = $request->input('search');
             $participations = DB::table('participations')
@@ -50,7 +50,7 @@ class ParticipationsController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('groups')->select('id', 'group_name')->get();
+        $groups = Group::all();
 
         return view('participations.add', ['groups' => $groups]);
     }
