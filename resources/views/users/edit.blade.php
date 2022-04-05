@@ -16,9 +16,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Benutzer bearbeiten</h5>
+                <h5 class="float-start">Benutzer bearbeiten</h5>
 
-                <a href="{{  route('users') }}" class="float-right">Zurück zu Benutzern</a>
+                <a href="{{  route('users') }}" class="float-end">Zurück zu Benutzern</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => ['update-users',$users->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
