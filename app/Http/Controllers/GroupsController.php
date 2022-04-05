@@ -23,9 +23,7 @@ class GroupsController extends Controller
             $groups = Group::all();
         } else {
             $search_string = $request->search;
-            $groups = DB::table('groups')
-                ->select('groups.*')
-                ->where('groups.group_name', 'LIKE', "%$search_string%")->get();
+            $groups = Group::where('groups.name', 'LIKE', "%$search_string%")->get();
         }
 
         return view('groups.groups', ['groups' => $groups]);
@@ -52,14 +50,14 @@ class GroupsController extends Controller
     {
         $group_name = $request->input('group_name');
 
-        if ($request->file('group_logo')) {
-            $logo_name = time().'.'.$request->file('group_logo')->extension();
-            $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
+        if ($request->file('image')) {
+            $logo_name = time().'.'.$request->file('image')->extension();
+            $request->file('image')->move(storage_path('app/public/img'), $logo_name);
         } else {
             $logo_name = null;
         }
 
-        DB::table('groups')->insert(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
+        DB::table('groups')->insert(['name' => $group_name, 'image' => $logo_name]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
@@ -90,9 +88,9 @@ class GroupsController extends Controller
     {
         $group_name = $request->input('group_name');
 
-        if ($request->file('group_logo')) {
-            $logo_name = time().'.'.$request->file('group_logo')->extension();
-            $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
+        if ($request->file('image')) {
+            $logo_name = time().'.'.$request->file('image')->extension();
+            $request->file('image')->move(storage_path('app/public/img'), $logo_name);
         } else {
             $logo_name = null;
         }
