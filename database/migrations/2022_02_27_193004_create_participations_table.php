@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('barcode')->unique()->nullable();
             $table->integer('seat_number')->nullable();
             $table->boolean('course_passed')->default(false);
-            $table->foreignId('FK_GRP')->nullable();
+            $table->foreignId('group_id')->nullable();
             $table->timestamps();
         });
     }
