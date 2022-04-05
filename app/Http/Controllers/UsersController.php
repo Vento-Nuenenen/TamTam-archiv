@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,12 +22,10 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $users = DB::table('users')->select('users.*')->get();
+            $users = User::all();
         } else {
             $search_string = $request->input('search');
-            $users = DB::table('users')
-                ->select('users.*')
-                ->where('scout_name', 'LIKE', "%$search_string%")
+            $users = User::where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")->get();
         }
@@ -89,7 +88,7 @@ class UsersController extends Controller
      */
     public function edit(int $uid)
     {
-        $users = DB::table('users')->where('id', '=', $uid)->first();
+        $users = User::find($uid);
 
         return view('users.edit', ['users' => $users]);
     }
@@ -149,7 +148,7 @@ class UsersController extends Controller
      */
     public function destroy(int $uid)
     {
-        DB::table('users')->where('id', '=', $uid)->delete();
+        User::destroy($uid);
 
         return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
     }
