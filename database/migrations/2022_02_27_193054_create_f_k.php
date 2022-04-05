@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('participations', function (Blueprint $table) {
-            $table->foreign('FK_GRP')->references('id')->on('groups')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });
 
         Schema::table('points', function (Blueprint $table) {
