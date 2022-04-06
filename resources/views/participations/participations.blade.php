@@ -55,7 +55,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $participation->group_name }}
+                                    {{ $participation->group->name ?? "" }}
                                 </td>
                                 <td>
                                     {{ $participation->seat_number }}
