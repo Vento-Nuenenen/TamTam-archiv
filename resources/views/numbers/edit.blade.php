@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-12">
+    <div class="container">
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -10,9 +10,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Nummer bearbeiten</h5>
+                <h5 class="float-start">Nummer bearbeiten</h5>
 
-                <a href="{{  route('numbers') }}" class="float-right">Zurück zu Nummern</a>
+                <a href="{{  route('numbers') }}" class="float-end">Zurück zu Nummern</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => ['update-numbers', $number->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'required')) !!}
