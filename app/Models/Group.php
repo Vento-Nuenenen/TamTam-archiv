@@ -12,7 +12,11 @@ class Group extends Model
     protected $table = 'groups';
 
     protected $fillable = [
-        'group_name',
-        'logo_file_name'
+        'name',
+        'image'
     ];
+
+    public function participant(){
+        return $this->hasMany(Participant::class);
+    }
 }
