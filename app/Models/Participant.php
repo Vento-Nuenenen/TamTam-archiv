@@ -24,10 +24,10 @@ class Participant extends Model
         'barcode',
         'seat_number',
         'course_passed',
-        'FK_GRP',
+        'group_id',
     ];
 
     public function group(){
-        return $this->belongsTo('App\Models\Group');
+        return $this->belongsTo(Group::class);
     }
 }
