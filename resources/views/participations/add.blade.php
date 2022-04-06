@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-12">
+    <div class="container">
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -16,9 +16,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Teilnehmer erstellen</h5>
+                <h5 class="float-start">Teilnehmer erstellen</h5>
 
-                <a href="{{  route('participations') }}" class="float-right">Zurück zu TNs</a>
+                <a href="{{  route('participations') }}" class="float-end">Zurück zu TNs</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'store-participations', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
@@ -192,7 +192,7 @@
                                 <option value="">Gruppe wählen</option>
                                 @if ($groups)
                                     @foreach($groups as $group)
-                                        <option value="{{ $group->id }}">{{ $group->group_name }}</option>
+                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
