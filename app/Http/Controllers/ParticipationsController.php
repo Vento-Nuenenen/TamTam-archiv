@@ -7,7 +7,6 @@ use App\Helpers\CSV;
 use App\Models\Group;
 use App\Models\Participant;
 use Carbon\Carbon;
-use Doctrine\Foo\Bar;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -27,7 +26,7 @@ class ParticipationsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $participations = Participant::with(['group'])->get();
+            $participations = Participant::all();
         } else {
             $search_string = $request->input('search');
             $participations = DB::table('participations')
@@ -106,7 +105,7 @@ class ParticipationsController extends Controller
             'place' => $place,
             'birthday' => $birthday,
             'gender' => $gender,
-            'FK_GRP' => $group,
+            'group_id' => $group,
             'person_picture' => $img_name,
         ]);
 
@@ -176,7 +175,7 @@ class ParticipationsController extends Controller
     public function edit(int $pid)
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
-        $groups = DB::table('groups')->select('groups.id', 'groups.group_name')->get();
+        $groups = DB::table('groups')->select('groups.id', 'groups.name')->get();
 
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups]);
     }
@@ -233,7 +232,7 @@ class ParticipationsController extends Controller
         $participant->place = $place;
         $participant->birthday = $birthday;
         $participant->gender = $gender;
-        $participant->FK_GRP = $group;
+        $participant->group_id = $group;
         if ($img_name != null) {
             $participant->person_picture = $img_name;
         }
@@ -252,7 +251,7 @@ class ParticipationsController extends Controller
      */
     public function destroy(int $pid)
     {
-        DB::table('participations')->where('id', '=', $pid)->delete();
+        Participant::destroy($pid);
 
         return redirect()->back()->with('message', 'Teilnehmer erfolgreich gelöscht.');
     }
