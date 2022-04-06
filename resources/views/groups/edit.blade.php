@@ -22,7 +22,7 @@
                     {!! Form::label('group_name', 'Gruppenname', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group mb-3">
-                            {!! Form::text('group_name', old('group_name', $groups->group_name ?? null), array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname', 'required')) !!}
+                            {!! Form::text('group_name', old('group_name', $groups->name ?? null), array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname', 'required')) !!}
                             <label class="input-group-text" for="group_name">
                                 <i class="fa fa-group" aria-hidden="true"></i>
                             </label>
