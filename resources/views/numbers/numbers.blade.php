@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="col-12">
+	<div class="container">
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
@@ -20,9 +20,9 @@
 
         <div class="card">
 			<div class="card-header">
-				<h5 class="float-left">Notfallnummern</h5>
+				<h5 class="float-start">Notfallnummern</h5>
 
-                <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
+                <a href="{{  route('overwatch') }}" class="float-end">Zurück zu Overwatch</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-hover">
@@ -64,45 +64,5 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        $(function () {
-            $( "#tablecontents" ).sortable({
-                items: "tr",
-                cursor: 'move',
-                opacity: 0.6,
-                update: function() {
-                    sendOrderToServer();
-                }
-            });
-
-            function sendOrderToServer() {
-                var order = [];
-                var token = $('meta[name="csrf-token"]').attr('content');
-                $('tr').each(function(index, element) {
-                    order.push({
-                        id: $(this).attr('data-id'),
-                        position: index+1
-                    });
-                });
-
-                $.ajax({
-                    type: "POST",
-                    dataType: "json",
-                    url: "{{ url('numbers/sort') }}",
-                    data: {
-                        order: order,
-                        _token: token
-                    },
-                    success: function(response) {
-                        alert(response.status);
-                        if (response.status == "success") {
-                            console.log(response);
-                        } else {
-                            console.log(response);
-                        }
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="{{ asset('js/numberSort.js') }}" defer></script>
 @endsection
