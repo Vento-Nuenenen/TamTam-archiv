@@ -21,7 +21,7 @@
                 <a href="{{  route('participations') }}" class="float-right">Zurück zu TNs</a>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => ['update-participations',$participations->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
+                {!! Form::open(array('route' => ['update-participations', $participations->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
@@ -146,7 +146,7 @@
                     {!! Form::label('birthday', 'Geburtsdatum', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::date('birthday', old('birthday',$participations->birthday ?? null), array('id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'Geburtsdatum', 'required')) !!}
+                            {!! Form::date('birthday', old('birthday', $participations->birthday ?? null), array('id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'Geburtsdatum', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="last_name">
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -218,7 +218,7 @@
                                 <option value="">Gruppe wählen</option>
                                 @if ($groups)
                                     @foreach($groups as $group)
-                                        <option value="{{ $group->id }}" {{($participations->FK_GRP == $group->id) ? 'selected':''}}>{{ $group->group_name }}</option>
+                                        <option value="{{ $group->id }}" {{($participations->group_id == $group->id) ? 'selected':''}}>{{ $group->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
