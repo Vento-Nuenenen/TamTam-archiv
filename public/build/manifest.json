@@ -20,8 +20,13 @@
     "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app.5c3ec80e.js",
+    "file": "assets/app.97b2849c.js",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/numberSort.js": {
+    "file": "assets/numberSort.bb815e8d.js",
+    "src": "resources/js/numberSort.js",
     "isEntry": true
   },
   "resources/sass/app.scss": {
