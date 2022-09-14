@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Group;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class GroupsTableSeeder extends Seeder
@@ -20,12 +19,12 @@ class GroupsTableSeeder extends Seeder
             'Coop',
         ];
 
-        foreach ($groups_container as $name){
+        foreach ($groups_container as $name) {
             $group = Group::where('name', '=', $name)->first();
 
             if ($group == null) {
                 Group::create([
-                   'name' => $name
+                    'name' => $name,
                 ]);
             }
         }
