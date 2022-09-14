@@ -64,5 +64,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/numberSort.js') }}" defer></script>
+    @vite(['resources/js/numberSort.scss'])
 @endsection
