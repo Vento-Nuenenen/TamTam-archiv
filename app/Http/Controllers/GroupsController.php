@@ -42,8 +42,7 @@ class GroupsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -66,7 +65,6 @@ class GroupsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param $gid
-     *
      * @return Application|Factory|View
      */
     public function edit($gid)
@@ -79,9 +77,8 @@ class GroupsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $gid
-     *
      * @return RedirectResponse
      */
     public function update(Request $request, $gid)
@@ -111,7 +108,6 @@ class GroupsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param $gid
-     *
      * @return RedirectResponse
      */
     public function destroy($gid)

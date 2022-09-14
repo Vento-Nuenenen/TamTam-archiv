@@ -8,7 +8,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -46,8 +45,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -70,7 +68,7 @@ class UsersController extends Controller
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $email,
-                'password' => $password
+                'password' => $password,
             ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde erstellt.');
@@ -82,8 +80,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $uid
-     *
+     * @param  int  $uid
      * @return Application|Factory|View
      */
     public function edit(int $uid)
@@ -96,9 +93,8 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $uid
-     *
+     * @param  Request  $request
+     * @param  int  $uid
      * @return RedirectResponse
      */
     public function update(Request $request, int $uid)
@@ -121,7 +117,7 @@ class UsersController extends Controller
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $email,
-                'password' => $password
+                'password' => $password,
             ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
@@ -130,7 +126,7 @@ class UsersController extends Controller
                 'scout_name' => $scout_name,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
-                'email' => $email
+                'email' => $email,
             ]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert. Das Passwort wurde beibehalten!');
@@ -142,8 +138,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $uid
-     *
+     * @param  int  $uid
      * @return RedirectResponse
      */
     public function destroy(int $uid)

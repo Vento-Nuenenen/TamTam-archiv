@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
 class OverwatchController
 {
     /**
@@ -29,7 +28,7 @@ class OverwatchController
             foreach ($tns as $tn) {
                 $balance = 0;
 
-                if (!empty($tn->points) || !empty($tn->additions)) {
+                if (! empty($tn->points) || ! empty($tn->additions)) {
                     $points = explode(',', $tn->points);
                     $additions = explode(',', $tn->additions);
 
@@ -48,7 +47,7 @@ class OverwatchController
             $tns = $tns[0] ?? null;
 
             return view('overwatch.overwatch', ['tn' => $tns]);
-        } else if ($request->input('tableorder') != null) {
+        } elseif ($request->input('tableorder') != null) {
             $users = DB::table('participations')->inRandomOrder()->get();
 
             $j = 0;
@@ -61,7 +60,7 @@ class OverwatchController
             session()->put('message', 'Tischordnung wurde erfolgreich generiert!');
 
             return view('overwatch.overwatch');
-        } else if ($request->input('grouping') != null) {
+        } elseif ($request->input('grouping') != null) {
             $groups = DB::table('groups')->get();
             $groups_count = count($groups);
             $users = DB::table('participations')->inRandomOrder()->get();

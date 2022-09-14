@@ -27,8 +27,7 @@ class SalesController extends Controller
     /**
      * Lookup EAN Codes.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return Application|ResponseFactory|Response
      */
     public function lookup(Request $request)
@@ -41,8 +40,7 @@ class SalesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return void
      */
     public function store(Request $request)

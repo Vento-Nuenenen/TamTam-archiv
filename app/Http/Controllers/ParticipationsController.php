@@ -19,8 +19,7 @@ class ParticipationsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return Application|Factory|View
      */
     public function index(Request $request)
@@ -57,8 +56,7 @@ class ParticipationsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -115,7 +113,7 @@ class ParticipationsController extends Controller
     /**
      * Import participants from csv
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function import(Request $request)
@@ -168,8 +166,7 @@ class ParticipationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $pid
-     *
+     * @param  int  $pid
      * @return Application|Factory|View
      */
     public function edit(int $pid)
@@ -183,9 +180,8 @@ class ParticipationsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $pid
-     *
+     * @param  Request  $request
+     * @param  int  $pid
      * @return RedirectResponse
      */
     public function update(Request $request, int $pid)
@@ -245,8 +241,7 @@ class ParticipationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $pid
-     *
+     * @param  int  $pid
      * @return RedirectResponse
      */
     public function destroy(int $pid)

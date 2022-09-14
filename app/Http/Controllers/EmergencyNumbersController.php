@@ -39,8 +39,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
@@ -59,8 +58,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $nid
-     *
+     * @param  int  $nid
      * @return Application|Factory|View
      */
     public function edit(int $nid)
@@ -73,9 +71,8 @@ class EmergencyNumbersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $nid
-     *
+     * @param  Request  $request
+     * @param  int  $nid
      * @return RedirectResponse
      */
     public function update(Request $request, int $nid): RedirectResponse
@@ -92,8 +89,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $nid
-     *
+     * @param  int  $nid
      * @return RedirectResponse
      */
     public function destroy(int $nid): RedirectResponse
@@ -106,8 +102,7 @@ class EmergencyNumbersController extends Controller
     /**
      * Change sorting of entries.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return Application|ResponseFactory|Response
      */
     public function sort(Request $request)

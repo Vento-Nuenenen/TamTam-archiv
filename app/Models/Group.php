@@ -13,10 +13,11 @@ class Group extends Model
 
     protected $fillable = [
         'name',
-        'image'
+        'image',
     ];
 
-    public function participant(){
+    public function participant()
+    {
         return $this->hasMany(Participant::class);
     }
 }

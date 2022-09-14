@@ -27,7 +27,8 @@ class Participant extends Model
         'group_id',
     ];
 
-    public function group(){
+    public function group()
+    {
         return $this->belongsTo(Group::class);
     }
 }

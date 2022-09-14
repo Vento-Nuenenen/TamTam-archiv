@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
@@ -45,8 +44,7 @@ class ItemsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -68,8 +66,7 @@ class ItemsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $iid
-     *
+     * @param  int  $iid
      * @return Application|Factory|View
      */
     public function edit(int $iid)
@@ -82,9 +79,8 @@ class ItemsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $iid
-     *
+     * @param  Request  $request
+     * @param  int  $iid
      * @return RedirectResponse
      */
     public function update(Request $request, int $iid)
@@ -109,8 +105,7 @@ class ItemsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $iid
-     *
+     * @param  int  $iid
      * @return RedirectResponse
      */
     public function destroy(int $iid)

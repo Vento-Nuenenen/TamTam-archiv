@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class PointTransactionController extends Controller
@@ -54,8 +53,7 @@ class PointTransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -73,8 +71,7 @@ class PointTransactionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $trid
-     *
+     * @param  int  $trid
      * @return Application|Factory|View
      */
     public function edit(int $trid)
@@ -88,9 +85,8 @@ class PointTransactionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $trid
-     *
+     * @param  Request  $request
+     * @param  int  $trid
      * @return RedirectResponse
      */
     public function update(Request $request, int $trid)
@@ -108,8 +104,7 @@ class PointTransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $trid
-     *
+     * @param  int  $trid
      * @return RedirectResponse
      */
     public function destroy(int $trid)
