@@ -1,2 +1,0 @@
-$((function(){$("#tablecontents").sortable({items:"tr",cursor:"move",opacity:.6,update:function(){var t,a;t=[],a=$('meta[name="csrf-token"]').attr("content"),$("tr").each((function(a,o){t.push({id:$(this).attr("data-id"),position:a+1})})),$.ajax({type:"POST",dataType:"json",url:"numbers/sort",data:{order:t,_token:a},success:function(t){alert(t.status),t.status,console.log(t)}})}})}));
-//# sourceMappingURL=numberSort.js.map
