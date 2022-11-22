@@ -11,7 +11,7 @@
         "font-awesome": "^4.7.0",
         "jquery": "^3.6.1",
         "jquery-ui": "^1.13.2",
-        "laravel-vite-plugin": "^0.7.0",
+        "laravel-vite-plugin": "^0.7.1",
         "lodash": "^4.17.21",
         "postcss": "^8.4.19",
         "sass": "^1.56.1",
