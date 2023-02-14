@@ -1,61 +1,61 @@
 {
-  "node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png": {
-    "file": "assets/ui-icons_ffffff_256x240.6d81fc3f.png",
-    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png"
+  "node_modules/font-awesome/fonts/fontawesome-webfont.eot": {
+    "file": "assets/fontawesome-webfont-7bfcab6d.eot",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.eot"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.svg": {
+    "file": "assets/fontawesome-webfont-ad615792.svg",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.ttf": {
+    "file": "assets/fontawesome-webfont-aa58f33f.ttf",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.ttf"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff": {
+    "file": "assets/fontawesome-webfont-ba0c59de.woff",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff2": {
+    "file": "assets/fontawesome-webfont-2adefcbc.woff2",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
   },
   "node_modules/jquery-ui/themes/base/images/ui-icons_444444_256x240.png": {
-    "file": "assets/ui-icons_444444_256x240.42f3fd7e.png",
+    "file": "assets/ui-icons_444444_256x240-42f3fd7e.png",
     "src": "node_modules/jquery-ui/themes/base/images/ui-icons_444444_256x240.png"
   },
   "node_modules/jquery-ui/themes/base/images/ui-icons_555555_256x240.png": {
-    "file": "assets/ui-icons_555555_256x240.9dab1725.png",
+    "file": "assets/ui-icons_555555_256x240-9dab1725.png",
     "src": "node_modules/jquery-ui/themes/base/images/ui-icons_555555_256x240.png"
   },
-  "node_modules/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png": {
-    "file": "assets/ui-icons_cc0000_256x240.6efc1db6.png",
-    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png"
-  },
-  "node_modules/jquery-ui/themes/base/images/ui-icons_777777_256x240.png": {
-    "file": "assets/ui-icons_777777_256x240.943d9bc1.png",
-    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_777777_256x240.png"
-  },
   "node_modules/jquery-ui/themes/base/images/ui-icons_777620_256x240.png": {
-    "file": "assets/ui-icons_777620_256x240.91e1ea5f.png",
+    "file": "assets/ui-icons_777620_256x240-91e1ea5f.png",
     "src": "node_modules/jquery-ui/themes/base/images/ui-icons_777620_256x240.png"
   },
-  "node_modules/font-awesome/fonts/fontawesome-webfont.eot": {
-    "file": "assets/fontawesome-webfont.7bfcab6d.eot",
-    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.eot"
+  "node_modules/jquery-ui/themes/base/images/ui-icons_777777_256x240.png": {
+    "file": "assets/ui-icons_777777_256x240-943d9bc1.png",
+    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_777777_256x240.png"
   },
-  "node_modules/font-awesome/fonts/fontawesome-webfont.woff2": {
-    "file": "assets/fontawesome-webfont.2adefcbc.woff2",
-    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+  "node_modules/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png": {
+    "file": "assets/ui-icons_cc0000_256x240-6efc1db6.png",
+    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png"
   },
-  "node_modules/font-awesome/fonts/fontawesome-webfont.woff": {
-    "file": "assets/fontawesome-webfont.ba0c59de.woff",
-    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff"
-  },
-  "node_modules/font-awesome/fonts/fontawesome-webfont.ttf": {
-    "file": "assets/fontawesome-webfont.aa58f33f.ttf",
-    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.ttf"
-  },
-  "node_modules/font-awesome/fonts/fontawesome-webfont.svg": {
-    "file": "assets/fontawesome-webfont.ad615792.svg",
-    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
+  "node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png": {
+    "file": "assets/ui-icons_ffffff_256x240-6d81fc3f.png",
+    "src": "node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app.5dbb35a4.js",
-    "src": "resources/js/app.js",
-    "isEntry": true
+    "file": "assets/app-52f8c35f.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
   },
   "resources/js/numberSort.js": {
-    "file": "assets/numberSort.bb815e8d.js",
-    "src": "resources/js/numberSort.js",
-    "isEntry": true
+    "file": "assets/numberSort-e3f8e9e1.js",
+    "isEntry": true,
+    "src": "resources/js/numberSort.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app.91b1a683.css",
-    "src": "resources/sass/app.scss",
-    "isEntry": true
+    "file": "assets/app-87242265.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
   }
 }
