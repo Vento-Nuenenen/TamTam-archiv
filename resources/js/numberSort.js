@@ -1,5 +1,5 @@
 $(function () {
-    $( "#tablecontents" ).sortable({
+    $("#tablecontents").sortable({
         items: "tr",
         cursor: 'move',
         opacity: 0.6,
@@ -28,7 +28,7 @@ $(function () {
             },
             success: function(response) {
                 alert(response.status);
-                if (response.status == "success") {
+                if(response.status == "success") {
                     console.log(response);
                 } else {
                     console.log(response);
