@@ -11,11 +11,11 @@ class CSV
 
         // Create array from file contents (personID, groupID)
         $fp = fopen($file, 'rb');
-        while(!feof($fp)) {
+        while (! feof($fp)) {
             $line = fgetcsv($fp, null, $delimiter);
 
             //Only include lines with two columns
-            if(isset($line[0]) > 0 && isset($line[1]) > 0) {
+            if (isset($line[0]) > 0 && isset($line[1]) > 0) {
                 $persons[] = $line;
             }
         }
@@ -35,7 +35,7 @@ class CSV
         $handle = fopen($csvFile, 'r');
         $firstLine = fgets($handle);
         fclose($handle);
-        foreach($delimiters as $delimiter => &$count) {
+        foreach ($delimiters as $delimiter => &$count) {
             $count = count(str_getcsv($firstLine, $delimiter));
         }
 
