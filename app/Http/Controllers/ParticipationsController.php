@@ -24,7 +24,7 @@ class ParticipationsController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->input('search') == null) {
+        if($request->input('search') == null) {
             $participations = Participant::all();
         } else {
             $search_string = $request->input('search');
@@ -72,19 +72,19 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $barcode = Barcode::generateBarcode();
 
-        if ($request->file('tn_img')) {
+        if($request->file('tn_img')) {
             $img_name = 'tnimg_'.time().'.'.$request->file('tn_img')->extension();
             $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
         } else {
             $img_name = null;
         }
 
-        if ($gender) {
-            if ($gender == 'm') {
+        if($gender) {
+            if($gender == 'm') {
                 $gender = 'Männlich';
-            } elseif ($gender == 'w') {
+            } elseif($gender == 'w') {
                 $gender = 'Weiblich';
-            } elseif ($gender == 'd') {
+            } elseif($gender == 'd') {
                 $gender = 'Anderes';
             } else {
                 $gender = null;
@@ -118,7 +118,7 @@ class ParticipationsController extends Controller
      */
     public function import(Request $request)
     {
-        if ($request->file('participations_list')) {
+        if($request->file('participations_list')) {
             $participations_list = $request->file('participations_list')
                 ->move(storage_path('temp/csv'), 'participations.csv');
         } else {
@@ -128,12 +128,12 @@ class ParticipationsController extends Controller
 
         $contents = CSV::read_csv_file($participations_list);
 
-        foreach ($contents as $content) {
+        foreach($contents as $content) {
             if ($content[0] == 'Vorname' || $content[0] == 'Nachname' || $content[0] == 'Pfadiname') {
                 unset($content);
             } else {
-                if (! empty($content[6])) {
-                    if ($content[6][0] == 'm') {
+                if(!empty($content[6])) {
+                    if($content[6][0] == 'm') {
                         $gnd = 'Männlich';
                     } elseif ($content[6][0] == 'w') {
                         $gnd = 'Weiblich';
@@ -146,7 +146,7 @@ class ParticipationsController extends Controller
                     $gnd = null;
                 }
 
-                if (! empty($content[7])) {
+                if(!empty($content[7])) {
                     $carbon_birthday = Carbon::createFromFormat('d.m.Y', $content[7]);
                     $birthday = $carbon_birthday->format('Y-m-d');
                 } else {
@@ -197,8 +197,8 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $barcode = $request->input('barcode');
 
-        if ($gender) {
-            if ($gender == 'm') {
+        if($gender) {
+            if($gender == 'm') {
                 $gender = 'Männlich';
             } elseif ($gender == 'w') {
                 $gender = 'Weiblich';
@@ -211,7 +211,7 @@ class ParticipationsController extends Controller
             $gender = null;
         }
 
-        if ($request->file('tn_img')) {
+        if($request->file('tn_img')) {
             $img_name = 'tnimg_'.time().'.'.$request->file('tn_img')->extension();
             $request->file('tn_img')->move(storage_path('app/public/img'), $img_name);
         } else {
