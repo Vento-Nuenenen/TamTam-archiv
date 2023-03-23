@@ -64,5 +64,5 @@
 @endsection
 
 @section('script')
-    @vite(['resources/js/numberSort.scss'])
+    @vite(['resources/js/numberSort.js'])
 @endsection
