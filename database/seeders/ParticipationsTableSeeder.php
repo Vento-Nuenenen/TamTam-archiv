@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use DB;
-use Faker;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class ParticipationsTableSeeder extends Seeder
@@ -13,9 +13,9 @@ class ParticipationsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         DB::table('participations')->insert([
             ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' => $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
             ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'address' => $faker->address, 'plz' => $faker->postcode, 'place' => $faker->city, 'birthday' => $faker->date(), 'gender' => 'male'],
