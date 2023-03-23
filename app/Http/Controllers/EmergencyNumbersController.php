@@ -3,14 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmergencyNumber;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 
 class EmergencyNumbersController extends Controller
 {
@@ -47,7 +41,7 @@ class EmergencyNumbersController extends Controller
         $number_name = $request->input('number_name');
         $number = $request->input('number');
 
-        DB::table('emergency_numbers')->insert([
+        EmergencyNumber::create([
             'name' => $number_name,
             'number' => $number,
         ]);
@@ -109,14 +103,14 @@ class EmergencyNumbersController extends Controller
     {
         $numbers = EmergencyNumber::all();
 
-        foreach ($numbers as $number) {
-            foreach ($request->order as $order) {
-                if (array_key_exists('id', $order) && $order['id'] == $number->id) {
+        foreach($numbers as $number) {
+            foreach($request->order as $order) {
+                if(array_key_exists('id', $order) && $order['id'] == $number->id) {
                     $number->update(['order' => $order['position']]);
                 }
             }
         }
 
-        return response('Update Successfully.', 200);
+        return response('Update Successful', 200);
     }
 }
