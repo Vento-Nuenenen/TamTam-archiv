@@ -19,7 +19,7 @@ class GroupsController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->search == null) {
+        if($request->search == null) {
             $groups = Group::all();
         } else {
             $search_string = $request->search;
@@ -49,7 +49,7 @@ class GroupsController extends Controller
     {
         $group_name = $request->input('group_name');
 
-        if ($request->file('image')) {
+        if($request->file('image')) {
             $logo_name = time().'.'.$request->file('image')->extension();
             $request->file('image')->move(storage_path('app/public/img'), $logo_name);
         } else {
@@ -85,7 +85,7 @@ class GroupsController extends Controller
     {
         $group_name = $request->input('group_name');
 
-        if ($request->file('image')) {
+        if($request->file('image')) {
             $logo_name = time().'.'.$request->file('image')->extension();
             $request->file('image')->move(storage_path('app/public/img'), $logo_name);
         } else {
@@ -95,7 +95,7 @@ class GroupsController extends Controller
         $group = Group::find($gid);
         $group->group_name = $group_name;
 
-        if ($logo_name != null) {
+        if($logo_name != null) {
             $group->logo_file_name = $logo_name;
         }
 
