@@ -27,7 +27,7 @@ class PassedController extends Controller
         ! empty($request->input('has_passed')) ? $passed = $request->input('has_passed') : $passed = [];
         ! empty($request->input('not_passed')) ? $not_passed = array_diff($request->input('not_passed'), $passed) : $not_passed = [];
 
-        foreach ($passed as $pass) {
+        foreach($passed as $pass) {
             DB::table('participations')->where('id', '=', $pass)->update(['course_passed' => true]);
         }
 
