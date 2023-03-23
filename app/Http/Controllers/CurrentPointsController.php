@@ -18,13 +18,12 @@ class CurrentPointsController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->input('search') == null) {
+        if($request->input('search') == null) {
             $participations = DB::select('SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id` GROUP BY participations.id;');
         } else {
             $search_string = $request->input('search');
-
             $participations = DB::select("SELECT participations.*, points.*, GROUP_CONCAT(points.points) AS points,
 				GROUP_CONCAT(points.is_addition) AS additions FROM `participations`
   			    LEFT JOIN `points` ON `points`.`FK_PRT` = `participations`.`id`
@@ -35,15 +34,15 @@ class CurrentPointsController extends Controller
   			      GROUP BY participations.id;");
         }
 
-        foreach ($participations as $participant) {
+        foreach($participations as $participant) {
             $balance = 0;
 
-            if (! empty($participant->points) || ! empty($participant->additions)) {
+            if(!empty($participant->points) || !empty($participant->additions)) {
                 $points = explode(',', $participant->points);
                 $additions = explode(',', $participant->additions);
 
-                for ($i = 0; $i < count($points); $i++) {
-                    if ($additions[$i] == 1) {
+                for($i = 0; $i < count($points); $i++) {
+                    if($additions[$i] == 1) {
                         $balance += $points[$i];
                     } else {
                         $balance -= $points[$i];
