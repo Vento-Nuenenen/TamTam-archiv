@@ -39,7 +39,7 @@ class PrintPricelistController extends Controller
         PDF::SetAutoPageBreak(true, 5);
 
         // Custom Header
-        PDF::setHeaderCallback(function ($pdf) {
+        PDF::setHeaderCallback(function($pdf) {
             // Position at 15 mm from top
             $pdf->SetY(15);
             // Set font
@@ -49,7 +49,7 @@ class PrintPricelistController extends Controller
         });
 
         // Custom Footer
-        PDF::setFooterCallback(function ($pdf) {
+        PDF::setFooterCallback(function($pdf) {
             // Position at 15 mm from bottom
             $pdf->SetY(-10);
             // Set font
@@ -75,7 +75,7 @@ class PrintPricelistController extends Controller
         PDF::Ln(14);
         $currentHeight += 8;
 
-        foreach ($items as $item) {
+        foreach($items as $item) {
             PDF::Line(0, $currentHeight, $width, $currentHeight);
             PDF::Cell($width / 3, 0, $item->item_name, '', 0, 'L');
             PDF::Cell($width / 3, 0, $item->item_price, '', 0, 'L');
