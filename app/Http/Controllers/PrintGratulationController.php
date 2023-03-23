@@ -18,19 +18,19 @@ class PrintGratulationController extends Controller
      */
     public function index()
     {
-        if (! file_exists(storage_path('app/template/gratulation.txt'))) {
+        if(!file_exists(storage_path('app/template/gratulation.txt'))) {
             touch(storage_path('app/template/gratulation.txt'));
         }
 
-        if (! file_exists(storage_path('app/template/title_m.txt'))) {
+        if(!file_exists(storage_path('app/template/title_m.txt'))) {
             touch(storage_path('app/template/title_m.txt'));
         }
 
-        if (! file_exists(storage_path('app/template/title_f.txt'))) {
+        if(!file_exists(storage_path('app/template/title_f.txt'))) {
             touch(storage_path('app/template/title_f.txt'));
         }
 
-        if (! file_exists(storage_path('app/template/title_o.txt'))) {
+        if(!file_exists(storage_path('app/template/title_o.txt'))) {
             touch(storage_path('app/template/title_o.txt'));
         }
 
@@ -49,29 +49,29 @@ class PrintGratulationController extends Controller
 
     public function export(Request $request)
     {
-        if ($request->action == 'save') {
+        if($request->action == 'save') {
             file_put_contents(storage_path('app/template/gratulation.txt'), $request->certificate_text);
             file_put_contents(storage_path('app/template/title_m.txt'), $request->title_m);
             file_put_contents(storage_path('app/template/title_f.txt'), $request->title_f);
             file_put_contents(storage_path('app/template/title_o.txt'), $request->title_o);
 
             return redirect()->back()->with('message', 'Neuer Text wurde gespeichert!');
-        } elseif ($request->input('action') == 'print') {
+        } elseif($request->input('action') == 'print') {
             $persons = DB::table('participations')->where('course_passed', '=', true)->get();
 
-            foreach ($persons as $person) {
+            foreach($persons as $person) {
                 $text = $request->certificate_text;
                 $title = '';
 
-                if (substr($person->gender, 0, 1) == 'M') {
+                if(substr($person->gender, 0, 1) == 'M') {
                     $title = file_get_contents(storage_path('app/template/title_m.txt'));
-                } elseif (substr($person->gender, 0, 1) == 'W') {
+                } elseif(substr($person->gender, 0, 1) == 'W') {
                     $title = file_get_contents(storage_path('app/template/title_f.txt'));
-                } elseif (substr($person->gender, 0, 1) == 'A') {
+                } elseif(substr($person->gender, 0, 1) == 'A') {
                     $title = file_get_contents(storage_path('app/template/title_o.txt'));
                 }
 
-                if (isset($person->scout_name)) {
+                if(isset($person->scout_name)) {
                     $text = str_replace('@name', $person->scout_name, $text);
                 } else {
                     $text = str_replace('@name', $person->first_name, $text);
