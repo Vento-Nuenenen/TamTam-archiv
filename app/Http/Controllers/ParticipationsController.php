@@ -104,7 +104,7 @@ class ParticipationsController extends Controller
             'birthday' => $birthday,
             'gender' => $gender,
             'group_id' => $group,
-            'person_picture' => $img_name,
+            'image' => $img_name,
         ]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
