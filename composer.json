@@ -16,11 +16,11 @@
         "laravel/framework": "^v7.30.6",
         "laravel/tinker": "^v2.8.1",
         "laravel/ui": "^v2.5.0",
-        "laravelcollective/html": "^6.1",
-        "milon/barcode": "^7.0"
+        "laravelcollective/html": "^v6.4.0",
+        "milon/barcode": "^10.0.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.2",
+        "barryvdh/laravel-debugbar": "^v3.7.0",
         "barryvdh/laravel-ide-helper": "^2.6",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
