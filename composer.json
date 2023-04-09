@@ -13,9 +13,9 @@
         "fruitcake/laravel-cors": "^3.0.0",
         "guzzlehttp/guzzle": "^7.5.0",
         "vento/laravel-airbrake": "^0.10.0",
-        "laravel/framework": "^v7.30.6",
+        "laravel/framework": "^v8.83.27",
         "laravel/tinker": "^v2.8.1",
-        "laravel/ui": "^v2.5.0",
+        "laravel/ui": "^v3.0.0",
         "laravelcollective/html": "^v6.4.0",
         "milon/barcode": "^10.0.0"
     },
