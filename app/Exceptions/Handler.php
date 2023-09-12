@@ -9,25 +9,27 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of the exception types that are not reported.
+     * The list of the inputs that are never flashed to the session on validation exceptions.
      *
-     * @var array
-     */
-    protected $dontReport = [
-        //
-    ];
-
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
+     * @var array<int, string>
      */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
 
     /**
+     * Register the exception handling callbacks for the application.
+     */
+    public function register(): void
+    {
+        $this->reportable(function (Throwable $e) {
+            //
+        });
+    }
+
+    /*
      * Report or log an exception.
      *
      * @param  \Throwable  $exception
@@ -38,7 +40,6 @@ class Handler extends ExceptionHandler
     public function report(Throwable $exception)
     {
         if(App::environment('production')){
-
             if($this->shouldReport($exception)){
                 $airbrakeNotifier = \App::make('Airbrake\Notifier');
                 $airbrakeNotifier->notify($exception);
@@ -46,19 +47,5 @@ class Handler extends ExceptionHandler
         }
 
         parent::report($exception);
-    }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Throwable
-     */
-    public function render($request, Throwable $exception)
-    {
-        return parent::render($request, $exception);
     }
 }
