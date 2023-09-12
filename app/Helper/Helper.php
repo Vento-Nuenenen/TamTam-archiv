@@ -4,7 +4,6 @@ namespace App\Helper;
 
 use Carbon\Carbon;
 use DB;
-use function GuzzleHttp\Psr7\str;
 
 class Helper
 {
@@ -13,7 +12,7 @@ class Helper
         do {
             $barcode = (string) mt_rand(100000000000, 999999999999);
             $barcode = self::ean13_check_digit($barcode);
-        } while (DB::table('participations')->where('barcode', $barcode)->exists());
+        } while(DB::table('participations')->where('barcode', $barcode)->exists());
 
         return $barcode;
     }
@@ -38,7 +37,8 @@ class Helper
         return $digits.$check_digit;
     }
 
-    public static function calc_birthday($persons, $personindex){
+    public static function calc_birthday($persons, $personindex)
+    {
         $carbon_birthday = Carbon::createFromFormat('Y-m-d', $persons[$personindex]->birthday);
         $birthday = $carbon_birthday->format('d.m.Y');
 
