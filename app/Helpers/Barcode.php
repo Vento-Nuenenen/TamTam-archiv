@@ -11,7 +11,7 @@ class Barcode
         do {
             $barcode = (string) mt_rand(100000000000, 999999999999);
             $barcode = self::ean13_check_digit($barcode);
-        } while (DB::table('participations')->where('barcode', $barcode)->exists());
+        } while(DB::table('participations')->where('barcode', $barcode)->exists());
 
         return $barcode;
     }
