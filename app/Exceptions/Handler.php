@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\App;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,6 +28,8 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /*
      * Report or log an exception.
      *
      * @param  Throwable  $exception
