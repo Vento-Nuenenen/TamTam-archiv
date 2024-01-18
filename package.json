@@ -13,7 +13,7 @@
         "jquery": "^3.7.1",
         "jquery-ui": "^1.13.2",
         "laravel-vite-plugin": "^0.8.0",
-        "sass": "^1.69.7",
+        "sass": "^1.70.0",
         "vite": "^4.5.1"
     }
 }
