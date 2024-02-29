@@ -12,7 +12,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.4",
-        "milon/barcode": "^10.0",
+        "milon/barcode": "^11.0",
         "vento/laravel-airbrake": "^0.10.0"
     },
     "require-dev": {
