@@ -44,7 +44,7 @@
     "src": "node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-36fb28cd.js",
+    "file": "assets/app-d66fc5ed.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -54,7 +54,7 @@
     "src": "resources/js/numberSort.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-87242265.css",
+    "file": "assets/app-11966a02.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
